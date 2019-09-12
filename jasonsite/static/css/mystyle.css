@@ -1,0 +1,12 @@
+#navbar-container{
+    background-image: url(/static/images/56411_neon_genesis_evangelion_mecha_dual_screen_eva_unit.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+#background-photo{
+    background-image: url(/static/images/firstattemptopac.png);
+    background-repeat: no-repeat;
+    background-size:cover;
+
+}
