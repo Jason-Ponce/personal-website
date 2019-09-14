@@ -1,12 +1,64 @@
-#navbar-container{
-    background-image: url(/static/images/56411_neon_genesis_evangelion_mecha_dual_screen_eva_unit.jpg);
+.background-photo{
+    /* For Dev Server */
+    /* background-image: url(/static/images/firstattemptopac.png); */
+    /* End for Dev Server */
+
+    /* For Open Live Server */
+    background-image: url(/jasonsite/static/images/firstattemptopac.png);
+    /* For Open Live Server */
+
     background-repeat: no-repeat;
     background-size:cover;
+    /* width: 100%;
+    height: 200%; */
 }
 
-#background-photo{
-    background-image: url(/static/images/firstattemptopac.png);
-    background-repeat: no-repeat;
-    background-size:cover;
+#about-site, #projects-site, #resume-site{
+    background-color: rgba(153, 152, 152, 0.8);;
 
+}
+
+.material-icons{
+    color: rgba(255, 255, 255, 1);
+}
+
+.hidden-section{
+    height: 0px;
+
+}
+
+/* to hide the button in the hidden section */
+#projects-btn, #about-btn, #resume-btn{
+    height: 0px;
+    pointer-events: none;
+    opacity: 0;
+}
+
+/* To unhide the div element */
+#projects-site:hover .hidden-section, #about-site:hover .hidden-section, #resume-site:hover .hidden-section{
+    /* display: block;
+    transition-duration: 1s; */
+    transition: height 0.3s linear;
+    height: 80px;
+
+}
+
+/* to unhide the buttons in exposed hidden section */
+#projects-site:hover #projects-btn, #about-site:hover #about-btn, #resume-site:hover #resume-btn{
+    transition-duration: 0.15s;
+    transition-delay: 0.2s;
+    /* transition: height 2s linear; */
+    pointer-events: auto;
+    opacity: 1;
+    height: auto;
+}
+
+.landing-container{
+    background-color: rgba(53, 53, 53, 0.6);
+    width: 100%;
+    color: aliceblue;
+}
+
+html *{
+    font-family:  'Montserrat', sans-serif;
 }
