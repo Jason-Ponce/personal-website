@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      {% block title %}
+      <title>{{ title }}</title>
+      {% endblock %}
+
+        {% block head %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Home</title>
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <!-- Import Google Font -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
+    
+        <!-- For Dev Server -->
+        <link rel="stylesheet" type="text/css" href="/static/css/materialize.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/materialize.min.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/mystyle.css">
+        <!-- End for Dev Server -->
+    
+        
+        <!-- For Open Live Server -->
+        <!-- <link rel="stylesheet" type="text/css" href="/jasonsite/static/css/materialize.css">
+        <link rel="stylesheet" type="text/css" href="/jasonsite/static/css/materialize.min.css">
+        <link rel="stylesheet" type="text/css" href="/jasonsite/static/css/mystyle.css"> -->
+        <!-- End for Open Live Server -->
+    
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        {% endblock %}
+    </head>
+
+{% block nav %}
+<nav class="nav-extended grey darken-1">
+    <div class="nav-wrapper">
+        <a href="{{ url_for('home') }}" class="brand-logo center">Jason Ponce</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('resume') }}">Resume</a></li>
+        <li><a href="{{ url_for('projects') }}">Projects</a></li>
+        <li><a href="{{ url_for('testing_grounds') }}">testing</a></li>
+        </ul>
+    </div>
+    <!-- Start dropdown block -->
+    {% block dropdown %}
+    <li class="divider"></li>
+    <div class="nav-content grey lighten-1">
+        <ul class="tabs tabs-transparent">
+        <li class="tab"><a href="{{ url_for('graphic_design') }}" target="_self" >Graphic Design</a></li>
+        <li class="tab"><a href="{{ url_for('web_design') }}" target="_self" class="active">Web Design</a></li>
+        <li class="tab"><a href="{{ url_for('web_development') }}" target="_self">Web Development</a></li>
+         <!-- <li class="tab"><a href="{{ url_for('photoshop_experiments') }}" target="_self">Photoshop Experiments</a></li> -->
+        </ul>
+    </div>
+    {% endblock dropdown %}
+</nav>
+{% endblock nav %}
+
+{% block body %}
+{% include 'case_studies.html' %}
+{% endblock %}
+
+{% block scripts %}
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<!-- For Dev Server -->
+<script src="/static/js/materialize.js"></script>
+<script src="/static/js/init.js"></script>
+<!-- End for Dev Server -->
+
+<!-- For Open Live Server -->
+<!-- <script src="/jasonsite/static/js/materialize.js"></script>
+<script src="/jasonsite/static/js/init.js"></script> -->
+<!-- End for Open Live Server -->
+{% endblock %}

@@ -1,10 +1,10 @@
 .background-photo{
     /* For Dev Server */
-    /* background-image: url(/static/images/firstattemptopac.png); */
+    background-image: url(/static/images/firstattemptopac.png);
     /* End for Dev Server */
 
     /* For Open Live Server */
-    background-image: url(/jasonsite/static/images/firstattemptopac.png);
+    /* background-image: url(/jasonsite/static/images/firstattemptopac.png); */
     /* For Open Live Server */
 
     background-repeat: no-repeat;

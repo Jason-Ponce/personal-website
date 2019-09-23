@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+      {% block title %}
+      <title>{{ title }}</title>
+      {% endblock %}
+        {% block head %}
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>About</title>
+        <title>Home</title>
         <!--Import Google Icon Font-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -12,22 +16,26 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
     
         <!-- For Dev Server -->
-        <!-- <link rel="stylesheet" type="text/css" href="/static/css/materialize.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/materialize.css">
         <link rel="stylesheet" type="text/css" href="/static/css/materialize.min.css">
-        <link rel="stylesheet" type="text/css" href="/static/css/mystyle.css"> -->
+        <link rel="stylesheet" type="text/css" href="/static/css/mystyle.css">
         <!-- End for Dev Server -->
     
         
         <!-- For Open Live Server -->
-        <link rel="stylesheet" type="text/css" href="/jasonsite/static/css/materialize.css">
+        <!-- <link rel="stylesheet" type="text/css" href="/jasonsite/static/css/materialize.css">
         <link rel="stylesheet" type="text/css" href="/jasonsite/static/css/materialize.min.css">
-        <link rel="stylesheet" type="text/css" href="/jasonsite/static/css/mystyle.css">
+        <link rel="stylesheet" type="text/css" href="/jasonsite/static/css/mystyle.css"> -->
         <!-- End for Open Live Server -->
     
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        {% endblock %}
     </head>
+
+{% block body %}
 <body class="background-photo">
+
   <div class="section no-pad-bot" id="index-banner">
     <div class="container landing-container">
       <br><br>
@@ -43,12 +51,10 @@
     </div>
   </div>
   <div class="section">
-      <!--   Icon Section   -->
       <div class="row">
-        <div class="col s12 m2" >
-        </div>
+          <div class="col s12 m2" >
+            </div>
         <div class="col s12 m2 z-depth-3" id="about-site">
-          <!-- <div class="card"> -->
           <div class="icon-block">
             <h2 class="center light-blue-text"><i class="material-icons small">person_pin</i></h2>
             <h5 class="center">About</h5>
@@ -56,11 +62,29 @@
             <p class="light">Hello I'm jason blah blah blah.</p>
             <div class="section hidden-section" >
                 <div class="container center-align"> 
-                    <a class="waves-effect waves-light btn" id="about-btn" href="/about">button</a>
+                    <a class="waves-effect waves-light btn" id="about-btn" href="/about">About</a>
                 </div>
             </div>
           </div>
-        <!-- </div> -->
+      </div>
+      <div class="col s12 m1" >
+      </div>
+        <div class="col s12 m2 z-depth-3" id="resume-site">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons small">description</i></h2>
+            <h5 class="center">Resume</h5>
+            <hr>
+            <h6 class="left-aligned">Highlights</h6>
+            <p>School: Southern Connecticut State University </p>
+            <p>Degree: Bachelor of Computer Science (ABET) </p>
+            <p>Minor: Studio Arts</p>
+            <p>Veteran: 8 Years of Military Service in the US Army</p>
+            <div class="section hidden-section" >
+                <div class="container center-align"> 
+                    <a class="waves-effect waves-light btn" id="resume-btn" href="/resume">Resume</a>
+                </div>
+            </div>
+          </div>
         </div>
         <div class="col s12 m1" >
           </div>
@@ -74,49 +98,29 @@
             <p>Web Development</p>
           <div class="section hidden-section" >
               <div class="container center-align"> 
-                  <a class="waves-effect waves-light btn" id="projects-btn" href="/projects">button</a>
+                  <a class="waves-effect waves-light btn" id="projects-btn" href="/projects">Projects</a>
               </div>
           </div>
           </div>
         </div>
         <div class="col s12 m1" >
           </div>
-
-        <div class="col s12 m2 z-depth-3" id="resume-site">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons small">description</i></h2>
-            <h5 class="center">Resume</h5>
-            <hr>
-            <h6 class="left-aligned">Highlights</h6>
-            <p>School: Southern Connecticut State University </p>
-            <p>Degree: Bachelor of Computer Science (ABET) </p>
-            <p>Minor: Studio Arts</p>
-            <p>Veteran: 8 Years of Military Service in the US Army</p>
-            <div class="section hidden-section" >
-                <div class="container center-align"> 
-                    <a class="waves-effect waves-light btn" id="resume-btn" href="/resume">button</a>
-                </div>
-            </div>
-          </div>
-        </div>
-        <div class="col s12 m2" >
-          </div>
       </div>
-
     </div>
-  
+{% endblock %}  
 
-
+{% block scripts %}
 <!--  Scripts-->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <!-- For Dev Server -->
-<!-- <script src="/static/js/materialize.js"></script>
-<script src="/static/js/init.js"></script> -->
+<script src="/static/js/materialize.js"></script>
+<script src="/static/js/init.js"></script>
 <!-- End for Dev Server -->
 
 <!-- For Open Live Server -->
-<script src="/jasonsite/static/js/materialize.js"></script>
-<script src="/jasonsite/static/js/init.js"></script>
+<!-- <script src="/jasonsite/static/js/materialize.js"></script>
+<script src="/jasonsite/static/js/init.js"></script> -->
 <!-- End for Open Live Server -->
+{% endblock %}
 </body>
 </html>
