@@ -64,3 +64,23 @@
 html *{
     font-family:  'Montserrat', sans-serif;
 }
+
+.hr{
+    border-top: 1px solid black;  
+}
+
+#main-body{
+    padding-top: 25px;
+}
+.header-font-left{
+    font-size: 40px;
+}
+.header-font-right{
+    font-size: 40px;
+    text-align: right;
+}
+
+.project-photo-size{
+    width: auto;
+    height: auto;
+}

@@ -23,7 +23,7 @@ def about():
 
 @app.route("/resume")
 def resume():
-    page_title="resume"
+    page_title="Resume"
     return render_template('resume.html', title=page_title)
 
 
@@ -96,9 +96,9 @@ def web_development():
 # GROUNDS
 # FOR
 # STUFF
-@app.route("/testing_grounds")
-def testing_grounds():
-    page_title="testing grounds"
-    return render_template('projects_index.html', title=page_title)
+# @app.route("/testing_grounds")
+# def testing_grounds():
+#     page_title="testing grounds"
+#     return render_template('projects_index.html', title=page_title)
 
 
