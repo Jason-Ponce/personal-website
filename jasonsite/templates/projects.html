@@ -6,7 +6,7 @@
 
 {% block head %}
 {{super()}}
-{% endblock %}
+{% endblock %} 
 
 {% block nav %}
 {{super()}}
@@ -18,16 +18,19 @@
 {% endblock %}
 
 {% block body %}
-<div class="container" id="main-body">
-    <section>
+<div class="container" id="project-main-body">
+    <section id="project-graphic-design">
         <header class="header-font-left"><a href="{{ url_for('graphic_design') }}">Graphic Design</a></header>
         <div class="row">
-            <img class="project-photo-size col s4" src="/static/images/Oleg_Magni.jpg" alt="https://www.pexels.com/photo/gray-metal-cubes-decorative-1005644/">
-            <p class="col s8">Test Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium nobis totam voluptas officia maxime vero, recusandae quibusdam maiores ut, velit, voluptates doloribus necessitatibus animi nihil eum provident perferendis ducimus repellendus?</p>
+            <img class="project-photo-size col s4" src="/static/images/Oleg_Magni3.jpg" alt="https://www.pexels.com/photo/gray-metal-cubes-decorative-1005644/">
+            <p class="col s8">Projects for class Art 215 Graphic Design and personal projects.</p>
+            <p class="col s8"><a href="{{ url_for('case_studies') }}">Case Studies</a></p>
+            <p class="col s8"><a href="{{ url_for('monogram') }}">Monogram</a></p>
+            <p class="col s8"><a href="{{ url_for('logo') }}">Logo</a></p>
         </div>
     </section>
     <div class="divider"></div>
-    <section>
+    <section id="project-web-design">
         <header class="header-font-right"><a href="{{ url_for('web_design') }}">Web Design</a></header>
         <div class="row">
             <p class="col s8">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, nemo quasi, ullam nulla nam error iusto a asperiores ut itaque doloribus dolor in dolorem explicabo odio eos aperiam possimus veniam!</p>
@@ -35,11 +38,12 @@
         </div>
     </section>
     <div class="divider"></div>
-    <section>
+    <section id="project-web-development">
         <header class="header-font-left"><a href="{{ url_for('web_development') }}">Web Development</a></header>
         <div class="row">
             <img class="project-photo-size col s4" src="/static/images/luis_gomes.jpg" alt="https://www.pexels.com/photo/blur-close-up-code-computer-546819/">
             <p class="col s8">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam, natus! Assumenda sed ratione asperiores illum porro nobis facilis fuga beatae? Consequatur itaque provident odio architecto distinctio facilis vero repudiandae nostrum.</p>
+            <p >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui repellat id minus, cum doloribus mollitia sapiente, dolore delectus, fuga autem explicabo voluptate asperiores provident nihil. Eaque architecto ut repudiandae rerum.</p>
         </div>
     </section>                            
 </div>

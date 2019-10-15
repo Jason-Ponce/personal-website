@@ -69,7 +69,7 @@ html *{
     border-top: 1px solid black;  
 }
 
-#main-body{
+#project-main-body{
     padding-top: 25px;
 }
 .header-font-left{
@@ -83,4 +83,12 @@ html *{
 .project-photo-size{
     width: auto;
     height: auto;
+}
+
+/* #project-web-development,#project-web-design,#project-graphic-design{
+    background-color: lightgray;
+} */
+
+.paragraphs{
+    background-color: lightgray;
 }
