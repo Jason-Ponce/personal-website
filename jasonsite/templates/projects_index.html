@@ -15,6 +15,7 @@
 
         <!-- Import Google Font -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Asap&display=swap" rel="stylesheet">
     
         <!-- For Dev Server -->
         <link rel="stylesheet" type="text/css" href="/static/css/materialize.css">
@@ -53,17 +54,14 @@
 {% endblock nav %}
 
 {% block body %}
-{% include 'case_studies.html' %}
+<body style="background-color: whitesmoke;">
+    
+</body>
 {% endblock %}
 
 {% block scripts %}
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="/static/js/materialize.js"></script>
 <script src="/static/js/init.js"></script>
-<script>
-$(document).ready(function(){
-      $('.tabs').tabs();
-      instance.updateTabIndicator();
-    });
-</script>
+
 {% endblock scripts %}

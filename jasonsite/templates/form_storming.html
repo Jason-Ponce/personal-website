@@ -14,12 +14,62 @@
 
 
 {% block dropdown %}
-<!-- add super to get the extended navbar -->
-
+{{super()}}
 {% endblock %}
 
 {% block body %}
-<h2>Case Studies</h2>
+{{super()}}
+<div class="container" id="formstorming-padding">
+    <section>
+        <ul class="collapsible formstorming-color">
+            <li class="active">
+                <div class="collapsible-header formstorming-header">Problem</div>
+                <div class="collapsible-body formstorming-paragraph"><span>For our initial project, we were challenged to explore the creativity of our environment by 
+                    limiting ourselves to a letter in the alphabet. My choice letter was the letter H.
+                </span></div>
+            </li>
+        </ul>
+    </section>
+    <section>
+        <header class="center-align formstorming-images-header">Images 1-10</header>
+        <div class="carousel">
+            <a class="carousel-item"><img src="/static/images/formstorming/1-10/1.jpg"></a>
+            <a class="carousel-item" ><img src="/static/images/formstorming/1-10/2.jpg"></a>
+            <a class="carousel-item" ><img src="/static/images/formstorming/1-10/3.jpg"></a>
+            <a class="carousel-item" ><img src="/static/images/formstorming/1-10/4.jpg"></a>
+            <a class="carousel-item" ><img src="/static/images/formstorming/1-10/5.jpg"></a>
+            <a class="carousel-item" ><img src="/static/images/formstorming/1-10/6.jpg"></a>
+            <a class="carousel-item" ><img src="/static/images/formstorming/1-10/7.jpg"></a>
+            <a class="carousel-item" ><img src="/static/images/formstorming/1-10/8.jpg"></a>
+            <a class="carousel-item" ><img src="/static/images/formstorming/1-10/9.jpg"></a>
+            <a class="carousel-item" ><img src="/static/images/formstorming/1-10/10.jpg"></a>         
+        </div>
+        <ul class="collapsible formstorming-color">
+            <li>
+                <div class="collapsible-header formstorming-header">Reflection</div>
+                <div class="collapsible-body formstorming-paragraph"><span>The initial work on the pictures brought a lot of problems at first.</span></div>
+            </li>
+        </ul>
+        <div class="divider"></div>
+    </section>  
+    <section>
+        <header></header>
+        <div class="carousel">
+            <a class="carousel-item"><img src="/static/images/formstorming/11-50/1.jpg"></a> 
+            <a class="carousel-item"><img src="/static/images/formstorming/11-50/1.jpg"></a>  
+            <a class="carousel-item"><img src="/static/images/formstorming/11-50/1.jpg"></a>          
+        </div>
+    </section>
+    <section>
+        <header></header>
+        <div class="carousel">
+            <a class="carousel-item"><img src="/static/images/formstorming/51-100/1.jpg"></a>
+            <a class="carousel-item"><img src="/static/images/formstorming/51-100/1.jpg"></a>  
+            <a class="carousel-item"><img src="/static/images/formstorming/51-100/1.jpg"></a>  
+        </div>
+    </section>
+</div>
+
 {% endblock %}
 
 {% block scripts %}

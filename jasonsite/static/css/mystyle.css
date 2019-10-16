@@ -62,14 +62,15 @@
 }
 
 html *{
-    font-family:  'Montserrat', sans-serif;
+    /* font-family:  'Montserrat', sans-serif; */
+    font-family: 'Asap', sans-serif;
 }
 
 .hr{
     border-top: 1px solid black;  
 }
 
-#project-main-body{
+#project-main-body, #about-main-body{
     padding-top: 25px;
 }
 .header-font-left{
@@ -84,11 +85,46 @@ html *{
     width: auto;
     height: auto;
 }
-
-/* #project-web-development,#project-web-design,#project-graphic-design{
-    background-color: lightgray;
-} */
-
 .paragraphs{
     background-color: lightgray;
 }
+
+.about-header-title{
+    font-size: 40px;
+}
+#cute-puppy{
+    width: 250px;
+    height: 250px;
+}
+.about-closing-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: center;
+  }
+  #project-graphic-design,#project-web-development, #project-web-design, #formstorming-padding{
+      padding-bottom: 25px;
+      padding-top: 15px;
+      padding-left: 5px;
+      padding-right: 5px;
+  }
+.section-color{
+    background-color: #AFC2D5;
+}
+.project-header-color{
+    color: black;
+}
+.formstorming-color{
+    background-color: white;
+}
+
+.formstorming-images-header{
+    font-size: 50px;
+}
+.formstorming-header{
+  font-size: 25px;  
+}
+.formstorming-paragraph{
+    font-size: 16px;  
+  }
