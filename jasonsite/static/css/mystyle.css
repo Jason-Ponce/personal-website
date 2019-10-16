@@ -157,4 +157,10 @@ html *{
 .formstorming-color-scheme-paragraph-alt{
     background-color: rgb(209, 224, 235);
 }
-
+ #photoshop-body{
+     margin-top: 10px;
+     margin-bottom: 250px;
+ }
+ .photoshop-padding-top-only{
+     padding-top: 45px;
+ }
