@@ -38,6 +38,7 @@ def graphic_design():
     page_title="Graphic Design"
     return render_template('graphic_design.html', title=page_title)
 
+
 @app.route("/projects/graphic_design/case_studies")
 def case_studies():
     page_title="Case Studies"
@@ -48,6 +49,18 @@ def case_studies():
 def form_storming():
     page_title="Form Storming"
     return render_template('form_storming.html', title=page_title)
+
+
+@app.route("/projects/graphic_design/case_studies/monogram")
+def monogram():
+    page_title="Monogram"
+    return render_template('monogram.html', title=page_title)
+
+
+@app.route("/projects/graphic_design/case_studies/logo")
+def logo():
+    page_title="Logo"
+    return render_template('logo.html', title=page_title)
 
 
 @app.route("/projects/graphic_design/photoshop_experiments")
@@ -79,7 +92,7 @@ def smudge_script():
 @app.route("/projects/web_design")
 def web_design():
     page_title="Web Design"
-    return render_template('web_design.html', title=page_title)
+    return render_template('404.html', title=page_title)
 
 
 # END WEB DESIGN SECTION
@@ -87,7 +100,7 @@ def web_design():
 @app.route("/projects/web_development")
 def web_development():
     page_title="Web Development"
-    return render_template('web_development.html', title=page_title)
+    return render_template('404.html', title=page_title)
 
 
 # END WEB DEVELOPMENT SECTION
