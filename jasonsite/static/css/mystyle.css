@@ -96,14 +96,14 @@ html *{
     width: 250px;
     height: 250px;
 }
-.about-closing-center {
+.about-closing-center, .center-pdf, #favorite-image {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
     text-align: center;
   }
-  #project-graphic-design,#project-web-development, #project-web-design, #formstorming-padding{
+  #project-graphic-design,#project-web-development, #project-web-design{
       padding-bottom: 25px;
       padding-top: 15px;
       padding-left: 5px;
@@ -115,16 +115,46 @@ html *{
 .project-header-color{
     color: black;
 }
-.formstorming-color{
-    background-color: white;
-}
+/* .formstorming-color{
+    background-color: rgba(255, 255, 255, 0.651);
+} */
 
 .formstorming-images-header{
     font-size: 50px;
 }
 .formstorming-header{
-  font-size: 25px;  
+  font-size: 25px; 
+  
 }
 .formstorming-paragraph{
     font-size: 16px;  
   }
+.formstorming-padding{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.formstorming-div-margin{
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.formstorming-color-scheme{
+    background-color: rgb(217, 222, 247);
+}
+.formstorming-color-scheme-header{
+    background-color: rgb(180, 185, 207);
+}
+.formstorming-color-scheme-paragraph{
+    background-color: rgb(217, 222, 247);
+}
+
+.formstorming-color-scheme-alt{
+    background-color: rgb(209, 224, 235);
+}
+.formstorming-color-scheme-header-alt{
+    background-color: rgb(184, 197, 207);
+}
+.formstorming-color-scheme-paragraph-alt{
+    background-color: rgb(209, 224, 235);
+}
+
