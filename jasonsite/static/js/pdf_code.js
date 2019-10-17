@@ -1,4 +1,4 @@
-const url = '/static/docs/sample2.pdf';
+const url = '/static/docs/ponce_jason_resume.pdf';
 
 let pdfDoc = null,
   pageNum = 1,
