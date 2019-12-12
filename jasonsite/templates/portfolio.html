@@ -1,0 +1,56 @@
+{% extends "projects_index.html" %}
+
+{% block title %}
+{{super()}}
+{% endblock %}
+
+{% block head %}
+{{super()}}
+{% endblock %}
+
+{% block nav %}
+{{super()}}
+{% endblock %}
+
+
+{% block dropdown %}
+{{super()}}
+{% endblock %}
+
+{% block body %}
+{{super()}}
+<body style="background-color: whitesmoke;">
+        <div class="row">
+            <div class="col s1" >
+            </div>
+            <div class="vertical-divider col s1"></div>
+    
+            <section>
+            <div class="container col s10" class="about-main-body">
+                <header class="about-header-title about-padding-title" >Logo</header>
+                <div class="divider"></div>
+                <div class="row">
+                    <p class="col s6 about-padding">Test</p>
+                    <div class="about-closing-center">
+                    <div>
+                    <img class="col s4 offset-s8 " src="/static/images/monogram/source.png" alt="monogram">
+                    <figcaption class="col s4 offset-s8">Base Monogram </figcaption>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+    
+            <section>
+                <div class="col s10 offset-s1">
+                    <header class="about-header-title">Replace</header>
+                    <div class="divider"></div>
+                </div>
+            </section>
+        </div>
+    </body> 
+{% endblock %}
+
+{% block scripts %}
+{{super()}}
+{% endblock %}

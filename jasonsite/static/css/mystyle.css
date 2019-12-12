@@ -8,9 +8,7 @@
     /* For Open Live Server */
 
     background-repeat: no-repeat;
-    background-size:cover;
-    /* width: 100%;
-    height: 200%; */
+    background-size: auto;
 }
 
 #about-site, #projects-site, #resume-site{
@@ -60,6 +58,12 @@
     width: 100%;
     color: aliceblue;
 }
+#header-center{
+    padding-top: 25px;
+    font-size: 5rem;
+    max-height: 5%;
+
+}
 
 html *{
     /* font-family:  'Montserrat', sans-serif; */
@@ -88,15 +92,37 @@ html *{
 .paragraphs{
     background-color: lightgray;
 }
-
+/* ABOUT PAGE -------------------------------------*/
 .about-header-title{
-    font-size: 40px;
+    font-size: 3rem;
+    padding-left: 0.3rem;
+}
+.about-padding{
+    padding-left: 2rem;
+    line-height: 1.8rem;
+}
+.about-closing-center{
+   float: right;
 }
 #cute-puppy{
     width: 250px;
     height: 250px;
 }
-.about-closing-center, .center-pdf, #favorite-image {
+.case_studies_img{
+    width: 250px;
+    height: 200px;
+    float: right;
+}
+
+.case_studies_img_center{
+    width: 250px;
+    height: 250px;
+    float: center;
+}
+
+
+/* ABOUT PAGE -----------------------------------------*/
+ .center-pdf, #favorite-image, .center-image {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -164,3 +190,36 @@ html *{
  .photoshop-padding-top-only{
      padding-top: 45px;
  }
+
+ .vertical-divider{
+    margin-top: 10px;
+    border-right: 4px solid grey;
+    opacity: 75%;
+    height: 800px; 
+    position:absolute; 
+    left: 50%; 
+ }
+
+figcaption{
+    text-align: center;
+}
+
+.center-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    max-width: 12%;
+    max-height: 12%;
+  }
+
+.landing-text{
+      font-size: 2rem;
+  }
+
+#navbar-image-logo{
+    max-width: 6%;
+    max-height: 6%;
+    padding-top: 0.2%;
+    margin-left: 2%;
+}

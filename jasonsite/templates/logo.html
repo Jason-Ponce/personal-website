@@ -19,6 +19,46 @@
 
 {% block body %}
 {{super()}}
+<body style="background-color: whitesmoke;">
+    <div class="row">
+        <div class="col s1" ></div>
+        <div class="vertical-divider col s1"></div>
+
+        <section>
+        <div class="container col s10" class="about-main-body">
+            <header class="about-header-title about-padding-title" >Logo</header>
+            <div class="divider"></div>
+            <div class="row">
+                    <div class="container col s6">
+                        <p class="about-padding">Test</p>
+                        </div>
+                        <img class="col s6 " src="/static/images/logo/source-01.png" alt="monogram">
+                </div>
+            <div class="divider"></div>
+            <br>
+            <br>
+            <div class="row">
+                <div>
+                    <img class="col s6" src="/static/images/logo/source-02.png" alt="monogram">
+                    <div class="container col s6">
+                            <p class="bout-padding">Test</p>
+                    </div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="container col s6">
+                        <p class="about-padding">Test</p>
+                        </div>
+                        <img class="col s6 " src="/static/images/logo/source-03.png" alt="monogram">
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>   
 {% endblock %}
 
 {% block scripts %}

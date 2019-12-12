@@ -1,12 +1,14 @@
 import os
 import secrets
 from PIL import Image
-from flask import render_template, url_for, flash, redirect, request, abort
+from flask import render_template, url_for, flash, redirect, request, abort, send_from_directory
 from jasonsite import app, db, bcrypt
-# from jasonsite.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm
-# from jasonsite.models import User, Post
 from flask_login import login_user, current_user, logout_user, login_required
 
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @app.route("/")
 @app.route("/home")
@@ -62,6 +64,23 @@ def logo():
     page_title="Logo"
     return render_template('logo.html', title=page_title)
 
+
+@app.route("/projects/graphic_design/case_studies/historical_figure")
+def historical_fig():
+    page_title="Historical Figure"
+    return render_template('historical_figure.html', title=page_title)
+
+
+@app.route("/projects/graphic_design/case_studies/travel_poster")
+def travel_poster():
+    page_title="Travel Poster"
+    return render_template('travel_poster.html', title=page_title)
+
+
+@app.route("/projects/graphic_design/case_studies/portfolio")
+def portfolio():
+    page_title="Portfolio"
+    return render_template('portfolio.html', title=page_title)
 
 @app.route("/projects/graphic_design/photoshop_experiments")
 def photoshop_experiments():

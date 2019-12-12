@@ -10,17 +10,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Home</title>
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+        <link rel="manifest" href="/static/site.webmanifest">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
         <!--Import Google Icon Font-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <!-- Import Google Font -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
     
-        <!-- For Dev Server -->
+
         <link rel="stylesheet" type="text/css" href="/static/css/materialize.css">
         <link rel="stylesheet" type="text/css" href="/static/css/materialize.min.css">
         <link rel="stylesheet" type="text/css" href="/static/css/mystyle.css">
-        <!-- End for Dev Server -->
+
 
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -30,6 +36,9 @@
 {% block nav %}
 <nav class="nav-extended grey darken-1">
         <div class="nav-wrapper">
+            <a href="{{ url_for('home') }}" class="brand-logo">
+                <img src="/static/logo_resized_white.png" alt="logo for website" id="navbar-image-logo">
+            </a>
             <a href="{{ url_for('home') }}" class="brand-logo center">Jason Ponce</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="{{ url_for('about') }}">About</a></li>
@@ -43,33 +52,43 @@
 
 {% block body %}
 <body style="background-color: whitesmoke;">
-<div class="container" class="about-main-body">
+    <div class="row">
+        <div class="col s1" >
+        </div>
+        <div class="vertical-divider col s1"></div>
+        <div class="container col s10" class="about-main-body">
     <section>
-        <header class="about-header-title">Welcome to my Page</header>
+        <header class="about-header-title about-padding-title" >Welcome to my Page</header>
         <div class="divider"></div>
-        <p>
-            I started this website in order to present my skills in a practical manner. Growing up I had never planned on wanting to be a Front End Developer. I can imagine when asked, 
-            not many children's responses were to develop websites. It's not exactly up there with other job prospects such as being a doctor, fireman, or teacher. Understandably the decision
-            to be one of those jobs would be the want to help others in a tangible ways. I feel like the need to help others is still engrained within each other. But growing up, many of us, lose that 
-            strong desire to make a difference for the better in favor for the practical needs and wants that appear as we grow up.
-        </p>
-        <p>
-            Luckily for me, I am in a position to make a difference and help others using my skills. After my time in the military and with the conjunction of my skills learned at Southern Connecticut
-            State University. I want to be on the forefront with organizations that want to make a difference. With this website of mine, I hope you take the time to explore and learn about who I am and
-            accomplishments that i've done.
-        </p>
-
+        <section class="about-closing-center">
+                <header class="about-header-title"></header>
+                <figure>
+                    <img id="cute-puppy" src="/static/images/memin_dogo.jpg" alt="cute doggo">
+                    <figcaption>My dog Memin</figcaption>
+                </figure>
+            </section>
+            <p class="about-padding">
+                I started this website in order to present my skills in a practical manner. Growing up I had never planned on wanting to be a Front End Developer. I can imagine when asked, 
+                not many children's responses were to develop websites. It's not exactly up there with other job prospects such as being a doctor, fireman, or teacher. Understandably the decision
+                to be one of those jobs would be the want to help others in a tangible ways. I feel like the need to help others is still engrained within each other. But growing up, many of us, lose that 
+                strong desire to make a difference for the better in favor for the practical needs and wants that appear as we grow up.
+            </p>
+            <p class="about-padding"> 
+                Luckily for me, I am in a position to make a difference and help others using my skills. After my time in the military and with the conjunction of my skills learned at Southern Connecticut
+                State University. I want to be on the forefront with organizations that want to make a difference. With this website of mine, I hope you take the time to explore and learn about who I am and
+                accomplishments that i've done.
+            </p>
     </section>
     <section>
         <header class="about-header-title">My Life</header>
         <div class="divider"></div>
-        <p>
+        <p class="about-padding">
             During my senior year at highschool, I decided on joining the United States Army. A decision that I immediately regretted the first day at reception battalion. For those uninitiated,
             imagine getting a couple hours of sleep while being screamed at by Drill Sergeants and waiting in long lines without making a peep. That was fun. A year later and out of TRADOC, I spent the
             remainder of my Active enlistment stationed in Fort Drum, NY. A deployment later and 3 years had passed. With this my 4 year Active commitment had ended and I came back to Connecticut to continue my
             education and finish the rest of my 8 year contract with the Army in the CT National Guard. 
         </p>
-        <p>
+        <p class="about-padding">
             While juggling my duties in the National Guard, part time work, and schooling at Southern Connecticut State University. I plan to be finished Fall of 2019. Looking back, I don't regret any
             of the decisions i've made. The connections with the people I've made and the unique experiences that many will never even dream about have shaped me into the person I am. 
         </p>
@@ -84,14 +103,8 @@
             <li class="collection-item">Motorcycles</li>
             </ul>
     </section>
-    <section class="about-closing-center">
-        <header class="about-header-title">Thank You for Your Time.</header>
-        <figure>
-            <img id="cute-puppy" src="/static/images/memin_dogo.jpg" alt="cute doggo">
-            <figcaption>My dog Memin</figcaption>
-        </figure>
-    </section>
-</div>
+        </div>
+    </div>
 </body>   
 {% endblock %}
 
