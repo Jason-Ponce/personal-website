@@ -101,6 +101,10 @@ html *{
     padding-left: 2rem;
     line-height: 1.8rem;
 }
+.about-padding-redux{
+    padding-left: 3.5rem;
+    line-height: 1.8rem;  
+}
 .about-closing-center{
    float: right;
 }
@@ -222,4 +226,19 @@ figcaption{
     max-height: 6%;
     padding-top: 0.2%;
     margin-left: 2%;
+}
+
+.cari-sizeup{
+    height: 500px;
+    width: 300px !important;
+}
+.cari-sizeup-hori{
+    height: 300px;
+    width: 500px !important;
+}
+
+.img_center{
+    width: 55%;
+    height: 60%px;
+    float: center;
 }
