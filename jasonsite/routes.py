@@ -1,9 +1,6 @@
 import os
-import secrets
-from PIL import Image
-from flask import render_template, url_for, flash, redirect, request, abort, send_from_directory
-from jasonsite import app, db, bcrypt
-from flask_login import login_user, current_user, logout_user, login_required
+from flask import render_template, url_for, send_from_directory
+from jasonsite import app
 
 
 @app.route('/favicon.ico')
@@ -116,10 +113,10 @@ def web_design():
 
 # END WEB DESIGN SECTION
 # |--WEB DEVELOPMENT SECTION--|
-@app.route("/projects/web_development")
+@app.route("/web_development")
 def web_development():
     page_title="Web Development"
-    return render_template('404.html', title=page_title)
+    return render_template('web_development.html', title=page_title)
 
 
 # END WEB DEVELOPMENT SECTION

@@ -46,6 +46,7 @@
         <div class="divider" style="margin: 10px;"></div>
         <div class="center-align">Under Construction</div>
         <div class="center-align">Updates Incoming, Keep Posted</div>
+        <div class="center-align">Newest Project: <a href="jasonponce.info/" class="link-white">Fill in Here</a> </div>
         <br>
       </div>
     </div>
@@ -62,7 +63,7 @@
             <p class="light">Welcome. Hover over a section to proceed. </p>
             <div class="section hidden-section" >
                 <div class="container center-align"> 
-                    <a class="waves-effect waves-light btn" id="about-btn" href="/about">About</a>
+                    <a class="waves-effect waves-light btn grey lighten-5 black-text" id="about-btn" href="/about">About</a>
                 </div>
             </div>
           </div>
@@ -81,7 +82,7 @@
             <p>Veteran: 8 Years of Military Service in the US Army</p>
             <div class="section hidden-section" >
                 <div class="container center-align"> 
-                    <a class="waves-effect waves-light btn" id="resume-btn" href="/resume">Resume</a>
+                    <a class="waves-effect waves-light btn grey lighten-5 black-text" id="resume-btn" href="/resume">Resume</a>
                 </div>
             </div>
           </div>
@@ -93,12 +94,14 @@
             <h2 class="center light-blue-text"><i class="material-icons small">group</i></h2>
             <h5 class="center">Projects</h5>
             <hr>
-            <p>Graphic Design</p>
-            <p>Web Design</p>
-            <p>Web Development</p>
+            <div> 
+            <a href="{{ url_for('web_development') }}" class="link-white">Web Development</a><br>
+            <a href="{{ url_for('web_design') }}" class="link-white">Web Design</a><br>
+            <a href="{{ url_for('graphic_design') }}" class="link-white">Graphic Design</a>
+            </div>
           <div class="section hidden-section" >
               <div class="container center-align"> 
-                  <a class="waves-effect waves-light btn" id="projects-btn" href="/projects">Projects</a>
+                  <a class="waves-effect waves-light btn grey lighten-5 black-text" id="projects-btn" href="/projects">Projects</a>
               </div>
           </div>
           </div>

@@ -79,15 +79,19 @@ html *{
 }
 .header-font-left{
     font-size: 40px;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 }
 .header-font-right{
     font-size: 40px;
     text-align: right;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 }
 
 .project-photo-size{
     width: auto;
-    height: auto;
+    height: 322.5px;
 }
 .paragraphs{
     background-color: lightgray;
@@ -242,3 +246,28 @@ figcaption{
     height: 60%px;
     float: center;
 }
+
+.github-link{
+    height: 1em;
+    width: auto;
+    display: inline;
+}
+
+.link-white:visited, .link-white:link{
+    color: whitesmoke;
+}
+
+.link-white:visited:hover, .link-white:link:hover{
+    color: whitesmoke;
+    text-decoration: underline;
+}
+
+.link-black:visited, .link-black:link{
+    color: black;
+}
+
+.link-black:visited:hover, .link-black:link:hover{
+    color: black;
+    text-decoration: underline;
+}
+
