@@ -108,7 +108,7 @@ def smudge_script():
 @app.route("/projects/web_design")
 def web_design():
     page_title="Web Design"
-    return render_template('404.html', title=page_title)
+    return render_template('web_design.html', title=page_title)
 
 
 # END WEB DESIGN SECTION

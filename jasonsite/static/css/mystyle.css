@@ -143,9 +143,9 @@ html *{
       padding-left: 5px;
       padding-right: 5px;
   }
-.section-color{
+/* .section-color{
     background-color: #AFC2D5;
-}
+} */
 .project-header-color{
     color: black;
 }
@@ -226,10 +226,12 @@ figcaption{
   }
 
 #navbar-image-logo{
-    max-width: 6%;
-    max-height: 6%;
-    padding-top: 0.2%;
+
+    max-width: 25%;
+    max-height: 25%;
+    padding-top: 2%;
     margin-left: 2%;
+
 }
 
 .cari-sizeup{
@@ -271,3 +273,6 @@ figcaption{
     text-decoration: underline;
 }
 
+.reduced-logo{
+    width: 25vw;
+}

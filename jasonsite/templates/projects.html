@@ -20,7 +20,7 @@
 {% block body %}
 {{super()}}
 <div class="container" id="project-main-body">
-    <section id="project-web-development" class="z-depth-1 section-color">
+    <section id="project-web-development" class="">
         <header class="header-font-left">
             <a href="{{ url_for('web_development') }}" class="project-header-color link-black">Web Development</a>
             <span style="float: right;"><img src="/static/images/logo/GitHub-Mark-64px.png" class="github-link" alt=""><a href="https://github.com/Jason-Ponce" class="link-black">Jason-Ponce</a></span>
@@ -64,7 +64,7 @@
                                 </div>
                             </div>
                 </div>
-            <div class="divider"></div>
+            <!-- <div class="divider"></div> -->
             <h5 class="right-align"><a href="{{ url_for('web_development') }}" class="project-header-color link-black">More Projects</a></h5>
             <!-- <ul>
                 <li><i class="material-icons" style="vertical-align:middle">arrow_right</i><a href="https://github.com/Jason-Ponce/personal-website">JasonPonce.Info</a></li>
@@ -83,8 +83,8 @@
         </div>
     </section>
     <div class="divider"></div>
-    <section id="project-graphic-design" class="z-depth-1 section-color">
-            <header class="header-font-left "><a href="{{ url_for('graphic_design') }}" class="project-header-color">Graphic Design</a></header>
+    <section id="project-graphic-design" class="">
+            <header class="header-font-left "><a href="{{ url_for('graphic_design') }}" class="project-header-color link-black">Graphic Design</a></header>
             <div class="row">
                 <img class="project-photo-size col s4" src="/static/images/Oleg_Magni3.jpg" alt="https://www.pexels.com/photo/gray-metal-cubes-decorative-1005644/">
                 <ul class="collection with-header col s8 grey lighten-4 project-collection-padding">
