@@ -138,7 +138,6 @@ html *{
     text-align: center;
   }
   #project-graphic-design,#project-web-development, #project-web-design{
-      padding-bottom: 25px;
       padding-top: 15px;
       padding-left: 5px;
       padding-right: 5px;
@@ -229,8 +228,8 @@ figcaption{
 
     max-width: 25%;
     max-height: 25%;
-    padding-top: 2%;
-    margin-left: 2%;
+    padding: 2%;
+
 
 }
 

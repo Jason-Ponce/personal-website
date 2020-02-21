@@ -1,4 +1,4 @@
-{% extends "projects_index.html" %}
+{% extends "index.html" %}
 
 {% block title %}
 {{super()}}
@@ -77,9 +77,23 @@
     <section id="project-web-design">
         <header class="header-font-right"><a href="{{ url_for('web_design') }}" class="project-header-color link-black">Web Design</a></header>
         <div class="row">
-            <p class="col s8">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, nemo quasi, ullam nulla nam error iusto a asperiores ut itaque doloribus dolor in dolorem explicabo odio eos aperiam possimus veniam!</p>
-            <p class="col s8">Under Construction</p>
-            <img class="project-photo-size col s4" src="/static/images/Tranmautritam.jpg" alt="https://www.pexels.com/photo/full-frame-shot-of-computer-326514/">
+            <div class="row col s6">
+                <p class="">
+                    As a programmer, we're expected to pick up new languages on a fly. Leading to most programmers to be jack of all trades.
+                    I am a firm believer as a front end developer that the coding and design of a website are of equal importance.  
+                </p>
+                <p>
+                    These are the website design tools I will be using in creating mockups.
+                </p>
+                <li>Photoshop</li>
+                <li>Adobe XD</li>
+                <li>Figma</li>
+                <br>
+                <p>
+                    <a href="{{ url_for('home') }}" class="link-black"><h6>Latest Article</h6></a>
+                </p>
+            </div>
+            <img class="project-photo-size col s6" src="/static/images/Tranmautritam.jpg" alt="https://www.pexels.com/photo/full-frame-shot-of-computer-326514/">
         </div>
     </section>
     <div class="divider"></div>
@@ -87,16 +101,6 @@
             <header class="header-font-left "><a href="{{ url_for('graphic_design') }}" class="project-header-color link-black">Graphic Design</a></header>
             <div class="row">
                 <img class="project-photo-size col s4" src="/static/images/Oleg_Magni3.jpg" alt="https://www.pexels.com/photo/gray-metal-cubes-decorative-1005644/">
-                <ul class="collection with-header col s8 grey lighten-4 project-collection-padding">
-                        <li class="collection-header grey lighten-4" href="#!"><h5>Art 215 Class Projects</h5></li>
-                        <a class="collection-item grey lighten-4" href="{{ url_for('form_storming') }}">Formstorming</a>
-                        <a class="collection-item grey lighten-4" href="{{ url_for('photoshop_experiments') }}">Photoshop Experiments</a>
-                        <a class="collection-item grey lighten-4" href="{{ url_for('monogram') }}">Monogram</a>
-                        <a class="collection-item grey lighten-4" href="{{ url_for('logo') }}">Logo</a>
-                        <a class="collection-item grey lighten-4" href="{{ url_for('historical_fig') }}">Historical Figure</a>
-                        <a class="collection-item grey lighten-4" href="{{ url_for('travel_poster') }}">Travel Poster</a>
-                        <a class="collection-item grey lighten-4" href="{{ url_for('portfolio') }}">Portfolio</a>
-                    </ul>
             </div>
     </section>
 </div>

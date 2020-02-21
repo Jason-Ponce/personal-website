@@ -1,38 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-      {% block title %}
-      <title>{{ title }}</title>
-      {% endblock %}
-        {% block head %}
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Home</title>
-        <!--Import Google Icon Font-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+{% extends "index.html" %}
 
-        <!-- Import Google Font -->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
-        <link href="https://fonts.googleapis.com/css?family=Asap&display=swap" rel="stylesheet">
-    
-        <!-- For Dev Server -->
-        <link rel="stylesheet" type="text/css" href="/static/css/materialize.css">
-        <link rel="stylesheet" type="text/css" href="/static/css/materialize.min.css">
-        <link rel="stylesheet" type="text/css" href="/static/css/mystyle.css">
-        <!-- End for Dev Server -->
-    
-        
-        <!-- For Open Live Server -->
-        <!-- <link rel="stylesheet" type="text/css" href="/jasonsite/static/css/materialize.css">
-        <link rel="stylesheet" type="text/css" href="/jasonsite/static/css/materialize.min.css">
-        <link rel="stylesheet" type="text/css" href="/jasonsite/static/css/mystyle.css"> -->
-        <!-- End for Open Live Server -->
-    
-        <!--Let browser know website is optimized for mobile-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        {% endblock %}
-    </head>
+{% block title %}
+{{super()}}
+{% endblock %}
+
+{% block head %}
+{{super()}}
+{% endblock %}
+
+{% block nav %}
+{% endblock %}
+
+
+{% block dropdown %}
+{{super()}}
+{% endblock %}
 
 {% block body %}
 <body class="background-photo">
@@ -95,9 +77,23 @@
             <h5 class="center">Projects</h5>
             <hr>
             <div> 
-            <a href="{{ url_for('web_development') }}" class="link-white">Web Development</a><br>
-            <a href="{{ url_for('web_design') }}" class="link-white">Web Design</a><br>
-            <a href="{{ url_for('graphic_design') }}" class="link-white">Graphic Design</a>
+              <a href="{{ url_for('web_development') }}" class="link-white">Web Development</a>
+              <b> | </b>
+              <!-- START Make this dynamic, once database is implemented START -->
+              <a href="{{ url_for('jasonponce') }}" class="link-white">Latest</a>
+              <!-- END Make this dynamic, once database is implemented END -->              
+              <br>
+              <a href="{{ url_for('web_design') }}" class="link-white">Web Design</a>
+              <b> | </b>
+              <!-- START Make this dynamic, once database is implemented START -->
+              <a href="{{ url_for('home') }}" class="link-white">Latest</a>
+              <!-- END Make this dynamic, once database is implemented END -->    
+              <br>
+              <a href="{{ url_for('graphic_design') }}" class="link-white">Graphic Design</a> 
+              <b> | </b>
+              <!-- START Make this dynamic, once database is implemented START -->
+              <a href="{{ url_for('home') }}" class="link-white">Latest</a>
+              <!-- END Make this dynamic, once database is implemented END -->
             </div>
           <div class="section hidden-section" >
               <div class="container center-align"> 

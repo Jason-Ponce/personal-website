@@ -1,52 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-      {% block title %}
-      <title>{{ title }}</title>
-      {% endblock %}
+{% extends "index.html" %}
 
-        {% block head %}
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Home</title>
-        <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
-        <link rel="manifest" href="/static/site.webmanifest">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
-        <!--Import Google Icon Font-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+{% block title %}
+{{super()}}
+{% endblock %}
 
-        <!-- Import Google Font -->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
-    
-
-        <link rel="stylesheet" type="text/css" href="/static/css/materialize.css">
-        <link rel="stylesheet" type="text/css" href="/static/css/materialize.min.css">
-        <link rel="stylesheet" type="text/css" href="/static/css/mystyle.css">
-
-
-        <!--Let browser know website is optimized for mobile-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        {% endblock %}
-    </head>
+{% block head %}
+{{super()}}
+{% endblock %}
 
 {% block nav %}
-<nav class="nav-extended grey darken-1">
-        <div class="nav-wrapper">
-            <a href="{{ url_for('home') }}" class="brand-logo left reduced-logo">
-                <img src="/static/logo_resized_white.png" alt="logo for website" id="navbar-image-logo">
-            </a>
-            <a href="{{ url_for('home') }}" class="brand-logo center">Jason Ponce</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="{{ url_for('about') }}">About</a></li>
-            <li><a href="{{ url_for('resume') }}">Resume</a></li>
-            <li><a href="{{ url_for('projects') }}">Projects</a></li>
-            </ul>
-        </div>
-    </nav>
+{{super()}}
+{% endblock %}
+
+
+{% block dropdown %}
+{{super()}}
 {% endblock %}
 
 

@@ -15,46 +15,55 @@
 
         <!-- Import Google Font -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Asap&display=swap" rel="stylesheet">
     
         <!-- For Dev Server -->
         <link rel="stylesheet" type="text/css" href="/static/css/materialize.css">
         <link rel="stylesheet" type="text/css" href="/static/css/materialize.min.css">
         <link rel="stylesheet" type="text/css" href="/static/css/mystyle.css">
         <!-- End for Dev Server -->
-          
+
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         {% endblock %}
     </head>
 
-  {% block navbar %}
-  <nav class="nav-extended grey darken-1">
-      <div class="nav-wrapper">
-          <a href="{{ url_for('home') }}" class="brand-logo center">Jason Ponce</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="{{ url_for('about') }}">About</a></li>
-          <li><a href="{{ url_for('resume') }}">Resume</a></li>
-          <li><a href="{{ url_for('projects') }}">Projects</a></li>
-          </ul>
-      </div>
+{% block nav %}
+<nav class="nav-extended grey darken-1">
+    <div class="nav-wrapper">
+        <a href="{{ url_for('home') }}" class="brand-logo left reduced-logo">
+            <img src="/static/logo_resized_white.png" alt="logo for website" id="navbar-image-logo">
+        </a>
+        <a href="{{ url_for('home') }}" class="brand-logo center">JasonPonce.Info</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('resume') }}">Resume</a></li>
+        <li><a href="{{ url_for('projects') }}">Projects</a></li>
+        </ul>
+    </div>
+    <!-- Start dropdown block -->
+    {% block dropdown %}
+    <!-- <li class="divider"></li>
+    <div class="nav-content grey lighten-1">
+        <ul class="tabs tabs-transparent">
+        <li class="tab "><a href="{{ url_for('web_development') }}" target="_self">Web Development</a></li>
+        <li class="tab "><a href="{{ url_for('web_design') }}" target="_self">Web Design</a></li>
+        <li class="tab"><a href="{{ url_for('graphic_design') }}" target="_self" >Graphic Design</a></li>
+    </ul>
+    </div> -->
+    {% endblock dropdown %}
 </nav>
-  {% endblock %}
-  
-  {% block content %}
-  {{super()}}
-  {% endblock %}
+{% endblock nav %}
 
-  {% block footer %}
-  {% endblock %}
-
-
-  {% block scripts %}
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <!-- For Dev Server -->
-  <script src="/static/js/materialize.js"></script>
-  <script src="/static/js/init.js"></script>
-  <!-- End for Dev Server -->
-  {% endblock %}
-
+{% block body %}
+<body style="background-color: whitesmoke;">
+    
 </body>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="/static/js/materialize.js"></script>
+<script src="/static/js/init.js"></script>
+
+{% endblock scripts %}
