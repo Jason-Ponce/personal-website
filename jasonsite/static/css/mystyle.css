@@ -113,8 +113,10 @@ html *{
    float: right;
 }
 #cute-puppy{
-    width: 250px;
-    height: 250px;
+    max-width: 250px;
+    max-height: 250px;
+    width: 100%;
+    height: auto;
 }
 .case_studies_img{
     width: 250px;
@@ -199,10 +201,10 @@ html *{
  }
 
  .vertical-divider{
-    margin-top: 10px;
+    margin-top: 1%;
     border-right: 4px solid grey;
     opacity: 75%;
-    height: 800px; 
+    height: 90%; 
     position:absolute; 
     left: 50%; 
  }
