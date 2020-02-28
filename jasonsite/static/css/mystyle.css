@@ -277,3 +277,50 @@ figcaption{
 .reduced-logo{
     width: 25vw;
 }
+
+
+/* MATERIAL ICON CSS START */
+.material-icons.md-48{ 
+    font-size: 48px;
+}
+
+.material-icons.md-dark{
+    color: rgba(0, 0, 0, 0.54);
+}
+
+/* MATERIAL ICON CSS END */
+
+/* #slideshow div{
+    height: 100px;
+    width: 100px;
+} */
+
+#slideshow{
+    position: relative;
+}
+
+#slideshow div img{
+    max-width:100%;
+    height:auto;
+
+}
+
+.slick{
+    width: auto;
+    max-width: 500px;
+
+}
+.slick-prev{
+    position: absolute;
+    right: 100%;
+    top: 10%;
+    z-index: 1;
+
+}
+.slick-next{
+    position: absolute;
+    left: 100%;
+    top: 10%;
+    z-index: 1;
+
+}

@@ -65,6 +65,11 @@ def jasonponce():
     page_title="JasonPonce.Info"
     return render_template('jasonponce_info.html', title=page_title)
 
+@app.route("/test")
+def test():
+    page_title="test"
+    return render_template('test.html', title=page_title)
+
 
 # END WEB DEVELOPMENT SECTION
 

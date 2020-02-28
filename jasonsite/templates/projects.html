@@ -19,9 +19,12 @@
 
 {% block body %}
 {{super()}}
+<!-- TODO redo css for more dynamic mobile interface---Low Priority--- -->
 <div class="container" id="project-main-body">
+    <!-- Sectioned off Web Development -->
     <section id="project-web-development" class="">
         <header class="header-font-left">
+            <!-- URL for Web Dev to web dev projects -->
             <a href="{{ url_for('web_development') }}" class="project-header-color link-black">Web Development</a>
             <span style="float: right;"><img src="/static/images/logo/GitHub-Mark-64px.png" class="github-link" alt=""><a href="https://github.com/Jason-Ponce" class="link-black">Jason-Ponce</a></span>
         </header>
@@ -30,6 +33,7 @@
             <div class="col s8">
                 <div class="divider"></div>
                 <div class="row" style="background-color: white;">
+                    <!-- TODO Redo the card system for projects, remove the "cards" and force a specific size for future CMS -->
                         <div class="card small col s4 z-depth-0">
                             <span class="card-title">JasonPonce.Info</span>
                             <div class="card-content">
@@ -64,16 +68,11 @@
                                 </div>
                             </div>
                 </div>
-            <!-- <div class="divider"></div> -->
             <h5 class="right-align"><a href="{{ url_for('web_development') }}" class="project-header-color link-black">More Projects</a></h5>
-            <!-- <ul>
-                <li><i class="material-icons" style="vertical-align:middle">arrow_right</i><a href="https://github.com/Jason-Ponce/personal-website">JasonPonce.Info</a></li>
-                <li><i class="material-icons" style="vertical-align:middle">arrow_right</i><a href="https://github.com/Jason-Ponce/HeroesDonatePackage">HeroesDonate</a></li>
-                <li><i class="material-icons" style="vertical-align:middle">arrow_right</i><a href="https://github.com/Jason-Ponce/The-Connect">The Connect</a></li>
-            </ul> -->
         </div>
     </section>                            
     <div class="divider"></div>
+    <!-- TODO change css for image, needs to shrink properly in mobile ---Low Priority--- -->
     <section id="project-web-design">
         <header class="header-font-right"><a href="{{ url_for('web_design') }}" class="project-header-color link-black">Web Design</a></header>
         <div class="row">
@@ -97,11 +96,29 @@
         </div>
     </section>
     <div class="divider"></div>
+    <!-- TODO add in removed graphic design art into a gallery/portfolio format ---Low Priority--- -->
     <section id="project-graphic-design" class="">
-            <header class="header-font-left "><a href="{{ url_for('graphic_design') }}" class="project-header-color link-black">Graphic Design</a></header>
+        <header class="header-font-left "><a href="{{ url_for('graphic_design') }}" class="project-header-color link-black">Graphic Design</a></header>
+        <div class="row">
+            <img class="project-photo-size col s4" src="/static/images/Oleg_Magni3.jpg" alt="https://www.pexels.com/photo/gray-metal-cubes-decorative-1005644/">
+            <div class="col s8">
+                <p>
+                    As a supplement to my Computer Science degree, I worked towards earning a Minor in Studio Art. I had
+                </p>
+            
+            <!-- TODO Add 3 Random Images from portfolio to appear here once database is implemented ---Medium Priority---  -->
+            <h6>Highlights</h6>
             <div class="row">
-                <img class="project-photo-size col s4" src="/static/images/Oleg_Magni3.jpg" alt="https://www.pexels.com/photo/gray-metal-cubes-decorative-1005644/">
+            <section id="slideshow" class="col s10 offset-s2">
+                <div class="slick">
+                    <img class="slideshow-img" src="/static/images/portfolio/source_byz_cover.png" alt="randomly chosen portfolio image: 1 ">
+                    <img class="slideshow-img" src="/static/images/portfolio/source_logo.png" alt="randomly chosen portfolio image: 2 ">
+                    <img class="slideshow-img" src="/static/images/portfolio/source_travel.jpg" alt="randomly chosen portfolio image: 3 ">
+                </div>
+                </section>
             </div>
+            </div>
+        </div>
     </section>
 </div>
 {% endblock %}

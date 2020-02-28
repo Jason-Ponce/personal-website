@@ -16,12 +16,21 @@
         <!-- Import Google Font -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
         <link href="https://fonts.googleapis.com/css?family=Asap&display=swap" rel="stylesheet">
-    
-        <!-- For Dev Server -->
+  
+        <!-- CSS from MaterializeCSS -->
         <link rel="stylesheet" type="text/css" href="/static/css/materialize.css">
         <link rel="stylesheet" type="text/css" href="/static/css/materialize.min.css">
+        <!-- My CSS -->
         <link rel="stylesheet" type="text/css" href="/static/css/mystyle.css">
-        <!-- End for Dev Server -->
+
+        <!-- jQuery CDN -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous"></script>
+
+        <!-- My JS files -->
+        <script src="/static/js/app.js"></script>
+
+        <!-- Slick Slider -->
+        <link rel="stylesheet" type="text/css" href="/static/slick/slick/slick.css">
 
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -66,13 +75,12 @@
 
 {% block body %}
 <body style="background-color: whitesmoke;">
-    
 </body>
 {% endblock %}
 
-{% block scripts %}
+{% block scripts %}    
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="/static/js/materialize.js"></script>
 <script src="/static/js/init.js"></script>
-
+<script type="text/javascript" src="/static/slick/slick/slick.min.js"></script>    
 {% endblock scripts %}
