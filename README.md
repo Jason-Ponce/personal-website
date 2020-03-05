@@ -1,16 +1,16 @@
-<h1> Personal Website
+<h1> Personal Website</h1>
   
-  <h6>"I'm working on a personal website to host my projects and expirementing with new technologies as I go"
+  <h6>"I'm working on a personal website to host my projects and expirementing with new technologies as I go"</h6>
   
   ***
 
-<h2>Project Management
+<h2>Project Management</h2>
 
 Trello: [Jasonponce-Trello](https://trello.com/b/y3T7JsS1/jasonponceinfo)
 
 ***
 
-<h2> Extensions
+<h2> Extensions </h2>
 
 |Extension|Credits|Purpose|
 ---|---|---
