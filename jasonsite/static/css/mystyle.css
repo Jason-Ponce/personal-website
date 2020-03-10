@@ -3,10 +3,6 @@
     background-image: url(/static/images/firstattemptopac.png);
     /* End for Dev Server */
 
-    /* For Open Live Server */
-    /* background-image: url(/jasonsite/static/images/firstattemptopac.png); */
-    /* For Open Live Server */
-
     background-repeat: no-repeat;
     background-size: auto;
 }
@@ -66,8 +62,8 @@
 }
 
 html *{
-    /* font-family:  'Montserrat', sans-serif; */
-    font-family: 'Asap', sans-serif;
+    font-family:  'Montserrat', sans-serif;
+    /* font-family: 'Asap', sans-serif; */
 }
 
 .hr{
@@ -338,9 +334,17 @@ figcaption{
      height: auto;
  }
 
- /* .travel-words{
-     margin-top: 5%;
- } */
+ .travel-words{
+     margin-top: 4vh;
+     border: 20px;
+     border-style: solid;
+     border-color:rgba(0,0,0,.25) ;
+     border-radius: 10px;
+ }
+
+ .graphic-row{
+     margin-top: 4vh;
+ }
 
  #travel-2,#travel-3,#travel-4,#travel-5,#travel-6,#travel-7,#travel-8{
      display: none;
@@ -358,7 +362,7 @@ figcaption{
 
 .left-bar-gray{
     background-color: gray;
-    width: 55vw;
+    width: 70vw;
     height: 2.7vw;
     top: 1%;
     left: -1%;
@@ -380,10 +384,10 @@ figcaption{
 
 .right-bar-gray{
     background-color: gray;
-    width: 55vw;
+    width: 70vw;
     height: 2.7vw;
     top: 1.5%;
-    left: 18.5%;
+    right: -1%;
     position: absolute;
     z-index: -1;
     border-radius: 75px 15px 5px 75px;
@@ -409,4 +413,30 @@ figcaption{
     left: 1%;
     position: absolute;
     z-index: -1;
+}
+
+.graphic-title-left{
+    padding-top: 1.5vh;
+    padding-left: 1.2vw;
+}
+
+.graphic-title-right{
+    padding-top: 1.5vh;
+    padding-right: 1.2vw;
+}
+
+.small-slideshow{
+    padding-top: 5vh;
+}
+
+
+.graphic-design-block-text li p{
+    font-size: 1.2rem;
+}
+
+.divider-increase{
+    border-color: rgba(0, 0, 0, 0.54) !important;
+    border:2px solid;
+    border-radius: 100px;
+
 }
