@@ -441,25 +441,19 @@ figcaption{
 
 }
 
-.left-middle-column{
-    width: 80vw;
-    height: 100vh;
-    position: relative;
-    margin: 0px;
-    border-right: 2px solid rgba(211,211,211,.50);
-}
-
 /* Styling for web dev and web design project containers */
 .projects-container{
-    border: 2px solid rgb(179, 194, 201);
-    border-radius: 40px;
-    padding: 1%;
-    
+    border: 10px solid rgba(150, 150, 150, 0.8);
+    background-color: rgba(250, 250, 250, 0.8);
+    margin-bottom: 1vh;
+    padding: 0.5rem;
+    border-radius: 30px;
+ 
 }
 
 /* Title styling for for web dev and web design project containers */
 .project-title-block{
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
 
 }
@@ -481,11 +475,43 @@ figcaption{
 
 /* Styling for tags in tag row in project containers */
 .project-tag{
-    float: right;
+    
 }
 
 .project-tag img{
     /* object-fit: cover; */
     width: 100%;
     height: auto;
+}
+.project-switch{
+    padding-top: 2.5vh;
+    padding-bottom: 1vh;
+}
+
+.project-grid{
+    display:grid;
+    grid-template-columns: .2fr 5fr 1fr .2fr;
+    grid-template-rows: 20px auto;
+    grid-gap: 1em;
+    
+    grid-template-areas: 
+    "... .... ....... ..."
+    "... main sidebar ..."
+    "... .... ....... ...";
+    
+}
+
+.project-column{
+    grid-area: main;
+    justify-self: start;
+}
+
+.project-search-column{
+    grid-area: sidebar;
+    padding-top: 4vh;
+    border: solid 10px rgba(150, 150, 150, 0.8);
+    border-radius: 10px;
+    max-height: 70vh ;
+    background-color: rgba(250, 250, 250, 0.8);
+    
 }
