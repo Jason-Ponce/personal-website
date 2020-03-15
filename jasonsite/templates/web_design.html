@@ -18,75 +18,58 @@
 {% endblock %}
 
 {% block body %}
-<!-- Section of web design articles -->
-<div class="row left-middle-column">
-  <section>
-    <h4>
-      Photoshop [Article Section]
-    </h4>
-      <div class="container projects-container" >
+<div class="project-grid">
+  <div class="project-column">
+    <section>
+      <div class="projects-container" >
         <h5 class="project-title-block">
-          JasonPonce.Info[Project Title]
-          <span class="project-date">Date[Some Month]</span>
+          {{ project_title }}
+          <span class="project-date">{{ project_date }}</span>
         </h5>
         <div class="project-text-block">
-          <p>[Project Description blurb]</p>
-          Chicken leberkas burgdoggen, beef ribs cupim strip steak spare ribs turducken. Shankle tail ball tip tenderloin bresaola picanha strip steak ham capicola pastrami meatball tongue. Spare ribs pig rump pork chop leberkas turkey leberkas turkey leberkas turkey leberkas turkey leberkas turkey leberkas turkey leberkas turkey leberkas turkey leberkas turkey lmignon corned beef boudin rump. Brisket leberkas pig short loin andouille, chicken flank filet mignon. Drumstick doner chicken frankfurter burgdoggen shankle kielbasa beef ribs pork chop landjaeger buffalo fatback.
+          <p>{{ project_text }}</p>
         </div>
         <div class="row project-tag-block">
           <!-- repeat image for language/program used with jinija2 -->
           <div class="col s4 m2 l1 project-tag">
-            <img src="/static/images/pills/svg/python_pills.svg" alt="Python language pill image">
+            <img src='{{ project_pill }}' alt="Python language pill image">
           </div>
         </div>
       </div>
-  </section>
-  <section>
-    <h4>
-      [Article Section]
-    </h4>
-      <div class="container projects-container" >
-        <h5 class="project-title-block">
-          JasonPonce.Info[Project Title]
-          <span class="project-date">Date[Some Month]</span>
-        </h5>
-        <div class="project-text-block">
-          <p>[Project Description blurb]</p>
-          Chicken leberkas burgdoggen, beef ribs cupim strip steak spare ribs turducken. Shankle tail ball tip tenderloin bresaola picanha strip steak ham capicola pastrami meatball tongue. Spare ribs pig rump pork chop leberkas turkey leberkas turkey leberkas turkey leberkas turkey leberkas turkey leberkas turkey leberkas turkey leberkas turkey leberkas turkey lmignon corned beef boudin rump. Brisket leberkas pig short loin andouille, chicken flank filet mignon. Drumstick doner chicken frankfurter burgdoggen shankle kielbasa beef ribs pork chop landjaeger buffalo fatback.
-        </div>
-        <div class="row project-tag-block">
-          <!-- repeat image for language/program used with jinija2 -->
-          <div class="col s4 m2 l1 project-tag">
-            <img src="/static/images/pills/svg/python_pills.svg" alt="Python language pill image">
-          </div>
-        </div>
+    </section>    
+  </div>
+  <div class="project-search-column z-depth-1">
+    <div class="container">
+      Search Bar
+      <div class="divider"></div>
+      <div class="switch project-switch">
+        <label>
+          <input type="checkbox">
+          <span class="lever"></span>
+          <span class="center-align">Adobe XD</span>
+          
+        </label>
       </div>
-  </section>
-  <section>
-    <h4>
-      [Article Section]
-    </h4>
-      <div class="container projects-container" >
-        <h5 class="project-title-block">
-          JasonPonce.Info[Project Title]
-          <span class="project-date">Date[Some Month]</span>
-        </h5>
-        <div class="project-text-block">
-          <p>[Project Description blurb]</p>
-          Chicken leberkas burgdoggen, beef ribs cupim strip steak spare ribs turducken. Shankle tail ball tip tenderloin bresaola picanha strip steak ham capicola pastrami meatball tongue. Spare ribs pig rump pork chop leberkas turkey leberkas turkey leberkas turkey leberkas turkey leberkas turkey leberkas turkey leberkas turkey leberkas turkey leberkas turkey lmignon corned beef boudin rump. Brisket leberkas pig short loin andouille, chicken flank filet mignon. Drumstick doner chicken frankfurter burgdoggen shankle kielbasa beef ribs pork chop landjaeger buffalo fatback.
-        </div>
-        <div class="row project-tag-block">
-          <!-- repeat image for language/program used with jinija2 -->
-          <div class="col s4 m2 l1 project-tag">
-            <img src="/static/images/pills/svg/python_pills.svg" alt="Python language pill image">
-          </div>
-        </div>
+      <div class="switch project-switch">
+        <label>
+          <input type="checkbox">
+          <span class="lever"></span>
+          <span class="center-align">Figma</span>
+        </label>
       </div>
-  </section>
-</div>
-<!-- Section for Search Bar -->
-<div class="search-bar">
-
+      <div class="switch project-switch">
+        <label>
+          <input type="checkbox">
+          <span class="lever"></span>
+          <span class="center-align">Photshop</span>
+        </label>
+      </div>
+      <div class="project-switch">More Filters</div>
+      <div class="center-align">
+        <div class="chips chips-autocomplete" ></div>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}
 
