@@ -18,17 +18,61 @@
 {% endblock %}
 
 {% block body %}
-<h2>Web Development</h2>
-<div class="divider"></div>
-<ul class="pagination">
-        <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-        <li class="active"><a href="#!">1</a></li>
-        <li class="waves-effect"><a href="#!">2</a></li>
-        <li class="waves-effect"><a href="#!">3</a></li>
-        <li class="waves-effect"><a href="#!">4</a></li>
-        <li class="waves-effect"><a href="#!">5</a></li>
-        <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-      </ul>
+<div class="project-grid">
+  <div class="project-column">
+    <section>
+      <div class="projects-container" >
+        <h5 class="project-title-block">
+          {{ project_title }}
+          <span class="project-date">{{ project_date }}</span>
+        </h5>
+        <div class="project-text-block">
+          <p>{{ project_text }}</p>
+        </div>
+        <div class="row project-tag-block">
+          <!-- repeat image for language/program used with jinija2 -->
+          <div class="col s4 m2 l1 project-tag">
+            <img src='{{ project_pill }}' alt="Python language pill image">
+          </div>
+        </div>
+      </div>
+    </section>    
+  </div>
+  <div class="project-search-column z-depth-1">
+    <div class="container">
+      Search Bar
+      <div class="divider"></div>
+      <div class="switch project-switch">
+        <label>
+          <input type="checkbox">
+          <span class="lever"></span>
+          <span class="center-align">Python</span>
+          
+        </label>
+      </div>
+      <div class="switch project-switch">
+        <label>
+          <input type="checkbox">
+          <span class="lever"></span>
+          <span class="center-align">JavaScript</span>
+        </label>
+      </div>
+      <div class="switch project-switch">
+        <label>
+          <input type="checkbox">
+          <span class="lever"></span>
+          <span class="center-align">CSS</span>
+        </label>
+      </div>
+      <div class="project-switch">More Filters</div>
+      <div class="center-align">
+        <div class="chips chips-autocomplete" ></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 {% endblock %}
 
 {% block scripts %}

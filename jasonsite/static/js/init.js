@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+
 //Ties hidden divs with respective gallery image
 // next-travel
 var travel = ["travel-1","travel-2","travel-3","travel-4","travel-5","travel-6","travel-7","travel-8"];
