@@ -440,3 +440,52 @@ figcaption{
     border-radius: 100px;
 
 }
+
+.left-middle-column{
+    width: 80vw;
+    height: 100vh;
+    position: relative;
+    margin: 0px;
+    border-right: 2px solid rgba(211,211,211,.50);
+}
+
+/* Styling for web dev and web design project containers */
+.projects-container{
+    border: 2px solid rgb(179, 194, 201);
+    border-radius: 40px;
+    padding: 1%;
+    
+}
+
+/* Title styling for for web dev and web design project containers */
+.project-title-block{
+    font-size: 2rem;
+    font-weight: bold;
+
+}
+
+.project-date{
+    float: right;
+}
+
+/* Text styling for web dev and web design project containers */
+.project-text-block{
+
+}
+
+/* Styling for tag ROW for web dev and web design project containers */
+.project-tag-block{
+    margin-top: 10px;
+    margin-bottom: 0 !important;
+}
+
+/* Styling for tags in tag row in project containers */
+.project-tag{
+    float: right;
+}
+
+.project-tag img{
+    /* object-fit: cover; */
+    width: 100%;
+    height: auto;
+}
