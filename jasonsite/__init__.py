@@ -1,9 +1,11 @@
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
-app._static_folder
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 
+db = SQLAlchemy(app)
 
 # leave here
 from jasonsite import routes

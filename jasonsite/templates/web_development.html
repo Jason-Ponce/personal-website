@@ -20,14 +20,15 @@
 {% block body %}
 <div class="project-grid">
   <div class="project-column">
+    {% for post in posts %}
     <section>
       <div class="projects-container" >
         <h5 class="project-title-block">
-          {{ project_title }}
-          <span class="project-date">{{ project_date }}</span>
+          {{ post.title }}
+          <span class="project-date">{{ post.date_posted }}</span>
         </h5>
         <div class="project-text-block">
-          <p>{{ project_text }}</p>
+          <p>{{ post.blurb }}</p>
         </div>
         <div class="row project-tag-block">
           <!-- repeat image for language/program used with jinija2 -->
@@ -36,7 +37,8 @@
           </div>
         </div>
       </div>
-    </section>    
+    </section>
+    {% endfor %}    
   </div>
   <div class="project-search-column z-depth-1">
     <div class="container">

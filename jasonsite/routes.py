@@ -1,6 +1,7 @@
 import os
 from flask import render_template, url_for, send_from_directory
-from jasonsite import app
+from jasonsite import app, db
+from jasonsite.models import User, Post, Images
 
 
 @app.route('/favicon.ico')
@@ -60,18 +61,19 @@ def web_design():
 
 # END WEB DESIGN SECTION
 # |--WEB DEVELOPMENT SECTION--|
-@app.route("/web_development")
+@app.route("/web_development", methods=['GET', 'POST'])
 def web_development():
     page_title="Web Development"
+    project_query = Post.query.all()
     project_title= "JasonPonce.Info"
     project_date= "3/15/2020"
 
     project_text= "\'Bacon ipsum dolor amet chicken ball tip swine pastrami picanha leberkas bresaola sausage buffalo corned beef tongue tri-tip strip steak biltong shankleKielbasa biltong landjaeger ham hock capicola, jowl pork loin tri-tip ground round cupim corned beef filet mignon chuck boudin.\'"
 
     project_pill= "/static/images/pills/svg/python_pills.svg"
-    return render_template('web_development.html', title=page_title, project_title=project_title, project_date=project_date, project_text=project_text, project_pill=project_pill)
+    return render_template('web_development.html', title=page_title, posts=project_query, project_pill=project_pill)
 
-
+# project_title=project_title, project_date=project_date, project_text=project_text,
 @app.route("/web_development/jasonponce_info")
 def jasonponce():
     page_title="JasonPonce.Info"
@@ -84,14 +86,4 @@ def test():
 
 
 # END WEB DEVELOPMENT SECTION
-
-# TESTING 
-# GROUNDS
-# FOR
-# STUFF
-# @app.route("/testing_grounds")
-# def testing_grounds():
-#     page_title="testing grounds"
-#     return render_template('projects_index.html', title=page_title)
-
 
