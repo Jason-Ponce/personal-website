@@ -1,7 +1,8 @@
 from datetime import datetime
-from jasonsite import db
+from jasonsite import db, login_manager
+from flask_login import UserMixin
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
     username = db.Column(db.String(64), unique=True, nullable=False)
@@ -15,7 +16,7 @@ class User(db.Model):
         return f"User('{self.email}', '{self.image_file}', '{self.first_name}', '{self.last_name}')"
 
 
-class Post(db.Model):
+class Post(db.Model, UserMixin):
     post_id = db.Column(db.Integer, primary_key = True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable = False)
     title = db.Column(db.String(64), nullable = False)
@@ -27,7 +28,7 @@ class Post(db.Model):
     def __repr__(self):
         return f"Post('{self.title}', '{self.date_posted}', '{self.blurb}', '{self.content}', '{self.pill_images}')"
 
-class Images(db.Model):
+class Images(db.Model, UserMixin):
     image_id = db.Column(db.Integer, primary_key = True)
     source = db.Column(db.Text, nullable = False)
     posting_id = db.Column(db.Integer, db.ForeignKey('post.post_id'), nullable = False)
