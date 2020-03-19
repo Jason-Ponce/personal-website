@@ -1,7 +1,9 @@
 import os
 from flask import render_template, url_for, send_from_directory
-from jasonsite import app, db
+from jasonsite import app, db, bcrypt
 from jasonsite.models import User, Post, Images
+from jasonsite.forms import SignUpForm, LoginForm
+from flask_login import login_user, current_user, logout_user, login_required
 
 
 @app.route('/favicon.ico')
@@ -13,6 +15,18 @@ def favicon():
 def home():
     page_title="home"
     return render_template('home.html', title=page_title)
+
+@app.route("/signup")
+def signup():
+    page_title = "signup"
+    form = SignUpForm
+    return render_template('signup.html', title=page_title)    
+
+@app.route("/login")
+def login():
+    page_title = "login"
+    form = LoginForm
+    return render_template('login.html', title=page_title)   
 
 
 @app.route("/about")
