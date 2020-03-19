@@ -11,7 +11,9 @@ document.addEventListener('DOMContentLoaded', function () {
   M.AutoInit();
 });
 
-
+$(document).ready(function(){
+  $('.fixed-action-btn').floatingActionButton();
+});
 
 //Ties hidden divs with respective gallery image
 // next-travel
