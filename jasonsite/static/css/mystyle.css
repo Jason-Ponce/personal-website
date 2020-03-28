@@ -254,20 +254,24 @@ figcaption{
 
 .link-white:visited, .link-white:link{
     color: whitesmoke;
+    text-decoration: underline;
 }
 
 .link-white:visited:hover, .link-white:link:hover{
     color: whitesmoke;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .link-black:visited, .link-black:link{
     color: black;
+    text-decoration: underline;
 }
+
+
 
 .link-black:visited:hover, .link-black:link:hover{
     color: black;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .reduced-logo{
@@ -540,8 +544,8 @@ figcaption{
     background-color: rgba(170, 170, 170, 0.8);
     /* grid inside grid yo */
     display:grid;
-    grid-template-columns: .2fr auto .2fr;
-    grid-template-rows: .2fr auto .2fr;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: .7fr 1fr 1fr;
     grid-template-areas: 
     "... ... ..."
     "... contact ..."
@@ -576,5 +580,41 @@ figcaption{
 .info-block{
     grid-area: info;
     text-align: center;
+    margin-top: 15%;
 }
 
+.inline-icon{
+    vertical-align: sub;
+    padding-right: 0.1vw;
+}
+
+.input-field > label{
+    color: black;
+    font-size: 1.2rem;
+}
+
+.input-field > input{
+    color: black;
+    font-size: 1rem;
+}
+
+.input-field > ::placeholder{
+    color: #C0C0C0;
+    font-size: 1.2rem;
+}
+
+.lowercase-btn{
+    text-transform: lowercase;
+}
+
+.login-button{
+    margin-top: 2vh;
+}
+
+.auth-questions{
+    margin-top: 1vh;
+}
+
+.right-border{
+    border-left: solid 1px #080808;
+}
