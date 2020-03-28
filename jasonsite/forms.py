@@ -11,8 +11,9 @@ class SignUpForm(FlaskForm):
     last_name = StringField('Last Name', validators=[DataRequired(), Length(min=2, max=32)])
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired(), Length(min=8, max=32)])
-    resubmit_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('new_password')])
-    signup_submit = SubmitField('Sign Up')
+    resubmit_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
+    referral_code = StringField('Referral', validators=[DataRequired(), Length(min=16, max=16)])
+    submit = SubmitField('Submit')
 
     def validate_email(self, email):
         user = User.query.filter_by(email=email.data).first()
@@ -20,8 +21,9 @@ class SignUpForm(FlaskForm):
             raise ValidationError('Email in use.')
 
 
+
 class LoginForm(FlaskForm):
-    user_email = StringField('Email', validators=[DataRequired(), Email()])
-    user_password = PasswordField('Password', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
     remember = BooleanField('Remember Me')
-    login_submit = SubmitField('Login')
+    submit = SubmitField('Submit')
