@@ -2,15 +2,19 @@ from datetime import datetime
 from jasonsite import db, login_manager
 from flask_login import UserMixin
 
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
 class User(db.Model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-    username = db.Column(db.String(64), unique=True, nullable=False)
+    id =            db.Column(db.Integer, primary_key=True)
+    email =         db.Column(db.String(120), unique=True, nullable=False)
     profile_image = db.Column(db.String(20), nullable=False, default='default.png')
-    password = db.Column(db.String(60), nullable=False)
-    first_name = db.Column(db.String(64), nullable=False)
-    last_name = db.Column(db.String(64), nullable=False)
-    posts = db.relationship('Post', backref='author', lazy=True)
+    password =      db.Column(db.String(60), nullable=False)
+    first_name =    db.Column(db.String(64), nullable=False)
+    last_name =     db.Column(db.String(64), nullable=False)
+    referral_code = db.Column(db.String(16), unique=True, nullable=False)
+    posts =         db.relationship('Post', backref='author', lazy=True)
 
     def __repr__(self):
         return f"User('{self.email}', '{self.image_file}', '{self.first_name}', '{self.last_name}')"
