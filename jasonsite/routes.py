@@ -1,5 +1,5 @@
 import os
-from flask import render_template, url_for, send_from_directory
+from flask import render_template, url_for, send_from_directory, flash, redirect, request
 from jasonsite import app, db, bcrypt
 from jasonsite.models import User, Post, Images
 from jasonsite.forms import SignUpForm, LoginForm
@@ -16,17 +16,35 @@ def home():
     page_title="home"
     return render_template('home.html', title=page_title)
 
-@app.route("/signup")
+@app.route("/signup", methods=['GET', 'POST'])
 def signup():
     page_title = "signup"
-    form = SignUpForm
-    return render_template('signup.html', title=page_title)    
+    form = SignUpForm()
+    if form.validate_on_submit():
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        user = User(email=form.email.data, password=hashed_password, first_name=form.first_name.data, last_name=form.last_name.data, referral_code=form.referral_code.data )
+        db.session.add(user)
+        db.session.commit()
+        return redirect(url_for('login'))
+    return render_template('signup.html', title=page_title, form=form)    
 
-@app.route("/login")
+@app.route("/login", methods=['GET', 'POST'])
 def login():
     page_title = "login"
-    form = LoginForm
-    return render_template('login.html', title=page_title)   
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user and bcrypt.check_password_hash(user.password, form.password.data):
+            login_user(user, remember=form.remember.data)
+            next_page = request.args.get('next')
+            return redirect(next_page) if next_page else redirect(url_for('home'))
+    return render_template('login.html', title=page_title, form=form)   
+
+@app.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('home'))
 
 
 @app.route("/about")
