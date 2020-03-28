@@ -17,7 +17,54 @@
 {% endblock %}
 
 {% block body %}
-<H1>login</H1>
+<div class="auth-grid">
+    <div class="auth-left z-depth-1">
+            <div class="contact-block">
+                <h4>Please contact me for a referral code</h4>
+                <h5>Email me at</h5>
+                <a href="mailto:Jason.Ponce.Work@gmail.com?subject=Referral Code" class="link-black"><h6><i class="material-icons inline-icon">email</i>Jason.Ponce.Work@Gmail.com</h6></a>
+            </div>
+    </div>
+    <div class="auth-right z-depth-1">
+        <div class="info-block">
+            <div class="row">
+                <form class="col s12" method="POST" action="">
+                  {{ form.hidden_tag() }}
+                  <div class="row">
+                    <div class="input-field col s12">
+                      {{ form.email(placeholder="YourEmail@Someplace.com", id="email", type="email", class="validate" ) }}
+                      {{ form.email.label( for="email") }}
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      {{ form.password( placeholder="hunterr2", id="password", type="password", class="validate" ) }}
+                      {{ form.password.label( for="password" ) }}
+                      <span class="helper-text left-align">minimum 8 characters</span>
+                    </div>
+                    <div class="col s6 login-button">
+                        {{ form.submit( class="btn waves-effect waves-light grey lighten-1 lowercase-btn", type="submit", value="Submit") }}
+                      </div>
+                  </div>
+                </form>
+              </div>
+              <div class="divider"></div>
+              <div class="row auth-questions">
+                  <div class="col s6 left-align">
+                    <span>Why can't I login?</span>
+                    <p>Test</p>
+                    <div class="divider"></div>
+                  </div>
+                  <div class="col s6 right-align right-border">
+                    <span>Did you forget your <a href="" class="link-black">Forget Password?</a></span>
+                  </div>
+                  {% if form.errors %}
+{{ form.errors }}
+{% endif %}
+              </div>
+        </div>
+    </div>
+</div>
 {{super()}}
 {% endblock %}
 

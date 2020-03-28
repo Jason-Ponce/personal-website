@@ -19,52 +19,52 @@
 {% block body %}
 <div class="auth-grid">
     <div class="auth-left z-depth-1">
-            <div class=" contact-block">
+            <div class="contact-block">
                 <h4>Please contact me for a referral code</h4>
                 <h5>Email me at</h5>
-                <h6><i class="material-icons">email</i>Jason.Ponce.Work@Gmail.com</h6>
+                <a href="mailto:Jason.Ponce.Work@gmail.com?subject=Referral Code" class="link-black"><h6><i class="material-icons inline-icon">email</i>Jason.Ponce.Work@Gmail.com</h6></a>
             </div>
     </div>
     <div class="auth-right z-depth-1">
         <div class="info-block">
             <div class="row">
-                <form class="col s12">
+                <form class="col s12" method="POST" action="">
+                  {{ form.hidden_tag() }}
+                  <div class="row">
+                    <div class="input-field col s12">
+                      {{ form.email(placeholder="YourEmail@Someplace.com", id="email", type="email", class="validate" ) }}
+                      {{ form.email.label( for="email") }}
+                    </div>
+                  </div>
                   <div class="row">
                     <div class="input-field col s6">
-                      <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                      <label for="first_name">First Name</label>
+                      {{ form.password( placeholder="hunterr2", id="password", type="password", class="validate" ) }}
+                      {{ form.password.label( for="password" ) }}
+                      <span class="helper-text left-align">minimum 8 characters</span>
                     </div>
                     <div class="input-field col s6">
-                      <input id="last_name" type="text" class="validate">
-                      <label for="last_name">Last Name</label>
+                      {{ form.resubmit_password( placeholder="hunterr2", id="resubmit_password", type="password", class="validate" ) }}
+                      {{ form.resubmit_password.label( for="resubmit_password") }}     
+                      <span class="helper-text left-align">confirm password</span>            
                     </div>
                   </div>
                   <div class="row">
-                    <div class="input-field col s12">
-                      <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-                      <label for="disabled">Disabled</label>
+                    <div class="input-field col s6">
+                      {{ form.first_name( placeholder="George", id="first_name", type="text", class="validate" ) }}
+                      {{ form.first_name.label( for="first_name" ) }}
+                    </div>
+                    <div class="input-field col s6">
+                      {{ form.last_name( placeholder="Costanza", id="last_name", type="text", class="validate" ) }}
+                      {{ form.last_name.label( for="last_name" ) }}                
                     </div>
                   </div>
                   <div class="row">
-                    <div class="input-field col s12">
-                      <input id="password" type="password" class="validate">
-                      <label for="password">Password</label>
+                    <div class="col s6">
+                      {{form.referral_code( placeholder="Required", id="referral_code", type="text", class="validate")}}
+                      <span class="helper-text left-align">Referral</span>  
                     </div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <input id="email" type="email" class="validate">
-                      <label for="email">Email</label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col s12">
-                      This is an inline input field:
-                      <div class="input-field inline">
-                        <input id="email_inline" type="email" class="validate">
-                        <label for="email_inline">Email</label>
-                        <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
-                      </div>
+                    <div class="col s6">
+                      {{ form.submit( class="btn waves-effect waves-light grey lighten-1 lowercase-btn") }}
                     </div>
                   </div>
                 </form>
