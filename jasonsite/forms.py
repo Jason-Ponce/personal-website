@@ -7,18 +7,18 @@ from jasonsite.models import User
 
 
 class SignUpForm(FlaskForm):
-    first_name = StringField('First Name', validators=[DataRequired(), Length(min=2, max=32)])
-    last_name = StringField('Last Name', validators=[DataRequired(), Length(min=2, max=32)])
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired(), Length(min=8, max=32)])
-    resubmit_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
-    referral_code = StringField('Referral', validators=[DataRequired(), Length(min=16, max=16)])
+    first_name = StringField('First Name', validators=[DataRequired(message="First name required"), Length(max=64, message="Max limit reached")])
+    last_name = StringField('Last Name', validators=[DataRequired(message="Last name required"), Length(max=64, message="Max limit reached")])
+    email = StringField('Email', validators=[DataRequired(message="Email required"), Email(), Length(max=64)])
+    password = PasswordField('Password', validators=[DataRequired(message="Password required"), Length(min=8, max=32, message="Password has to be between a minimum of 8 characters")])
+    resubmit_password = PasswordField('Confirm Password', validators=[DataRequired(message="Resubmit same password"), EqualTo('password', message="Passwords did not match")])
     submit = SubmitField('Submit')
 
     def validate_email(self, email):
         user = User.query.filter_by(email=email.data).first()
         if user:
             raise ValidationError('Email in use.')
+
 
 
 
