@@ -22,7 +22,8 @@ def signup():
     form = SignUpForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = User(email=form.email.data, password=hashed_password, first_name=form.first_name.data, last_name=form.last_name.data, referral_code=form.referral_code.data )
+        active_status = False
+        user = User(email=form.email.data, password=hashed_password, first_name=form.first_name.data, last_name=form.last_name.data, active=active_status)
         db.session.add(user)
         db.session.commit()
         return redirect(url_for('login'))
@@ -35,9 +36,13 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
-            login_user(user, remember=form.remember.data)
-            next_page = request.args.get('next')
-            return redirect(next_page) if next_page else redirect(url_for('home'))
+            if user.active == False:
+                print("failled login")
+                flash("User is not authorized. Please wait for Site Admin to approve.", "error")
+            else:
+                login_user(user, remember=form.remember.data)
+                next_page = request.args.get('next')
+                return redirect(next_page) if next_page else redirect(url_for('console'))
     return render_template('login.html', title=page_title, form=form)   
 
 @app.route("/logout")
@@ -45,6 +50,12 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('home'))
+
+@app.route("/admin")
+@login_required
+def console():
+    page_title = "console"
+    return render_template('console.html', title=page_title) 
 
 
 @app.route("/about")
