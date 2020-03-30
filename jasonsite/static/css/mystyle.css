@@ -618,3 +618,38 @@ figcaption{
 .right-border{
     border-left: solid 1px #080808;
 }
+
+.fixed-action-btn > ul >li {
+    position: relative;
+    right: .6vw;
+    top: .8vw;
+    
+}
+
+.fixed-action-btn > ul >li >.btn {
+    width: 80px;
+    text-align: center;
+    padding: 0%;
+    
+}
+
+.error-message{
+    position: relative;
+    border: solid 3px #808080;
+    border-radius: 40px;
+    font-size: 0.9rem;
+    padding: 1px;
+    height: 32px;
+}
+
+.child-clear {
+    position: absolute;
+    left: 102%;
+    top: -5px;
+    
+}
+
+.error-span{
+    color: red !important;
+}
+
