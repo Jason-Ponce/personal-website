@@ -34,40 +34,86 @@
                     <div class="input-field col s12">
                       {{ form.email(placeholder="YourEmail@Someplace.com", id="email", type="email", class="validate" ) }}
                       {{ form.email.label( for="email") }}
+                      {% if form.email.errors %}
+                        {% for error in form.email.errors %}
+                          <span class="helper-text left-align error-span"> {{error}} </span>
+                        {% endfor %}
+                      {% else %}
+                        <span class="helper-text left-align">Email required</span>  
+                      {% endif %}
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s6">
                       {{ form.password( placeholder="hunterr2", id="password", type="password", class="validate" ) }}
                       {{ form.password.label( for="password" ) }}
-                      <span class="helper-text left-align">minimum 8 characters</span>
+                      {% if form.password.errors %}
+                        {% for error in form.password.errors %}
+                          <span class="helper-text left-align error-span"> {{error}} </span>
+                        {% endfor %}
+                      {% else %}
+                        <span class="helper-text left-align">minimum 8 characters</span>
+                      {% endif %}
                     </div>
                     <div class="input-field col s6">
                       {{ form.resubmit_password( placeholder="hunterr2", id="resubmit_password", type="password", class="validate" ) }}
-                      {{ form.resubmit_password.label( for="resubmit_password") }}     
-                      <span class="helper-text left-align">confirm password</span>            
+                      {{ form.resubmit_password.label( for="resubmit_password") }}  
+                      {% if form.resubmit_password.errors %}
+                        {% for error in form.resubmit_password.errors %}
+                          <span class="helper-text left-align error-span"> {{error}} </span>
+                        {% endfor %}
+                      {% else %}  
+                        <span class="helper-text left-align">Confirm password</span>            
+                      {% endif %}   
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s6">
                       {{ form.first_name( placeholder="George", id="first_name", type="text", class="validate" ) }}
                       {{ form.first_name.label( for="first_name" ) }}
+                      {% if form.first_name.errors %}
+                        {% for error in form.first_name.errors %}
+                          <span class="helper-text left-align error-span"> {{error}} </span>
+                        {% endfor %}
+                      {% else %}
+                        <span class="helper-text left-align">First name required</span>  
+                      {% endif %}
                     </div>
                     <div class="input-field col s6">
                       {{ form.last_name( placeholder="Costanza", id="last_name", type="text", class="validate" ) }}
-                      {{ form.last_name.label( for="last_name" ) }}                
+                      {{ form.last_name.label( for="last_name" ) }}  
+                      {% if form.last_name.errors %}
+                        {% for error in form.last_name.errors %}
+                          <span class="helper-text left-align error-span"> {{error}} </span>
+                        {% endfor %}
+                      {% else %}
+                        <span class="helper-text left-align">Last name required</span>  
+                      {% endif %}                                    
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col s6">
-                      {{form.referral_code( placeholder="Required", id="referral_code", type="text", class="validate")}}
-                      <span class="helper-text left-align">Referral</span>  
-                    </div>
-                    <div class="col s6">
+                    <div class="col s6 offset-s6">
                       {{ form.submit( class="btn waves-effect waves-light grey lighten-1 lowercase-btn") }}
                     </div>
                   </div>
                 </form>
+                <div class="container">
+                {% with messages = get_flashed_messages(category_filter=["error"]) %}
+                  {% if messages %}
+                    <ul class=flashes>
+                      {% for message in messages %}
+                        <li class="error-message">
+                          <button class="child-clear btn-small btn-floating red">
+                            X
+                            </button>
+                            {{ message }}
+                          </li>
+                        
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                {% endwith %}
+                </div>
               </div>
         </div>
     </div>
