@@ -87,3 +87,9 @@ function changeLogoPrev(){
 }
 
 
+// Removes parent element for error messages
+document.querySelector(".child-clear").addEventListener("click", removeParentError);
+
+function removeParentError(){
+  document.querySelector(".error-message").style.display = "none";
+}
