@@ -51,6 +51,9 @@
         <li><a href="{{ url_for('about') }}">About</a></li>
         <li><a href="{{ url_for('resume') }}">Resume</a></li>
         <li><a href="{{ url_for('projects') }}">Projects</a></li>
+        {% if current_user.is_authenticated %}
+        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        {% endif %}
         </ul>
         <!-- Dashboard shows up when Logo Image, and Site Links disappear due to screen size -->
         <ul id="nav-mobile" class="right hide-on-large-only">
@@ -77,13 +80,12 @@
 <body style="background-color: whitesmoke;">
 
     <div class="fixed-action-btn">
-        <a class="btn-floating btn-large red">
-          <i class="large material-icons">mode_edit</i>
+        <a class="btn-floating btn-large grey darken-2">
+          <i class="large material-icons">account_box</i>
         </a>
         <ul>
-          <li><a href="{{ url_for('test')}}" class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-          <li><a href="{{ url_for('login')}}" class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-          <li><a href="{{ url_for('signup')}}" class="btn-floating green"><i class="material-icons">publish</i></a></li>
+          <li><a href="{{ url_for('login')}}" class="btn grey darken-3">Login</a></li>
+          <li><a href="{{ url_for('signup')}}" class="btn grey darken-3">Signup</a></li>
         </ul>
       </div>
 </body>
