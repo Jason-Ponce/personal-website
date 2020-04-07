@@ -31,26 +31,28 @@
                         Create a Quick Post
                     </div>
                     <div class="admin-tools-text">
-                        Body
-                        <form method="POST" action="">
-                            {{ form.hidden_tag() }}
-                            <textarea name="" id="" cols="30" rows="10"></textarea>
+                        <form method="POST" action="" enctype="multipart/form-data">
+                            {{ post.hidden_tag() }}
+                            {{ post.csrf_token }}
+                            {{ post.title.label() }}
+                            {{ post.title(placeholder='Title for the post...') }}
+                            {{ post.blurb.label() }}
+                            {{ post.blurb(placeholder='Summary of the post...') }}
+                            {{ post.post.label() }}
+                            {{ post.post(placeholder="Quick Post...") }}
                             <div class="row">
-                                <div class="file-field input-field col s4">
-                                    <div class="btn">
-                                        {{ post_form.post_image(value='File') }}
-                                        <input type="file">
-                                    </div>
-                                    <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="text">
+                                <div class="input-field col s4">
+                                    <div class="row">
+                                        <div class="col s12">{{ post.post_image.label() }}</div>
+                                        <div class="col s12">{{ post.post_image() }}</div>
                                     </div>
                                 </div>
                                 <div class="input-field col s8">
-                                    {{ post_form.category_post }}
-                                    {{ post_form.category_post.label }}
+                                    {{ post.category_post }}
+                                    {{ post.category_post.label }}
                                 </div>
                             </div>
-                            <button class="btn" type="submit">Submit</button>
+                            {{ post.submit( class="btn waves-effect waves-light grey lighten-1 lowercase-btn", type="submit", value="Submit" ) }}
                         </form>
                     </div>
                 </article>
@@ -71,7 +73,23 @@
                             Latest Post
                         </div>
                         <div class="admin-tools-text">
-                            Post name
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Title</th>
+                                        <th>Blurb</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="z-index-1">
+                                    <tr>
+                                        <td class="right-table-divider background-white-0">{{ latest_post.created_by.first_name }} {{ latest_post.created_by.last_name }}</td>
+                                        <td class="right-table-divider background-white-1"><a href="{{ url_for('post', post_id=latest_post.post_id) }}">{{ latest_post.title }}</a></td>
+                                        <td class="background-white-0">{{ latest_post.blurb }}</td>
+                                        
+                                    </tr>
+                                </tbody>
+                            </table>                           
                         </div>
                     </div>
                     <div class="admin-tools-container">
@@ -81,7 +99,7 @@
                         <div class="admin-tools-text">
                             {% for quick_view in quick_view %}
                             <form method="POST" action="" id="new-user-form" onsubmit="resetInput()">
-                                {{ form.hidden_tag() }}
+                                {{ admin_tool.hidden_tag() }}
                                     <div class="row auth-row">
                                         <div class="col s6 user">
                                             {{ quick_view.email }}
@@ -91,10 +109,10 @@
                                 <div class="row">
                                     <div class="col s1"></div>
                                     <div class="col s7">
-                                        {{ form.user(placeholder="Email@email.com", id="user_name", type="type") }}
+                                        {{ admin_tool.user(placeholder="Email@email.com", id="user_name", type="type") }}
                                     </div>
                                     <div class="col s4">
-                                        {{ form.submit( class="btn waves-effect waves-light grey lighten-1 lowercase-btn", type="submit", value="Submit" ) }}
+                                        {{ admin_tool.submit( class="btn waves-effect waves-light grey lighten-1 lowercase-btn", type="submit", value="Submit" ) }}
                                     </div>
                                 </div>
                             </form>

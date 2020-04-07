@@ -1,2 +1,4 @@
 
 *.pyc
+
+jasonsite/templates/test.html
