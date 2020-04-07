@@ -2,7 +2,7 @@ import os
 from flask import render_template, url_for, send_from_directory, flash, redirect, request
 from jasonsite import app, db, bcrypt
 from jasonsite.models import User, Post, Images
-from jasonsite.forms import SignUpForm, LoginForm
+from jasonsite.forms import SignUpForm, LoginForm, AdminToolForm, PostForm
 from flask_login import login_user, current_user, logout_user, login_required
 
 
@@ -36,13 +36,13 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
-            if user.active == False:
+            if user.status == False:
                 print("failled login")
                 flash("User is not authorized. Please wait for Site Admin to approve.", "error")
             else:
                 login_user(user, remember=form.remember.data)
                 next_page = request.args.get('next')
-                return redirect(next_page) if next_page else redirect(url_for('console'))
+                return redirect(next_page) if next_page else redirect(url_for('admin'))
     return render_template('login.html', title=page_title, form=form)   
 
 @app.route("/logout")
@@ -51,11 +51,23 @@ def logout():
     logout_user()
     return redirect(url_for('home'))
 
-@app.route("/admin")
+@app.route("/admin", methods=['GET', 'POST'])
 @login_required
-def console():
-    page_title = "console"
-    return render_template('console.html', title=page_title) 
+def admin():
+    page_title = "Dashboard"
+    # get status 0 returns unauthorized users.
+    quick_view_tools = User.query.filter_by(status=0).all()
+    form = AdminToolForm()
+    post_form = PostForm()
+    if form.validate_on_submit():
+        change_state = User.query.filter_by(email=form.user.data).first()
+        if change_state.status == False:
+            change_state.status = True
+            db.session.add(change_state)
+            db.session.commit()
+            flash(form.user.data + " has been authorized.")
+            return redirect(url_for('admin'))
+    return render_template('admin.html', title=page_title, quick_view=quick_view_tools, form=form, post_form=post_form) 
 
 
 @app.route("/about")
@@ -122,10 +134,16 @@ def jasonponce():
     page_title="JasonPonce.Info"
     return render_template('jasonponce_info.html', title=page_title)
 
-@app.route("/test")
+@app.route("/test", methods=["GET","POST"])
 def test():
     page_title="test"
-    return render_template('test.html', title=page_title)
+    test = PostForm()
+    if test.validate_on_submit():
+        print("form validated")
+        print(test.post_image.data + " is the pics name")
+    else:
+        print("form not validateddddddd")
+    return render_template('test.html', title=page_title, test = test)
 
 
 # END WEB DEVELOPMENT SECTION
