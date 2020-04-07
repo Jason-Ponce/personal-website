@@ -57,18 +57,27 @@ def admin():
     page_title = "Dashboard"
     # get status 0 returns unauthorized users.
     quick_view_tools = User.query.filter_by(status=0).all()
-    form = AdminToolForm()
-    post_form = PostForm()
-    if form.validate_on_submit():
-        change_state = User.query.filter_by(email=form.user.data).first()
+    admin_tool_form = AdminToolForm()
+    post = PostForm()
+    latest_post = Post.query.order_by(Post.post_id).first()
+    print(f"Latest post data is : {latest_post} and {latest_post.created_by.first_name} {latest_post.created_by.last_name}")
+    if admin_tool_form.validate_on_submit():
+        change_state = User.query.filter_by(email=admin_tool_form.user.data).first()
         if change_state.status == False:
             change_state.status = True
             db.session.add(change_state)
             db.session.commit()
-            flash(form.user.data + " has been authorized.")
+            flash(admin_tool_form.user.data + " has been authorized.")
             return redirect(url_for('admin'))
-    return render_template('admin.html', title=page_title, quick_view=quick_view_tools, form=form, post_form=post_form) 
+    if post.validate_on_submit():
+        return redirect(url_for('admin'))
+    return render_template('admin.html', title=page_title, quick_view=quick_view_tools, admin_tool=admin_tool_form, post=post, latest_post=latest_post ) 
 
+
+@app.route("/projects/<int:post_id>")
+def post(post_id):
+    post = Post.query.get_or_404(post_id)
+    return render_template('post.html', title=post.title, post=post)
 
 @app.route("/about")
 def about():
@@ -138,11 +147,6 @@ def jasonponce():
 def test():
     page_title="test"
     test = PostForm()
-    if test.validate_on_submit():
-        print("form validated")
-        print(test.post_image.data + " is the pics name")
-    else:
-        print("form not validateddddddd")
     return render_template('test.html', title=page_title, test = test)
 
 
