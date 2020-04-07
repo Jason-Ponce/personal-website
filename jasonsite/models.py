@@ -13,11 +13,11 @@ class User(db.Model, UserMixin):
     password =      db.Column(db.String(60), nullable=False)
     first_name =    db.Column(db.String(64), nullable=False)
     last_name =     db.Column(db.String(64), nullable=False)
-    active =        db.Column(db.Boolean, nullable=False)
+    status =        db.Column(db.Boolean, nullable=False)
     posts =         db.relationship('Post', backref='author', lazy=True)
 
     def __repr__(self):
-        return f"User('{self.email}', '{self.active}', '{self.first_name}', '{self.last_name}')"
+        return f"User('{self.email}', '{self.status}', '{self.first_name}', '{self.last_name}')"
 
 
 class Post(db.Model, UserMixin):
@@ -28,6 +28,7 @@ class Post(db.Model, UserMixin):
     blurb =         db.Column(db.String(256), nullable = False)
     content =       db.Column(db.Text, nullable = False)
     pill_images =   db.relationship('Images', backref = 'post_images', lazy = True)
+    category =      db.Column(db.String(32), nullable = False)
 
     def __repr__(self):
         return f"Post('{self.title}', '{self.date_posted}', '{self.blurb}', '{self.content}', '{self.pill_images}')"
