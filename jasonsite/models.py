@@ -21,17 +21,18 @@ class User(db.Model, UserMixin):
 
 
 class Post(db.Model, UserMixin):
-    post_id =       db.Column(db.Integer, primary_key = True)
-    user_id =       db.Column(db.Integer, db.ForeignKey('user.id'), nullable = False)
-    title =         db.Column(db.String(64), nullable = False)
-    date_posted =   db.Column(db.String, nullable = False)
-    blurb =         db.Column(db.String(256), nullable = False)
-    content =       db.Column(db.Text, nullable = False)
-    pill_images =   db.relationship('Images', backref = 'post_images', lazy = True)
-    category =      db.Column(db.String(32), nullable = False)
+    post_id         = db.Column(db.Integer, primary_key = True)
+    user_id         = db.Column(db.Integer, db.ForeignKey('user.id'), nullable = False)
+    title           = db.Column(db.String(64), nullable = False)
+    date_posted     = db.Column(db.String, nullable = False)
+    blurb           = db.Column(db.String(256), nullable = False)
+    content         = db.Column(db.Text, nullable = False)
+    pill_images     = db.relationship('Images', backref = 'post_images', lazy = True)
+    category        = db.Column(db.String(32), nullable = False)
+    created_by      = db.relationship('User', backref = 'owner', lazy=True)
 
     def __repr__(self):
-        return f"Post('{self.title}', '{self.date_posted}', '{self.blurb}', '{self.content}', '{self.pill_images}')"
+        return f"Post('{self.title}', '{self.blurb}', '{self.date_posted}', '{self.content}', '{self.category }')"
 
 class Images(db.Model, UserMixin):
     image_id =      db.Column(db.Integer, primary_key = True)
