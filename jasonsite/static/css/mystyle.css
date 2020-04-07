@@ -470,11 +470,6 @@ figcaption{
     float: right;
 }
 
-/* Text styling for web dev and web design project containers */
-.project-text-block{
-
-}
-
 /* Styling for tag ROW for web dev and web design project containers */
 .project-tag-block{
     margin-top: 10px;
@@ -482,9 +477,6 @@ figcaption{
 }
 
 /* Styling for tags in tag row in project containers */
-.project-tag{
-    
-}
 
 .project-tag img{
     /* object-fit: cover; */
@@ -726,6 +718,26 @@ figcaption{
     padding: 5px 5px;
 }
 
+#blurb {
+    background-color: white;
+    border: 1px solid #A9A9A9;
+}
+
+#blurb:focus{
+    outline: none !important;
+    border:1px solid #0099FF;
+}
+
+#title {
+    background-color: white;
+    border: 1px solid #A9A9A9;    
+}
+
+#title:focus{
+    outline: none !important;
+    border:1px solid #0099FF;
+}
+
 .admin-tools-text > form > textarea{
     resize: none;
     height: 15vh;
@@ -744,4 +756,16 @@ figcaption{
 .auth-row{
     padding-left: 10%;
 
+}
+
+.right-table-divider{
+    border-right: 1px solid #A0A0A0;
+}
+
+.background-white-0{
+    background-color: white;
+}
+
+.background-white-1{
+    background-color: #F8F8F8;
 }
