@@ -33,6 +33,9 @@ class AdminToolForm(FlaskForm):
     submit          = SubmitField('Submit')
 
 class PostForm(FlaskForm):
+    title           = StringField('Title')
+    post            = TextAreaField('Post Text')
+    blurb           = StringField('Blurb')
     category_post   = SelectField('Category', choices=[('development','Web Development'), ('web_design','Web Design'), ('graphic','Graphic Design') ])
-    post_image      = FileField("Post Image")
+    post_image      = FileField('File', validators=[FileAllowed(['jpg', 'png', 'jpeg', 'pdf'])])
     submit          = SubmitField('Submit')
