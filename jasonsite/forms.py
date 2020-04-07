@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
 from flask_login import current_user
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField, IntegerField, SelectField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from jasonsite.models import User
 
@@ -27,3 +27,12 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     remember = BooleanField('Remember Me')
     submit = SubmitField('Submit')
+
+class AdminToolForm(FlaskForm):
+    user            = StringField("Email", validators=[DataRequired("Please Input Email")])
+    submit          = SubmitField('Submit')
+
+class PostForm(FlaskForm):
+    category_post   = SelectField('Category', choices=[('development','Web Development'), ('web_design','Web Design'), ('graphic','Graphic Design') ])
+    post_image      = FileField("Post Image")
+    submit          = SubmitField('Submit')
