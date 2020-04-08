@@ -34,6 +34,7 @@
                         <form method="POST" action="" enctype="multipart/form-data">
                             {{ post.hidden_tag() }}
                             {{ post.csrf_token }}
+                            
                             {{ post.title.label() }}
                             {{ post.title(placeholder='Title for the post...') }}
                             {{ post.blurb.label() }}
@@ -62,6 +63,26 @@
                     </div>
                     <div class="admin-tools-text">
                         No Issues!
+                        {% if post.errors %}
+                            {{ post.errors }}
+                        {% endif %}
+                        <div class="container">
+                            {% with messages = get_flashed_messages(category_filter=["error"]) %}
+                              {% if messages %}
+                                <ul class=flashes>
+                                  {% for message in messages %}
+                                    <li class="error-message">
+                                      <button class="child-clear btn-small btn-floating red">
+                                        X
+                                        </button>
+                                        {{ message }}
+                                      </li>
+                                    
+                                  {% endfor %}
+                                </ul>
+                              {% endif %}
+                            {% endwith %}
+                            </div>
                     </div>
                 </article>
             </section>
