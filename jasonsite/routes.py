@@ -1,9 +1,11 @@
 import os
+from datetime import datetime
 from flask import render_template, url_for, send_from_directory, flash, redirect, request
 from jasonsite import app, db, bcrypt
 from jasonsite.models import User, Post, Images
 from jasonsite.forms import SignUpForm, LoginForm, AdminToolForm, PostForm
 from flask_login import login_user, current_user, logout_user, login_required
+from sqlalchemy import desc
 
 
 @app.route('/favicon.ico')
@@ -59,8 +61,7 @@ def admin():
     quick_view_tools = User.query.filter_by(status=0).all()
     admin_tool_form = AdminToolForm()
     post = PostForm()
-    latest_post = Post.query.order_by(Post.post_id).first()
-    print(f"Latest post data is : {latest_post} and {latest_post.created_by.first_name} {latest_post.created_by.last_name}")
+    latest_post = Post.query.order_by(desc(Post.date_posted)).first()
     if admin_tool_form.validate_on_submit():
         change_state = User.query.filter_by(email=admin_tool_form.user.data).first()
         if change_state.status == False:
@@ -70,6 +71,10 @@ def admin():
             flash(admin_tool_form.user.data + " has been authorized.")
             return redirect(url_for('admin'))
     if post.validate_on_submit():
+        print(post.data)
+        post_to_db = Post(title=post.title.data, post=post.post.data, blurb=post.blurb.data, category=post.category_post.data, author=current_user)
+        db.session.add(post_to_db)
+        db.session.commit()
         return redirect(url_for('admin'))
     return render_template('admin.html', title=page_title, quick_view=quick_view_tools, admin_tool=admin_tool_form, post=post, latest_post=latest_post ) 
 
@@ -129,26 +134,14 @@ def web_design():
 def web_development():
     page_title="Web Development"
     project_query = Post.query.all()
-    project_title= "JasonPonce.Info"
-    project_date= "3/15/2020"
-
-    project_text= "\'Bacon ipsum dolor amet chicken ball tip swine pastrami picanha leberkas bresaola sausage buffalo corned beef tongue tri-tip strip steak biltong shankleKielbasa biltong landjaeger ham hock capicola, jowl pork loin tri-tip ground round cupim corned beef filet mignon chuck boudin.\'"
-
     project_pill= "/static/images/pills/svg/python_pills.svg"
     return render_template('web_development.html', title=page_title, posts=project_query, project_pill=project_pill)
 
-# project_title=project_title, project_date=project_date, project_text=project_text,
-@app.route("/web_development/jasonponce_info")
-def jasonponce():
-    page_title="JasonPonce.Info"
-    return render_template('jasonponce_info.html', title=page_title)
+
 
 @app.route("/test", methods=["GET","POST"])
 def test():
     page_title="test"
     test = PostForm()
     return render_template('test.html', title=page_title, test = test)
-
-
-# END WEB DEVELOPMENT SECTION
 
