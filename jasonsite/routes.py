@@ -5,7 +5,7 @@ from jasonsite import app, db, bcrypt
 from jasonsite.models import User, Post, Images
 from jasonsite.forms import SignUpForm, LoginForm, AdminToolForm, PostForm
 from flask_login import login_user, current_user, logout_user, login_required
-from sqlalchemy import desc
+from sqlalchemy import desc, and_
 
 
 @app.route('/favicon.ico')
@@ -16,7 +16,12 @@ def favicon():
 @app.route("/home")
 def home():
     page_title="home"
-    return render_template('home.html', title=page_title)
+    latest_post = Post.query.order_by(desc(Post.date_posted)).first()
+    web_dev_latest_post = Post.query.order_by(desc(Post.category == 'development')).first()
+    web_design_latest_post = Post.query.order_by(desc(Post.category == 'web_design')).first()
+    graphic_design_latest_post = Post.query.order_by(desc(Post.category == 'graphic')).first()
+    return render_template('home.html', title=page_title, latest_post=latest_post, web_dev_latest_post=web_dev_latest_post,web_design_latest_post=web_design_latest_post, graphic_design_latest_post=graphic_design_latest_post)
+    
 
 @app.route("/signup", methods=['GET', 'POST'])
 def signup():
@@ -133,7 +138,7 @@ def web_design():
 @app.route("/web_development", methods=['GET', 'POST'])
 def web_development():
     page_title="Web Development"
-    project_query = Post.query.all()
+    project_query = Post.query.filter(Post.category == 'development')
     project_pill= "/static/images/pills/svg/python_pills.svg"
     return render_template('web_development.html', title=page_title, posts=project_query, project_pill=project_pill)
 
