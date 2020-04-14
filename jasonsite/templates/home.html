@@ -35,8 +35,7 @@
             <a href="{{ url_for('login') }}" class="link-white">Login  |</a>
           {% endif %}
         </div>
-        <div class="center-align">Updates Incoming, Keep Posted</div>
-        <!-- <div class="center-align">Newest Project: <a href="jasonponce.info/" class="link-white">Fill in Here</a> </div> -->
+        <div class="center-align">Latest Update:  <a href="{{ url_for('post', post_id=latest_post.post_id) }}" class="link-white">{{ latest_post.title|title }}</a></div>
         <br>
         <a href=""></a>
       </div>
@@ -85,24 +84,31 @@
             <h2 class="center light-blue-text"><i class="material-icons small">group</i></h2>
             <h5 class="center">Projects</h5>
             <hr>
-            <div> 
-              <a href="{{ url_for('web_development') }}" class="link-white">Web Development</a>
-              <b> | </b>
-              <!-- START Make this dynamic, once database is implemented START -->
-              <a href="{{ url_for('home') }}" class="link-white">Latest</a>
-              <!-- END Make this dynamic, once database is implemented END -->              
-              <br>
-              <a href="{{ url_for('web_design') }}" class="link-white">Web Design</a>
-              <b> | </b>
-              <!-- START Make this dynamic, once database is implemented START -->
-              <a href="{{ url_for('home') }}" class="link-white">Latest</a>
-              <!-- END Make this dynamic, once database is implemented END -->    
-              <br>
-              <a href="{{ url_for('graphic_design') }}" class="link-white">Graphic Design</a> 
-              <b> | </b>
-              <!-- START Make this dynamic, once database is implemented START -->
-              <a href="{{ url_for('home') }}" class="link-white">Latest</a>
-              <!-- END Make this dynamic, once database is implemented END -->
+            <div>
+              <div class="one-two-grid">
+                <div>
+                  <a href="{{ url_for('web_development') }}" class="link-white">Web Development</a>
+                </div>
+                <div>
+                  <a href="{{ url_for('post', post_id=web_dev_latest_post.post_id) }}" class="link-white">Latest</a>
+                </div>
+              </div>
+              <div class="one-two-grid">
+                <div>
+                  <a href="{{ url_for('web_design') }}" class="link-white">Web Design</a>
+                </div>
+                <div>
+                  <a href="{{ url_for('post', post_id=web_design_latest_post.post_id) }}" class="link-white">Latest</a>
+                </div>
+              </div>
+              <div class="one-two-grid">
+                <div>
+                  <a href="{{ url_for('graphic_design') }}" class="link-white">Graphic Design</a> 
+                </div>
+                <div>
+                  <a href="{{ url_for('post', post_id=graphic_design_latest_post.post_id) }}" class="link-white">Latest</a>
+                </div>
+              </div> 
             </div>
           <div class="section hidden-section" >
               <div class="container center-align"> 
