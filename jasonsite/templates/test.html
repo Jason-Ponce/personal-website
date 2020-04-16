@@ -18,24 +18,13 @@
 
 {% block body %}
 <h1>Testing</h1>
-<form action="" method="POST">
-  {{ test.csrf_token }}
-  {{ test.hidden_tag() }}
-<div class="row">
-  <div class="input-field">
-    <div>
-      {{ test.post_image.label() }}
-      <span>
-        {{ test.post_image }}
-      </span>
-    </div>
-    {{ test.submit}}
+{% for a in t %}
+<h5>new line</h5>
+  <p>{{ a.content_post }}</p>
+{% endfor %}
 
-    </div>
-  </form>
-
-  {% if test.errors %}
-{{ test.errors }}
+  {% if t.errors %}
+{{ t.errors }}
 {% endif %}
 {{super()}}
 {% endblock %}

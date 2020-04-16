@@ -27,17 +27,29 @@ class Post(db.Model, UserMixin):
     date_posted     = db.Column(db.DateTime, nullable = False, default=datetime.utcnow)
     blurb           = db.Column(db.String(256), nullable = False)
     post            = db.Column(db.Text, nullable = False)
-    pill_images     = db.relationship('Images', backref = 'post_images', lazy = True)
+    images          = db.relationship('Images', backref = 'post_images', lazy = True)
     category        = db.Column(db.String(32), nullable = False)
     created_by      = db.relationship('User', backref = 'owner', lazy=True)
+    more_posts      = db.relationship('Content', backref= 'test_txt', lazy = True)
 
     def __repr__(self):
-        return f"Post('{self.title}', '{self.blurb}', '{self.date_posted}', '{self.content}', '{self.category }')"
+        return f"Post('{self.title}', '{self.blurb}', '{self.date_posted}', '{self.post}', '{self.category }')"
+
 
 class Images(db.Model, UserMixin):
     image_id        = db.Column(db.Integer, primary_key = True)
     source          = db.Column(db.Text, nullable = False)
     posting_id      = db.Column(db.Integer, db.ForeignKey('post.post_id'), nullable = False)
+    category        = db.Column(db.String(32), nullable = False)
 
     def __repr__(self):
         return f"Images('{self.source}')"
+
+
+class Content(db.Model, UserMixin):
+    extendedpost_id = db.Column(db.Integer, primary_key = True)
+    posting_id      = db.Column(db.Integer, db.ForeignKey('post.post_id'), nullable = False)
+    content_post    = db.Column(db.Text, nullable = False)
+
+    def __repr__(self):
+        return f"Content('{self.content_post}')"

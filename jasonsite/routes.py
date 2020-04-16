@@ -2,7 +2,7 @@ import os
 from datetime import datetime
 from flask import render_template, url_for, send_from_directory, flash, redirect, request
 from jasonsite import app, db, bcrypt
-from jasonsite.models import User, Post, Images
+from jasonsite.models import User, Post, Images, Content
 from jasonsite.forms import SignUpForm, LoginForm, AdminToolForm, PostForm
 from flask_login import login_user, current_user, logout_user, login_required
 from sqlalchemy import desc, and_
@@ -86,8 +86,12 @@ def admin():
 
 @app.route("/projects/<int:post_id>")
 def post(post_id):
-    post = Post.query.get_or_404(post_id)
-    return render_template('post.html', title=post.title, post=post)
+
+    queried_post = Post.query.get_or_404(post_id)
+    post_images = Images.query.filter_by(posting_id=post_id).all()
+    a = Post.query.filter_by(post_id=post_id).all()
+    print(a)
+    return render_template('post.html', title=queried_post.title, post=queried_post, images=post_images, a=post_images)
 
 @app.route("/about")
 def about():
@@ -147,6 +151,7 @@ def web_development():
 @app.route("/test", methods=["GET","POST"])
 def test():
     page_title="test"
-    test = PostForm()
-    return render_template('test.html', title=page_title, test = test)
+    t = Content.query.filter_by(posting_id="3216542").all()
+    print(t)
+    return render_template('test.html', title=page_title, t = t)
 

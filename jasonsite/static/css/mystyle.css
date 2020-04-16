@@ -1,20 +1,15 @@
-
-
 .background-photo{
-    /* For Dev Server */
     background-image: url(/static/images/firstattemptopac.png);
-    /* End for Dev Server */
-
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: cover;
 }
 
 #about-site, #projects-site, #resume-site{
     background-color: rgba(53, 53, 53, 0.8);
     color: rgba(255, 255, 255, 1);
-    color: rgba(255, 255, 255, 1)
 
 }
+
 
 .material-icons{
     color: rgba(255, 255, 255, 1);
@@ -23,6 +18,9 @@
 .hidden-section{
     height: 0px;
 
+}
+.landing-hidden-btn{
+    background-color: #0099FF !important;
 }
 
 /* to hide the button in the hidden section */
@@ -37,7 +35,7 @@
     /* display: block;
     transition-duration: 1s; */
     transition: height 0.3s linear;
-    height: 80px;
+    height: 50px;
 
 }
 
@@ -53,8 +51,11 @@
 
 .landing-container{
     background-color: rgba(53, 53, 53, 0.6);
-    width: 100%;
+    width: 75vw;
     color: aliceblue;
+    margin: auto;
+    border: 1px solid rgba(255, 255, 255, .15);
+    border-radius: 20px;
 }
 #header-center{
     padding-top: 25px;
@@ -148,55 +149,7 @@ html *{
 .project-header-color{
     color: black;
 }
-/* .formstorming-color{
-    background-color: rgba(255, 255, 255, 0.651);
-} */
 
-.formstorming-images-header{
-    font-size: 50px;
-}
-.formstorming-header{
-  font-size: 25px; 
-  
-}
-.formstorming-paragraph{
-    font-size: 16px;  
-  }
-.formstorming-padding{
-    padding-left: 10px;
-    padding-right: 10px;
-}
-.formstorming-div-margin{
-    margin-bottom: 5px;
-    margin-top: 10px;
-}
-
-.formstorming-color-scheme{
-    background-color: rgb(217, 222, 247);
-}
-.formstorming-color-scheme-header{
-    background-color: rgb(180, 185, 207);
-}
-.formstorming-color-scheme-paragraph{
-    background-color: rgb(217, 222, 247);
-}
-
-.formstorming-color-scheme-alt{
-    background-color: rgb(209, 224, 235);
-}
-.formstorming-color-scheme-header-alt{
-    background-color: rgb(184, 197, 207);
-}
-.formstorming-color-scheme-paragraph-alt{
-    background-color: rgb(209, 224, 235);
-}
- #photoshop-body{
-     margin-top: 10px;
-     margin-bottom: 250px;
- }
- .photoshop-padding-top-only{
-     padding-top: 45px;
- }
 
  .vertical-divider{
     margin-top: 1%;
@@ -492,7 +445,7 @@ figcaption{
     display:grid;
     grid-template-columns: .2fr 5fr 1fr .2fr;
     grid-template-rows: 20px auto;
-    grid-gap: 1em;
+    gap: 1em;
     
     grid-template-areas: 
     "... .... ....... ..."
@@ -599,8 +552,12 @@ figcaption{
     font-size: 1.2rem;
 }
 
-.lowercase-btn{
+.btn-lowercase{
     text-transform: lowercase;
+}
+
+.btn-uppercase{
+    text-transform: capitalize;
 }
 
 .login-button{
@@ -772,17 +729,119 @@ figcaption{
 
 .one-two-grid{
     display: grid;
-    grid-gap: 20px;
-    grid-template-columns: 1.5fr 1fr;
-    text-align: start;
-    margin-left: 10%;
-
+    margin-left: 1vw;
+    margin-right: 1vw;
+    gap: 1vw;
+    grid-template-columns: auto auto;
+}
+.one-two-grid.home{
+    grid-template-columns: 130px auto;
 }
 
-.one-two-grid > div {
-    position: relative;
+.one-three-grid {
+    display: grid;
+    margin: auto;
+    grid-template-columns: 1fr 1fr 1fr;
 }
-
-.one-two-grid > div {
+ #landing-grid{
+    grid-template-columns: .7fr 1fr auto;
+    margin-top: 50px;
+    gap: 2vw;
+    width: 75vw;
+    color: rgba(255, 255, 255, 1);
     
+ }
+
+.about-article, .resume-article, .projects-article{
+    justify-self: center;
+    width: fit-content;
+    height: fit-content;
+    background-color: rgba(53, 53, 53, 0.8);
+    border: 1px solid rgba(255, 255, 255, .15);
+    border-radius: 20px;
+}
+
+.about-article > .divider, .resume-article > .divider, .projects-article > .divider, .row.center > .divider{
+    width: 95%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.about-text, .resume-text{
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+.landing-btn{
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.a{
+    width: 100vw;
+    background-color: rgba(220, 220, 220, 1);
+    height: 5vh;
+    position: absolute;
+    z-index: -1;
+}
+
+.grid-post{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: repeat(auto-fill, auto);
+    gap: 20px;
+    grid-template-areas: 
+    "title ..... author"
+    "date blurb author"
+    ".... post ....";
+}
+
+.post-title{
+    grid-area: title;
+}
+
+.post-author{
+    grid-area: author;
+}
+
+.post-date{
+    grid-area: date;
+}
+
+.post-blurb{
+    grid-area:blurb;
+}
+
+.post-content{
+    grid-area: post;
+    display: grid;
+    grid-template-rows: repeat(auto-fill, auto);
+    gap: 20px;
+
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    #landing-grid{
+        grid-template-columns: auto;
+        row-gap: 10px;
+        margin-top: 25px;
+    }
+    .about-article, .resume-article, .projects-article{
+        width: 75vw;
+    }
+    .landing-container{
+        width: 100vw;
+    }
+    .landing-container > .row{
+        margin-bottom: 0px;
+    }
+    #header-center{
+        padding-top: 10px;
+        font-size: 2.5rem;
+    
+    }
 }

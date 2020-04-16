@@ -17,22 +17,32 @@
 {% endblock %}
 
 {% block body %}
-<div class="container">
-    <div class="row">
-        <div class="col s10">
-            {{ post.title|title }}
-        </div>
-        <div class="col s2">
-            {{ post.date_posted.strftime('%m/%Y') }}
-        </div>
-        <div class="col s12">
-            {{ post.blurb }}
-        </div>
-        <div class="col s12" style="border: 5px solid black;">
-            {{ post.post|lower }}
-        </div>
+<div class="a"></div>
+<div class="grid-post">
+    <div class="post-title">
+        {{ post.title|title }}
+    </div>
+    <div class="post-author">
+        {{ post.created_by.first_name}} {{post.created_by.last_name}}
+    </div>
+    <div class="post-date">
+        {{ post.date_posted.strftime('%m/%Y') }}
+    </div>
+    <div class="post-blurb">
+        {{ post.blurb }}
+    </div>
+    <div class="post-content">
+        <div class="container">{{ post.post }}</div>
+        {% for image in images %}  
+            firest print
+            <div class="container">{{ a.post }}</div>
+            <img style="width:100px; height:50px;" class="center" src="{{ image.source }}" alt="">
+        {% endfor %}
+        <div class="container">{{ a.post }}</div>
+        <div class="container">{{ images.source }} </div>
     </div>
 </div>
+
 
 
 {% endblock %}
