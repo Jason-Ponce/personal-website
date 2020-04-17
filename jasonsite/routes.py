@@ -1,4 +1,4 @@
-import os
+import os, itertools
 from datetime import datetime
 from flask import render_template, url_for, send_from_directory, flash, redirect, request
 from jasonsite import app, db, bcrypt
@@ -48,7 +48,6 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             if user.status == False:
-                print("failled login")
                 flash("User is not authorized. Please wait for Site Admin to approve.", "error")
             else:
                 login_user(user, remember=form.remember.data)
@@ -80,7 +79,6 @@ def admin():
             flash(admin_tool_form.user.data + " has been authorized.")
             return redirect(url_for('admin'))
     if post.validate_on_submit():
-        print(post.data)
         post_to_db = Post(title=post.title.data, post=post.post.data, blurb=post.blurb.data, category=post.category_post.data, author=current_user)
         db.session.add(post_to_db)
         db.session.commit()
@@ -92,10 +90,15 @@ def admin():
 def post(post_id):
 
     queried_post = Post.query.get_or_404(post_id)
-    post_images = Images.query.filter_by(posting_id=post_id).all()
-    a = Post.query.filter_by(post_id=post_id).all()
-    print(a)
-    return render_template('post.html', title=queried_post.title, post=queried_post, images=post_images, a=post_images)
+    additional_images = Images.query.filter_by(posting_id=post_id).all()
+    additional_posts = Content.query.filter_by(posting_id=post_id).all()
+    additional_content = []
+    for i,p in itertools.zip_longest(additional_images,additional_posts):
+        if additional_images:
+            additional_content.append(i)
+        if additional_posts:
+            additional_content.append(p)
+    return render_template('post.html', title=queried_post.title, queried_post=queried_post, additional_content = additional_content)
 
 @app.route("/about")
 def about():
@@ -156,6 +159,5 @@ def web_development():
 def test():
     page_title="test"
     t = Content.query.filter_by(posting_id="3216542").all()
-    print(t)
     return render_template('test.html', title=page_title, t = t)
 
