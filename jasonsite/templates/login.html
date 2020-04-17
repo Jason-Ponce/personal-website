@@ -20,12 +20,15 @@
 <div class="auth-grid">
     <div class="auth-left z-depth-1">
             <div class="contact-block">
-                <h4>Please contact me for a referral code</h4>
+                <h4>All users must be authenticated</h4>
                 <h5>Email me at</h5>
                 <a href="mailto:Jason.Ponce.Work@gmail.com?subject=Referral Code" class="link-black"><h6><i class="material-icons inline-icon">email</i>Jason.Ponce.Work@Gmail.com</h6></a>
             </div>
     </div>
     <div class="auth-right z-depth-1">
+      <div class="info-block-title">
+        <h5 class="">Login</h5>
+      </div>
         <div class="info-block">
             <div class="row">
                 <form class="col s12" method="POST" action="">
@@ -59,34 +62,34 @@
                 </form>
               </div>
               <div class="divider"></div>
-              <div class="row auth-questions">
-                  <div class="col s6 left-align">
-                    <span>Why can't I login?</span>
-                    <p>Test</p>
-                    <div class="divider"></div>
-                  </div>
-                  <div class="col s6 right-align right-border">
-                    <span>Did you forget your <a href="" class="link-black">Forget Password?</a></span>
-                    <p>test</p>
-                  </div>
-              </div>
-              <div class="container">
-                {% with messages = get_flashed_messages(category_filter=["error"]) %}
-                  {% if messages %}
-                    <ul class=flashes>
-                      {% for message in messages %}
-                        <li class="error-message">
-                          <button class="child-clear btn-small btn-floating red">
-                            X
-                            </button>
-                            {{ message }}
-                          </li>
-                        
-                      {% endfor %}
-                    </ul>
-                  {% endif %}
-                {% endwith %}
-                </div>
+        </div>
+        <div class="row auth-questions">
+          <div class="col s4 left-align">
+            <p>Why can't I login?</p>
+            <p>Authentication Error</p>
+          </div>
+          <div class="col s1 divider-horizontal"></div>
+          <div class="col s7 left-align">
+            <p>Did you forget your <a href="" class="link-black">Forget Password?</a></p>
+            <p>All users must be authenticated by site admin.</p>
+          </div>
+      </div>
+      <div class="container">
+        {% with messages = get_flashed_messages(category_filter=["error"]) %}
+          {% if messages %}
+            <ul class=flashes>
+              {% for message in messages %}
+                <li class="error-message">
+                  <button class="child-clear btn-small btn-floating red">
+                    X
+                    </button>
+                    {{ message }}
+                  </li>
+                
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
         </div>
     </div>
 </div>
