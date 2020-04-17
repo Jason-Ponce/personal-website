@@ -25,6 +25,8 @@ def home():
 
 @app.route("/signup", methods=['GET', 'POST'])
 def signup():
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
     page_title = "signup"
     form = SignUpForm()
     if form.validate_on_submit():
@@ -38,6 +40,8 @@ def signup():
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
     page_title = "login"
     form = LoginForm()
     if form.validate_on_submit():
