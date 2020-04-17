@@ -1,3 +1,4 @@
+
 .background-photo{
     background-image: url(/static/images/firstattemptopac.png);
     background-repeat: no-repeat;
@@ -10,43 +11,12 @@
 
 }
 
-
 .material-icons{
     color: rgba(255, 255, 255, 1);
 }
 
-.hidden-section{
-    height: 0px;
-
-}
 .landing-hidden-btn{
     background-color: #0099FF !important;
-}
-
-/* to hide the button in the hidden section */
-#projects-btn, #about-btn, #resume-btn{
-    height: 0px;
-    pointer-events: none;
-    opacity: 0;
-}
-
-/* To unhide the div element */
-#projects-site:hover .hidden-section, #about-site:hover .hidden-section, #resume-site:hover .hidden-section{
-    /* display: block;
-    transition-duration: 1s; */
-    transition: height 0.3s linear;
-    height: 50px;
-
-}
-
-/* to unhide the buttons in exposed hidden section */
-#projects-site:hover #projects-btn, #about-site:hover #about-btn, #resume-site:hover #resume-btn{
-    transition-duration: 0.15s;
-    transition-delay: 0.2s;
-    /* transition: height 2s linear; */
-    pointer-events: auto;
-    opacity: 1;
-    height: auto;
 }
 
 .landing-container{
@@ -71,7 +41,6 @@
 
 html *{
     font-family:  'Montserrat', sans-serif;
-    /* font-family: 'Asap', sans-serif; */
 }
 
 .hr{
@@ -816,12 +785,11 @@ figcaption{
     bottom: 40px;
 }
 
-.a{
-    width: 100vw;
+.post-banner{
+    width: 100%;
     background-color: rgba(220, 220, 220, 1);
     height: 5vh;
-    position: absolute;
-    z-index: -1;
+
 }
 
 .grid-post{
@@ -830,39 +798,93 @@ figcaption{
     grid-template-rows: repeat(auto-fill, auto);
     gap: 20px;
     grid-template-areas: 
-    "title ..... author"
+    "title title author"
     "date blurb author"
-    ".... post ....";
+    "post post post";
+}
+
+#grid-post-template{
+    position: absolute;
+    top: 20vh;
+    left: 0;
+    right: 0;
+    width: 75vw;
+    height: 100%;
+    margin: auto;
+    background-color: papayawhip;
 }
 
 .post-title{
     grid-area: title;
+    font-size: 2rem;
 }
 
 .post-author{
     grid-area: author;
+    border: 1px solid rgba(220, 220, 220, .6);
+    width: 10vw;
+    height: 10vh;
+    padding: 5px;
+    justify-self: right;
 }
 
 .post-date{
     grid-area: date;
+    position: absolute;
+    top: -3vh;
+    left: 1.2vw;
 }
 
 .post-blurb{
     grid-area:blurb;
+    width: 40vw;
+    margin: auto;
 }
 
 .post-content{
+    padding-left: 1vw;
+    padding-right: 1vw;
     grid-area: post;
     display: grid;
+    position: relative;
     grid-template-rows: repeat(auto-fill, auto);
     gap: 20px;
 
+}
+
+.post-image-container{
+    width: auto;
+    height: auto;
+}
+
+.post-image{
+    width: 50%;
+    height: 50%;
 }
 
 .underlined{
     text-decoration: underline;
     color: rgba(220, 220, 220, 1);
 }
+
+#page-title{
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 18vw;
+}
+
+.post-banner-divider{
+    width: 100%;
+    height: 3px;
+    background-color: rgba(0, 0, 0, 0.54);
+}
+
+.nav-wrapper, .nav-extended{
+    width: 100% !important;
+}
+
 
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
