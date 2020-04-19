@@ -1,4 +1,4 @@
-import os, itertools
+import os, itertools, secrets
 from datetime import datetime
 from flask import render_template, url_for, send_from_directory, flash, redirect, request
 from jasonsite import app, db, bcrypt
@@ -16,10 +16,10 @@ def favicon():
 @app.route("/home")
 def home():
     page_title="home"
-    latest_post = Post.query.order_by(desc(Post.date_posted)).first()
-    web_dev_latest_post = Post.query.order_by(desc(Post.category == 'development')).first()
-    web_design_latest_post = Post.query.order_by(desc(Post.category == 'web_design')).first()
-    graphic_design_latest_post = Post.query.order_by(desc(Post.category == 'graphic')).first()
+    latest_post = Post.query.order_by(Post.date_posted.desc()).first()
+    web_dev_latest_post = Post.query.order_by(Post.date_posted.desc()).filter( Post.category == 'development').first()
+    web_design_latest_post = Post.query.order_by(Post.date_posted.desc()).filter( Post.category == 'web_design').first()
+    graphic_design_latest_post = Post.query.order_by(Post.date_posted.desc()).filter( Post.category == 'graphic').first()
     return render_template('home.html', title=page_title, latest_post=latest_post, web_dev_latest_post=web_dev_latest_post,web_design_latest_post=web_design_latest_post, graphic_design_latest_post=graphic_design_latest_post)
     
 
@@ -79,12 +79,27 @@ def admin():
             flash(admin_tool_form.user.data + " has been authorized.")
             return redirect(url_for('admin'))
     if post.validate_on_submit():
-        post_to_db = Post(title=post.title.data, post=post.post.data, blurb=post.blurb.data, category=post.category_post.data, author=current_user)
+        post_to_db = Post(title=post.title.data, post=post.post.data, blurb=post.blurb.data, category=post.category_post.data, author=current_user, tag1=post.tag1.data, tag2=post.tag2.data, tag3=post.tag3.data, tag4=post.tag4.data, tag5=post.tag5.data)
         db.session.add(post_to_db)
+        db.session.commit()
+        backref_view = Post.query.order_by(desc(Post.post_id)).first()
+        saved_picture = save_picture(post.post_image.data)
+        image_to_db = Images(source=saved_picture, alt_source=post.alt_title.data, category='image', posting_id=backref_view.post_id)
+        db.session.add(image_to_db)
         db.session.commit()
         return redirect(url_for('admin'))
     return render_template('admin.html', title=page_title, quick_view=quick_view_tools, admin_tool=admin_tool_form, post=post, latest_post=latest_post ) 
 
+def save_picture(post_image):
+    rename_pic = secrets.token_hex(8)
+    # when the image is uploaded, both the name of the file and extension are given in two parameters
+    # ex. uploaded a.jpg and got (<FileStorage: 'a.jpg' ('image/jpeg')>
+    _, file_extension = os.path.splitext(post_image.filename)
+    pic_filename = rename_pic + file_extension
+    pic_path = os.path.join(app.root_path, 'static/images/articles', pic_filename)
+    post_image.save(pic_path)
+
+    return pic_filename
 
 @app.route("/projects/<int:post_id>")
 def post(post_id):
