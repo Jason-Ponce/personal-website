@@ -20,8 +20,6 @@ class SignUpForm(FlaskForm):
             raise ValidationError('Email in use.')
 
 
-
-
 class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
@@ -38,4 +36,10 @@ class PostForm(FlaskForm):
     blurb           = StringField('Blurb')
     category_post   = SelectField('Category', choices=[('development','Web Development'), ('web_design','Web Design'), ('graphic','Graphic Design') ])
     post_image      = FileField('File', validators=[FileAllowed(['jpg', 'png', 'jpeg', 'pdf'])])
+    alt_title       = StringField("Alt description", validators=[DataRequired(message="Remember accessibility!")])
+    tag1            = StringField('Tag one...')
+    tag2            = StringField('Tag two...')
+    tag3            = StringField('Tag three...')
+    tag4            = StringField('Tag four...')
+    tag5            = StringField('Tag five...')
     submit          = SubmitField('Submit')
