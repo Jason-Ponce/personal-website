@@ -30,7 +30,7 @@
                     <div class="admin-tools-title">
                         Create a Quick Post
                     </div>
-                    <div class="admin-tools-text">
+                    <div class="admin-tools-text" id="quick-post">
                         <form method="POST" action="" enctype="multipart/form-data">
                             {{ post.hidden_tag() }}
                             {{ post.csrf_token }}
@@ -46,14 +46,41 @@
                                     <div class="row">
                                         <div class="col s12">{{ post.post_image.label() }}</div>
                                         <div class="col s12">{{ post.post_image() }}</div>
+                                        <div class="col s12">{{ post.alt_title.label() }}</div>
+                                        <div class="col s12">{{ post.alt_title(placeholder='Accessibility description...', id="alt-title") }}</div>
                                     </div>
                                 </div>
                                 <div class="input-field col s8">
-                                    {{ post.category_post }}
-                                    {{ post.category_post.label }}
+                                    <div class="row">
+                                        <div class="col s12" id="category_post">
+                                            {{ post.category_post.label }}
+                                            {{ post.category_post }}
+                                        </div>
+                                        <div class="col s12" id="tag_block1">
+                                            {{ post.tag1.label(for='tag1') }}
+                                            {{ post.tag1(class="tag-style autocomplete_tags autocomplete", onfocus="unhideTag(this)") }}                                            
+                                        </div>
+                                        <div class="col s12" id="tag_block2">
+                                            {{ post.tag2.label(for='tag2') }}
+                                            {{ post.tag2(class="tag-style autocomplete_tags autocomplete", onfocus="unhideTag(this)") }}
+                                        </div>
+                                        <div class="col s12" id="tag_block3">
+                                            {{ post.tag3.label(for='tag3') }}
+                                            {{ post.tag3(class="tag-style autocomplete_tags autocomplete", onfocus="unhideTag(this)") }}
+                                        </div>
+                                        <div class="col s12" id="tag_block4">
+                                            {{ post.tag4.label(for='tag4') }}
+                                            {{ post.tag4(class="tag-style autocomplete_tags autocomplete", onfocus="unhideTag(this)") }}
+                                        </div>
+                                        <div class="col s12" id="tag_block5">
+                                            {{ post.tag5.label(for='tag5') }}
+                                            {{ post.tag5(class="tag-style autocomplete_tags autocomplete") }}
+                                        </div>
+                                            <div class="center-align col s12 submit-btn">{{ post.submit( class="btn-large waves-effect waves-light grey lighten-1 btn-lowercase", type="submit", value="Submit" ) }}</div>
+                                    </div>
+                                    
                                 </div>
                             </div>
-                            {{ post.submit( class="btn waves-effect waves-light grey lighten-1 btn-lowercase", type="submit", value="Submit" ) }}
                         </form>
                     </div>
                 </article>
@@ -68,19 +95,18 @@
                         {% endif %}
                         <div class="container">
                             {% with messages = get_flashed_messages(category_filter=["error"]) %}
-                              {% if messages %}
-                                <ul class=flashes>
-                                  {% for message in messages %}
-                                    <li class="error-message">
-                                      <button class="child-clear btn-small btn-floating red">
+                                {% if messages %}
+                                    <ul class=flashes>
+                                    {% for message in messages %}
+                                        <li class="error-message">
+                                        <button class="child-clear btn-small btn-floating red">
                                         X
                                         </button>
                                         {{ message }}
-                                      </li>
-                                    
-                                  {% endfor %}
+                                        </li>
+                                    {% endfor %}
                                 </ul>
-                              {% endif %}
+                                {% endif %}
                             {% endwith %}
                             </div>
                     </div>
