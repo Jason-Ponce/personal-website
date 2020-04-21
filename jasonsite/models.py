@@ -36,6 +36,8 @@ class Post(db.Model, UserMixin):
     tag3            = db.Column(db.Text, nullable = False)
     tag4            = db.Column(db.Text, nullable = False)
     tag5            = db.Column(db.Text, nullable = False)
+    main_image      = db.Column(db.Text, nullable = False)
+    alt_source      = db.Column(db.Text, nullable = False)
 
     def __repr__(self):
         return f"Post('{self.title}', '{self.blurb}', '{self.date_posted}', '{self.post}', '{self.category }', '{self.post_id}')"
@@ -46,6 +48,7 @@ class Images(db.Model, UserMixin):
     source          = db.Column(db.Text, nullable = False)
     alt_source      = db.Column(db.Text, nullable = False)
     posting_id      = db.Column(db.Integer, db.ForeignKey('post.post_id'), nullable = False)
+    fig_caption     = db.Column(db.Text, nullable = False)
     category        = db.Column(db.String(32), nullable = False)
 
     def __repr__(self):
