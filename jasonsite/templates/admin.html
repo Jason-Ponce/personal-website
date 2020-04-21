@@ -19,7 +19,9 @@
 {% block body %}
 <page class="admin-grid">
     <aside class="sidebar">
-        <section class="sidebar-links"><a href="">Title</a></section>
+        <section class="sidebar-links"><a href="{{ url_for('new_post') }}">Post</a></section>
+        <section class="sidebar-links"><a href="">Update Post</a></section>
+        <section class="sidebar-links"><a href="">Delete Post</a></section>
         <a href="{{ url_for('logout') }}" class="logout">Logout</a>
     </aside>
     <main class="dashboard">
