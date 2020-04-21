@@ -1,5 +1,6 @@
 import os, itertools, secrets
 from datetime import datetime
+from PIL import Image
 from flask import render_template, url_for, send_from_directory, flash, redirect, request
 from jasonsite import app, db, bcrypt
 from jasonsite.models import User, Post, Images, Content
@@ -79,13 +80,9 @@ def admin():
             flash(admin_tool_form.user.data + " has been authorized.")
             return redirect(url_for('admin'))
     if post.validate_on_submit():
-        post_to_db = Post(title=post.title.data, post=post.post.data, blurb=post.blurb.data, category=post.category_post.data, author=current_user, tag1=post.tag1.data, tag2=post.tag2.data, tag3=post.tag3.data, tag4=post.tag4.data, tag5=post.tag5.data)
-        db.session.add(post_to_db)
-        db.session.commit()
-        backref_view = Post.query.order_by(desc(Post.post_id)).first()
         saved_picture = save_picture(post.post_image.data)
-        image_to_db = Images(source=saved_picture, alt_source=post.alt_title.data, category='image', posting_id=backref_view.post_id)
-        db.session.add(image_to_db)
+        post_to_db = Post(title=post.title.data, post=post.post.data, blurb=post.blurb.data, category=post.category_post.data, main_image= saved_picture,alt_source=post.alt_title.data, author=current_user, tag1=post.tag1.data, tag2=post.tag2.data, tag3=post.tag3.data, tag4=post.tag4.data, tag5=post.tag5.data)
+        db.session.add(post_to_db)
         db.session.commit()
         return redirect(url_for('admin'))
     return render_template('admin.html', title=page_title, quick_view=quick_view_tools, admin_tool=admin_tool_form, post=post, latest_post=latest_post ) 
@@ -97,9 +94,27 @@ def save_picture(post_image):
     _, file_extension = os.path.splitext(post_image.filename)
     pic_filename = rename_pic + file_extension
     pic_path = os.path.join(app.root_path, 'static/images/articles', pic_filename)
-    post_image.save(pic_path)
+    article_pic_size = (1600, 900)
+    i_pil = Image.open(post_image)
+    i_pil.thumbnail(article_pic_size)
+    i_pil.save(pic_path)
 
     return pic_filename
+
+def save_extra_picture(post_image):
+        backref_view = Post.query.order_by(desc(Post.post_id)).first()
+        saved_picture = save_picture(post.post_image.data)
+        image_to_db = Images(source=saved_picture, alt_source=post.alt_title.data, category='image', posting_id=backref_view.post_id)
+        db.session.add(image_to_db)
+        db.session.commit()
+        return post_image
+
+@app.route("/post")
+@login_required
+def new_post():
+    page_title = "Create Post"
+
+    return render_template('create_post.html', title=page_title)
 
 @app.route("/projects/<int:post_id>")
 def post(post_id):
