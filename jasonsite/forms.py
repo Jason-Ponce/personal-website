@@ -42,4 +42,5 @@ class PostForm(FlaskForm):
     tag3            = StringField('Tag three...')
     tag4            = StringField('Tag four...')
     tag5            = StringField('Tag five...')
+    fig_caption     = StringField('Fig caption...')
     submit          = SubmitField('Submit')
