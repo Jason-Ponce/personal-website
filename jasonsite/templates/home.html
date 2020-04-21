@@ -19,106 +19,106 @@
 {% block body %}
 <body class="background-photo">
   <div class="section no-pad-bot" id="index-banner">
-    <div class="container landing-container">
+    <div class="landing-container">
       <div class="header center" id="header-center">Jason Ponce</div>
       <img class="center-logo" src="/static/logo_resized_white.png" alt="logo for website">
       <div class="row center">
         <div class="landing-text">Web Developer & Designer</div>
-        <div class="divider" style="margin: 10px;"></div>
-        <div class="center-align">Under Construction <a href="https://trello.com/b/y3T7JsS1/jasonponceinfo" class="link-white">| Trello</a></div>
-        <div class="center-align">Updates Incoming, Keep Posted</div>
-        <!-- <div class="center-align">Newest Project: <a href="jasonponce.info/" class="link-white">Fill in Here</a> </div> -->
+        <div class="divider"></div>
+        <div class="center-align">
+          <a href="https://trello.com/b/y3T7JsS1/jasonponceinfo" class="link-white">| Trello  |</a>
+          {% if current_user.is_authenticated %}
+            <a href="{{ url_for('admin') }}" class="link-white">Admin  |</a>
+            <a href="{{ url_for('logout') }}" class="link-white">Logout  |</a>
+          {% else %}
+            <a href="{{ url_for('signup') }}" class="link-white">Signup  |</a>
+            <a href="{{ url_for('login') }}" class="link-white">Login  |</a>
+          {% endif %}
+        </div>
+        <div class="center-align">Latest Update:  <a href="{{ url_for('post', post_id=latest_post.post_id) }}" class="link-white">{{ latest_post.title|title }}</a></div>
         <br>
+        <a href=""></a>
       </div>
     </div>
   </div>
-  <div class="section">
-      <div class="row">
-          <div class="col s12 m2" >
-            </div>
-        <div class="col s12 m2 z-depth-3" id="about-site">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons small">person_pin</i></h2>
-            <h5 class="center">About</h5>
-            <hr>
-            <p class="light">Welcome. Hover over a section to proceed. </p>
-            <div class="section hidden-section" >
-                <div class="container center-align"> 
-                    <a class="waves-effect waves-light btn grey lighten-5 black-text" id="about-btn" href="/about">About</a>
-                </div>
-            </div>
-          </div>
+<section class="one-three-grid" id="landing-grid">
+  <article class="about-article">
+    <figure class="center">
+      <i class="material-icons small">person_pin</i>
+    </figure>
+    <h5 class="center">About</h5>
+    <div class="divider"></div>
+    <div class="about-text">
+      <p class="">Welcome to my personal site, learn more about me over in this section.  </p>
+    </div>
+    <div class="center-align landing-btn"> 
+      <a class="waves-effect waves-light btn grey lighten-5 black-text btn-uppercase" href="{{ url_for('about') }}">About</a>
+    </div>
+  </article>
+  <article class="resume-article">
+    <figure class="center">
+      <i class="material-icons small">description</i>
+    </figure>
+    <h5 class="center">Resume</h5>
+    <div class="divider"></div>
+    <div class="resume-text">
+      <h6 class="left-aligned">Highlights</h6>
+      <p>School: Southern Connecticut State University </p>
+      <p>Degree: Bachelor of Computer Science (ABET) </p>
+      <p>Minor: Studio Arts</p>
+      <p>Veteran: 8 Years of Military Service in the US Army</p>
+    </div>
+    <div class="center-align landing-btn"> 
+      <a class="waves-effect waves-light btn grey lighten-5 black-text btn-uppercase" href="{{ url_for('resume') }}">Resume</a>
+    </div>
+  </article>
+  <article class="projects-article z-depth-2">
+    <figure class="center">
+      <i class="material-icons small">group</i>
+    </figure>
+    <h5 class="center">Projects</h5>
+    <div class="divider"></div>
+    <div class="one-two-grid home">
+      <h5 class="grid-style-home">Section</h5>
+      <h5 class="grid-style-home">Latest</h5>
+    </div>
+    <div class="one-two-grid home">
+      <div class="grid-style-home">
+        <a href="{{ url_for('web_development') }}" class="link-white">Web Development</a>
       </div>
-      <div class="col s12 m1" >
-      </div>
-        <div class="col s12 m2 z-depth-3" id="resume-site">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons small">description</i></h2>
-            <h5 class="center">Resume</h5>
-            <hr>
-            <h6 class="left-aligned">Highlights</h6>
-            <p>School: Southern Connecticut State University </p>
-            <p>Degree: Bachelor of Computer Science (ABET) </p>
-            <p>Minor: Studio Arts</p>
-            <p>Veteran: 8 Years of Military Service in the US Army</p>
-            <div class="section hidden-section" >
-                <div class="container center-align"> 
-                    <a class="waves-effect waves-light btn grey lighten-5 black-text" id="resume-btn" href="/resume">Resume</a>
-                </div>
-            </div>
-          </div>
-        </div>
-        <div class="col s12 m1" >
-          </div>
-        <div class="col s12 m2 z-depth-3" id="projects-site">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons small">group</i></h2>
-            <h5 class="center">Projects</h5>
-            <hr>
-            <div> 
-              <a href="{{ url_for('web_development') }}" class="link-white">Web Development</a>
-              <b> | </b>
-              <!-- START Make this dynamic, once database is implemented START -->
-              <a href="{{ url_for('home') }}" class="link-white">Latest</a>
-              <!-- END Make this dynamic, once database is implemented END -->              
-              <br>
-              <a href="{{ url_for('web_design') }}" class="link-white">Web Design</a>
-              <b> | </b>
-              <!-- START Make this dynamic, once database is implemented START -->
-              <a href="{{ url_for('home') }}" class="link-white">Latest</a>
-              <!-- END Make this dynamic, once database is implemented END -->    
-              <br>
-              <a href="{{ url_for('graphic_design') }}" class="link-white">Graphic Design</a> 
-              <b> | </b>
-              <!-- START Make this dynamic, once database is implemented START -->
-              <a href="{{ url_for('home') }}" class="link-white">Latest</a>
-              <!-- END Make this dynamic, once database is implemented END -->
-            </div>
-          <div class="section hidden-section" >
-              <div class="container center-align"> 
-                  <a class="waves-effect waves-light btn grey lighten-5 black-text" id="projects-btn" href="/projects">Projects</a>
-              </div>
-          </div>
-          </div>
-        </div>
-        <div class="col s12 m1" >
-          </div>
+      <div class="grid-style-home">
+        <a href="{{ url_for('post', post_id=web_dev_latest_post.post_id) }}" class="link-white">{{web_dev_latest_post.title.title() }}</a>
       </div>
     </div>
+    <div class="one-two-grid home">
+      <div class="grid-style-home">
+        <a href="{{ url_for('web_design') }}" class="link-white">Web Design</a>
+      </div>
+      <div class="grid-style-home">
+        <a href="{{ url_for('post', post_id=web_design_latest_post.post_id) }}" class="link-white">{{web_design_latest_post.title.title() }}</a>
+      </div>
+    </div>
+    <div class="one-two-grid home">
+      <div class="grid-style-home">
+        <a href="{{ url_for('graphic_design') }}" class="link-white">Graphic Design</a> 
+      </div>
+      <div class="grid-style-home">
+        <a href="{{ url_for('post', post_id=graphic_design_latest_post.post_id) }}" class="link-white">{{graphic_design_latest_post.title.title() }}</a>
+      </div>
+    </div> 
+  </div>
+  <div class="center-align landing-btn"> 
+    <a class="waves-effect waves-light btn grey lighten-5 black-text btn-uppercase" href="{{ url_for('projects') }}">Projects</a>
+  </div>
+  </article>
+</section>
+</body> 
 {% endblock %}  
 
 {% block scripts %}
-<!--  Scripts-->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<!-- For Dev Server -->
 <script src="/static/js/materialize.js"></script>
 <script src="/static/js/init.js"></script>
-<!-- End for Dev Server -->
-
-<!-- For Open Live Server -->
-<!-- <script src="/jasonsite/static/js/materialize.js"></script>
-<script src="/jasonsite/static/js/init.js"></script> -->
-<!-- End for Open Live Server -->
 {% endblock %}
 </body>
 </html>

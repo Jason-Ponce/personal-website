@@ -1,0 +1,60 @@
+{% extends "index.html" %}
+
+{% block title %}
+{{super()}}
+{% endblock %}
+
+{% block head %}
+{{super()}}
+{% endblock %}
+
+{% block nav %}
+{{super()}}
+{% endblock %}
+
+
+{% block dropdown %}
+{% endblock %}
+
+{% block body %}
+<div class="post-banner">
+    <div class="left-bar-white z-depth-1" id="page-title">
+        <h4 class="">Web Development</h4>
+    </div>
+</div>
+<div class="post-banner-divider"></div>
+<div class="grid-post" id="grid-post-template">
+    <div class="post-title">
+        {{ queried_post.title|title }}
+    </div>
+    <div class="post-author">
+        {{ queried_post.created_by.first_name}} {{ queried_post.created_by.last_name }}
+    </div>
+    <div class="post-date">
+        {{ queried_post.date_posted.strftime('%m/%Y') }}
+    </div>
+    <div class="post-blurb">
+        {{ queried_post.blurb }}
+    </div>
+    <div class="post-content">
+        <div class="">{{ queried_post.post }}</div>
+        {% for content_loop in additional_content %}
+            {% if content_loop.content_post is defined %}
+                <div class="">{{ content_loop.content_post }}</div>
+            {% endif %}
+            {% if content_loop.source is defined %}
+            <figure class="center-align post-image-container">
+                <img class=" post-image " src="{{ content_loop.source }}" alt="">
+            </figure>
+            {% endif %}    
+        {% endfor %}
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+{% block scripts %}
+{{super()}}
+{% endblock %}
