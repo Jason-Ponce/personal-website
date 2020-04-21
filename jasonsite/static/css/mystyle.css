@@ -606,7 +606,7 @@ figcaption{
     grid-area: sidebar;
     position: relative;
     background-color: #606060;
-    width: 10vw;
+    width: 8vw;
     height: 100vh;
 }
 
@@ -617,7 +617,7 @@ figcaption{
 .sidebar-links{
     border: 1px solid #808080;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .sidebar-links > a{
@@ -626,15 +626,17 @@ figcaption{
 
 .sidebar-links:hover{
     background-color: #808080;
+    transition: all 0.3s ease;
 }
 
 .logout{
     position: fixed;
     bottom: 0;
     text-align: center;
-    width: 10vw;
+    width: 8vw;
     color: white;
     border: 1px solid #808080;
+    transition: all 0.3s ease;
 }
 
 .logout:hover{
@@ -769,6 +771,11 @@ form > .row{
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+.grid-style-home{
+    word-wrap: break-word;
+    overflow:hidden;
+}
+
 #landing-grid{
     grid-template-columns: auto auto auto;
     margin-top: 7vh;
@@ -787,11 +794,14 @@ form > .row{
     border-radius: 20px;
 }
 
-.about-article, .projects-article{
-    height: 35vh;
+.divider.home{
+    width: 95%;
+    margin: auto;
+    margin-bottom: 2vh;
+    opacity: 0.75;
 }
 
-.resume-article{
+.resume-article, .about-article, .projects-article{
     height: 45vh;
 }
 
@@ -800,6 +810,7 @@ form > .row{
     margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
+    opacity: 0.75;
 }
 
 .about-text, .resume-text{
@@ -811,68 +822,192 @@ form > .row{
     position: absolute;
     left: 0;
     right: 0;
-    margin: auto
+    margin: auto;
+    
 }
 
 .about-article > .landing-btn, .projects-article > .landing-btn, .resume-article > .landing-btn{
-    bottom: 30px;
+    bottom: 2vh;
 }
 
 .post-banner{
     width: 100%;
     background-color: rgba(220, 220, 220, 1);
     height: 5vh;
-
 }
+
 
 .grid-post{
     display: grid;
     grid-template-columns: auto auto auto;
     grid-template-rows: repeat(auto-fill, auto);
-    gap: 20px;
+    gap: 1vh;
     grid-template-areas: 
-    "title title author"
-    "date blurb author"
+    "title title title"
+    "skills banner-image author"
+    "date blurb ..."
     "post post post";
 }
 
 #grid-post-template{
-    position: absolute;
-    top: 20vh;
-    left: 0;
-    right: 0;
-    width: 75vw;
-    height: 100%;
     margin: auto;
-    background-color: papayawhip;
+    grid-template-columns: .5fr 1fr .5fr;
+    width: 80vw;
+    margin-top: 3vh;
+}
+
+.post-skills{
+    background-color: rgba(182, 182, 182, 0.2);
+    box-shadow: -5px 0px 5px rgba(182, 182, 182, 0.4);
+    border-radius: 20px 20px 10px 10px;
+    position: relative;
+    left: -5.5vw;
+    height: fit-content;
+    padding-bottom: 1.5vh;
+}
+.post-skills-wrapper{
+    padding: 1vh;
+    padding-left: 1.5vw;
+}
+
+.post-skills-title{
+    font-size: 1.5rem;
+}
+
+.post-skill{
+    border: 1px solid rgba(20, 20, 20, 0.25);
+    padding-top: 1vh;
+    padding-bottom: 0.5vh;
+    border-radius: 5px 25px 25px 5px;
+    z-index: 3;
+    margin-top: 5px;
+    width: 6vw;
+    text-align: center;
+    box-shadow: 1px 1px 1px #888888;
+}
+
+.post-banner-image{
+    grid-area: banner-image;
+    
+}
+
+.post-banner-image > figure > img{
+    width: 1024px;
+    height: 576px;
+    margin: auto;
+    display: block;
+    box-shadow: 1px 1px 8px #888888;
 }
 
 .post-title{
     grid-area: title;
-    font-size: 2rem;
+    position: relative;
+    padding: 10px;
+    z-index: -2;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    width: fit-content;
+    max-width: 1145px;
+    margin-left: 7vw;
+    font-size: 1.75rem;
 }
 
-.post-author{
+.post-triangle-bl{
+width: 0;
+height: 0;
+border-style: solid;
+border-width: 59px 0 0 59px;
+border-color: transparent transparent transparent rgb(117,117,117);
+position: absolute;
+top: 0;
+left: 0px;
+z-index: -1;
+}
+
+.post-triangle-br{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 30px 30px;
+    border-color: transparent transparent rgb(117,117,117) transparent;
+    position: absolute;
+    bottom: 0;
+    right: 0px;
+    z-index: -1;
+}
+
+.post-triangle-tr{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 50px 50px 0;
+    border-color: transparent rgb(117,117,117) transparent transparent;
+    position: absolute;
+    top: 0;
+    right: 0px;
+    z-index: -1;
+    }
+
+
+#post-links{
+    grid-template-columns: auto 1fr 1fr;    
+
+}
+
+
+.post-author-container{
+    padding: 1vh;
+    padding-left: 1.5vw;
+}
+
+.post-author-title{
+    font-size: 1.5rem;
+}
+
+.post-author-wrapper{
     grid-area: author;
     border: 1px solid rgba(220, 220, 220, .6);
-    width: 10vw;
-    height: 10vh;
-    padding: 5px;
-    justify-self: right;
+    padding-top: 1vh;
+    padding-left: 1vw;
+    padding-bottom: 0.5vh;
+    border-radius: 25px 5px 5px 25px;
+    height: fit-content;
+    position: sticky;
+    top: 0px;
+    z-index: 3;
 }
 
 .post-date{
-    grid-area: date;
-    position: absolute;
-    top: -3vh;
-    left: 1.2vw;
+    grid-area: author;
+    text-align: right;
+    padding-top: 1.2vh;
+    padding-right: 0.5vw;
+    position: sticky;
+    top: 0px;
+    z-index: 3;
 }
 
 .post-blurb{
     grid-area:blurb;
-    width: 40vw;
-    margin: auto;
+    text-align: center;
+    position: relative;
 }
+
+.post-blurb > .post-triangle-bl{
+    border-width: 22px 0 0 22px;
+    z-index: 1;
+} 
+
+.post-blurb > .post-triangle-br{
+    border-width: 0 0 13px 13px;
+    z-index: 1;
+}
+
+.post-blurb > .post-triangle-tr{
+    border-width: 0 20px 20px 0;
+    z-index: 1;
+}
+
 
 .post-content{
     padding-left: 1vw;
@@ -882,7 +1017,12 @@ form > .row{
     position: relative;
     grid-template-rows: repeat(auto-fill, auto);
     gap: 20px;
+}
 
+.post-text{
+    position: relative;
+    padding-left: 5vw;
+    padding-right: 5vw;
 }
 
 .post-image-container{
@@ -891,8 +1031,9 @@ form > .row{
 }
 
 .post-image{
-    width: 50%;
-    height: 50%;
+    width: 900px;
+    height: 506px;
+    box-shadow: 1px 1px 8px #888888;
 }
 
 .underlined{
@@ -912,6 +1053,33 @@ form > .row{
     width: 100%;
     height: 3px;
     background-color: rgba(0, 0, 0, 0.54);
+}
+
+.figcaption{
+    margin: auto;
+    position: relative;
+    width: fit-content;
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+.figcaption > .post-triangle-bl{
+    border-width: 21px 0 0 21px;
+    z-index: 1;
+} 
+
+.figcaption > .post-triangle-br{
+    border-width: 0 0 13px 13px;
+    z-index: 1;
+}
+
+.figcaption > .post-triangle-tr{
+    border-width: 0 20px 20px 0;
+    z-index: 1;
+}
+
+.forward{
+    z-index: 2;
 }
 
 .nav-wrapper, .nav-extended{
