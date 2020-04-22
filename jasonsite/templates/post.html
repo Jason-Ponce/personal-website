@@ -37,7 +37,7 @@
             <div class="post-triangle-br"></div>
         </div>
     </div>
-    <div class="post-author-wrapper z-depth-2 grey lighten-4">
+    <div class="post-author-wrapper grey lighten-4">
         {{ queried_post.created_by.first_name}} {{ queried_post.created_by.last_name }}
         <p class="one-three-grid" id="post-links">
             <a href="https://github.com/Jason-Ponce/personal-website" class="link-black"><img src="/static/images/logo/GitHub-Mark-64px.png" class="github-link" alt=""> Github Link</a>
@@ -53,30 +53,30 @@
         <div class="divider"></div>
         <div class="post-skills-wrapper">
             {% if queried_post.tag1|length %}
-            <div class="post-skill grey lighten-4">
+            <div class="post-skill"  id="tag1">
                 {{queried_post.tag1}}
             </div>
             {% endif %}
             {% if queried_post.tag2|length %}
-            <div class="post-skill grey lighten-5">
+            <div class="post-skill" id="tag2">
                 {{queried_post.tag2}}
             </div>
             {% else %}
             {% endif %}
             {% if queried_post.tag3|length %}
-            <div class="post-skill grey lighten-4">
+            <div class="post-skill" id="tag3">
                 {{queried_post.tag3}}
             </div>
             {% else %}
             {% endif %}
             {% if queried_post.tag4|length %}
-            <div class="post-skill grey lighten-5">
+            <div class="post-skill" id="tag4">
                 {{queried_post.tag4}}
             </div>
             {% else %}
             {% endif %}
             {% if queried_post.tag5|length %}
-            <div class="post-skill grey lighten-4">
+            <div class="post-skill" id="tag5">
                 {{queried_post.tag5}}
             </div>
             {% else %}
@@ -120,4 +120,5 @@
 
 {% block scripts %}
 {{super()}}
+<script src="/static/js/post.js"></script>
 {% endblock %}

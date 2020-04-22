@@ -857,14 +857,16 @@ form > .row{
 }
 
 .post-skills{
-    background-color: rgba(182, 182, 182, 0.2);
+    background-color: rgba(209, 209, 209, 0.2);
     box-shadow: -5px 0px 5px rgba(182, 182, 182, 0.4);
     border-radius: 20px 20px 10px 10px;
     position: relative;
     left: -5.5vw;
     height: fit-content;
     padding-bottom: 1.5vh;
+    width: fit-content;
 }
+
 .post-skills-wrapper{
     padding: 1vh;
     padding-left: 1.5vw;
@@ -875,15 +877,11 @@ form > .row{
 }
 
 .post-skill{
-    border: 1px solid rgba(20, 20, 20, 0.25);
     padding-top: 1vh;
     padding-bottom: 0.5vh;
-    border-radius: 5px 25px 25px 5px;
-    z-index: 3;
     margin-top: 5px;
     width: 6vw;
-    text-align: center;
-    box-shadow: 1px 1px 1px #888888;
+
 }
 
 .post-banner-image{
@@ -975,6 +973,7 @@ z-index: -1;
     position: sticky;
     top: 0px;
     z-index: 3;
+    box-shadow: -1px 0px 2px #888888;
 }
 
 .post-date{
