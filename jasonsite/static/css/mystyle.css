@@ -164,10 +164,14 @@ figcaption{
     float: center;
 }
 
-.github-link{
+.image-link{
     height: 1em;
     width: auto;
     display: inline;
+}
+
+.website-links{
+    margin-left: 2vw;
 }
 
 .link-white:visited, .link-white:link{
@@ -833,36 +837,57 @@ form > .row{
 .post-banner{
     width: 100%;
     background-color: rgba(220, 220, 220, 1);
-    height: 5vh;
+    height: 4vh;
 }
 
+.post-banner-image{
+    grid-area: banner-image;
+    
+}
+
+.post-banner-image > figure > img{
+    width: 1024px;
+    height: 576px;
+    margin: auto;
+    display: block;
+    box-shadow: 1px 1px 8px #888888;
+}
+
+.post-banner-divider{
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.54);
+
+}
 
 .grid-post{
     display: grid;
     grid-template-columns: auto auto auto;
     grid-template-rows: repeat(auto-fill, auto);
     gap: 1vh;
+    align-items: start;
     grid-template-areas: 
     "title title title"
     "skills banner-image author"
-    "date blurb ..."
-    "post post post";
+    "... blurb ..."
+    "... post ...";
 }
 
 #grid-post-template{
     margin: auto;
-    grid-template-columns: .5fr 1fr .5fr;
+    grid-template-columns: .25fr 1fr .75fr;
     width: 80vw;
     margin-top: 3vh;
 }
 
 .post-skills{
-    background-color: rgba(209, 209, 209, 0.2);
+    background-color: rgb(245,245,245);
     box-shadow: -5px 0px 5px rgba(182, 182, 182, 0.4);
     border-radius: 20px 20px 10px 10px;
     position: relative;
-    left: -5.5vw;
-    height: fit-content;
+    left: -3.5vw;
+    top: 1.6vh;
+
     padding-bottom: 1.5vh;
     width: fit-content;
 }
@@ -881,20 +906,10 @@ form > .row{
     padding-bottom: 0.5vh;
     margin-top: 5px;
     width: 6vw;
-
 }
 
-.post-banner-image{
-    grid-area: banner-image;
-    
-}
-
-.post-banner-image > figure > img{
-    width: 1024px;
-    height: 576px;
-    margin: auto;
-    display: block;
-    box-shadow: 1px 1px 8px #888888;
+.shield{
+    margin-left: 10px;
 }
 
 .post-title{
@@ -902,12 +917,14 @@ form > .row{
     position: relative;
     padding: 10px;
     z-index: -2;
+    margin-left: 5vw;
+    margin-right: 12.8vw;
+    margin-top: 3vh;
     padding-left: 5vw;
     padding-right: 5vw;
-    width: fit-content;
-    max-width: 1145px;
-    margin-left: 7vw;
     font-size: 1.75rem;
+    height: 59px;
+    box-shadow: 0 1px 5px #888888;
 }
 
 .post-triangle-bl{
@@ -946,44 +963,36 @@ z-index: -1;
     z-index: -1;
     }
 
-
-#post-links{
-    grid-template-columns: auto 1fr 1fr;    
-
-}
-
-
-.post-author-container{
-    padding: 1vh;
-    padding-left: 1.5vw;
+.post-author{
+    grid-area: author;
+    margin-top: 1.6vh;
+    border: 1px solid rgba(220, 220, 220, .6);
+    border-radius: 20px 20px 10px 10px;
+    background-color: rgb(245,245,245);
+    height: fit-content;
+    position: sticky;
+    top: 1.6vh;
+    z-index: 3;
+    box-shadow: 5px 0px 5px rgba(182, 182, 182, 0.4);
 }
 
 .post-author-title{
-    font-size: 1.5rem;
+    padding: 10px;
+    border-radius: 20px 20px 0px 0px;
 }
 
-.post-author-wrapper{
-    grid-area: author;
-    border: 1px solid rgba(220, 220, 220, .6);
-    padding-top: 1vh;
-    padding-left: 1vw;
-    padding-bottom: 0.5vh;
-    border-radius: 25px 5px 5px 25px;
-    height: fit-content;
-    position: sticky;
-    top: 0px;
-    z-index: 3;
-    box-shadow: -1px 0px 2px #888888;
+.post-author-link{
+    padding: 10px;
+    padding-right: 15px;
 }
 
 .post-date{
     grid-area: author;
     text-align: right;
-    padding-top: 1.2vh;
-    padding-right: 0.5vw;
-    position: sticky;
-    top: 0px;
-    z-index: 3;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
 }
 
 .post-blurb{
@@ -1009,8 +1018,6 @@ z-index: -1;
 
 
 .post-content{
-    padding-left: 1vw;
-    padding-right: 1vw;
     grid-area: post;
     display: grid;
     position: relative;
@@ -1020,8 +1027,10 @@ z-index: -1;
 
 .post-text{
     position: relative;
-    padding-left: 5vw;
-    padding-right: 5vw;
+}
+
+.post-text::first-letter{
+    initial-letter: 2;
 }
 
 .post-image-container{
@@ -1048,11 +1057,6 @@ z-index: -1;
     width: 18vw;
 }
 
-.post-banner-divider{
-    width: 100%;
-    height: 3px;
-    background-color: rgba(0, 0, 0, 0.54);
-}
 
 .figcaption{
     margin: auto;

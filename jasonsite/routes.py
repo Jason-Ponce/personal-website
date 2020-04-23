@@ -1,4 +1,4 @@
-import os, itertools, secrets
+import os, itertools, secrets, re
 from datetime import datetime
 from PIL import Image
 from flask import render_template, url_for, send_from_directory, flash, redirect, request
@@ -18,9 +18,9 @@ def favicon():
 def home():
     page_title="home"
     latest_post = Post.query.order_by(Post.date_posted.desc()).first()
-    web_dev_latest_post = Post.query.order_by(Post.date_posted.desc()).filter( Post.category == 'development').first()
+    web_dev_latest_post = Post.query.order_by(Post.date_posted.desc()).filter( Post.category == 'web_development').first()
     web_design_latest_post = Post.query.order_by(Post.date_posted.desc()).filter( Post.category == 'web_design').first()
-    graphic_design_latest_post = Post.query.order_by(Post.date_posted.desc()).filter( Post.category == 'graphic').first()
+    graphic_design_latest_post = Post.query.order_by(Post.date_posted.desc()).filter( Post.category == 'graphic_design').first()
     return render_template('home.html', title=page_title, latest_post=latest_post, web_dev_latest_post=web_dev_latest_post,web_design_latest_post=web_design_latest_post, graphic_design_latest_post=graphic_design_latest_post)
     
 
@@ -39,6 +39,7 @@ def signup():
         return redirect(url_for('login'))
     return render_template('signup.html', title=page_title, form=form)    
 
+
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
@@ -56,11 +57,13 @@ def login():
                 return redirect(next_page) if next_page else redirect(url_for('admin'))
     return render_template('login.html', title=page_title, form=form)   
 
+
 @app.route("/logout")
 @login_required
 def logout():
     logout_user()
     return redirect(url_for('home'))
+
 
 @app.route("/admin", methods=['GET', 'POST'])
 @login_required
@@ -87,6 +90,7 @@ def admin():
         return redirect(url_for('admin'))
     return render_template('admin.html', title=page_title, quick_view=quick_view_tools, admin_tool=admin_tool_form, post=post, latest_post=latest_post ) 
 
+
 def save_picture(post_image):
     rename_pic = secrets.token_hex(8)
     # when the image is uploaded, both the name of the file and extension are given in two parameters
@@ -101,6 +105,7 @@ def save_picture(post_image):
 
     return pic_filename
 
+
 def save_extra_picture(post_image):
         backref_view = Post.query.order_by(desc(Post.post_id)).first()
         saved_picture = save_picture(post.post_image.data)
@@ -109,6 +114,7 @@ def save_extra_picture(post_image):
         db.session.commit()
         return post_image
 
+
 @app.route("/post")
 @login_required
 def new_post():
@@ -116,10 +122,11 @@ def new_post():
 
     return render_template('create_post.html', title=page_title)
 
+
 @app.route("/projects/<int:post_id>")
 def post(post_id):
-
     queried_post = Post.query.get_or_404(post_id)
+    category_post = removeUnderscore(queried_post.category)
     additional_images = Images.query.filter_by(posting_id=post_id).all()
     additional_posts = Content.query.filter_by(posting_id=post_id).all()
     additional_content = []
@@ -128,7 +135,47 @@ def post(post_id):
             additional_content.append(i)
         if additional_posts:
             additional_content.append(p)
-    return render_template('post.html', title=queried_post.title, queried_post=queried_post, additional_content = additional_content)
+    return render_template('post.html', title=queried_post.title, queried_post=queried_post, additional_content = additional_content, category=category_post)
+
+
+def removeUnderscore(underscore_string):
+    underscore_string = underscore_string.replace("_"," ")
+    print(underscore_string)
+    return underscore_string
+
+
+@app.route("/graphic_design")
+def graphic_design():
+    page_title="Graphic Design"
+    return render_template('graphic_design.html', title=page_title)
+
+
+@app.route("/projects/portfolio")
+def portfolio():
+    page_title="Portfolio"
+    return render_template('portfolio.html', title=page_title)   
+
+
+@app.route("/projects/web_design")
+def web_design():
+    page_title="Web Design"
+    project_title= "Template Design"
+    project_date= "3/15/2020"
+
+    project_text= "\'Bacon ipsum dolor amet chicken ball tip swine pastrami picanha leberkas bresaola sausage buffalo corned beef tongue tri-tip strip steak biltong shankleKielbasa biltong landjaeger ham hock capicola, jowl pork loin tri-tip ground round cupim corned beef filet mignon chuck boudin.\'"
+
+    project_pill= "/static/images/pills/svg/python_pills.svg"
+    return render_template('web_design.html', title=page_title, project_title=project_title, project_date=project_date, project_text=project_text, project_pill=project_pill)
+
+
+
+@app.route("/web_development", methods=['GET', 'POST'])
+def web_development():
+    page_title="Web Development"
+    project_query = Post.query.filter(Post.category == 'web_development')
+    project_pill= "/static/images/pills/svg/python_pills.svg"
+    return render_template('web_development.html', title=page_title, posts=project_query, project_pill=project_pill)
+
 
 @app.route("/about")
 def about():
@@ -146,43 +193,6 @@ def resume():
 def projects():
     page_title="projects"
     return render_template('projects.html', title=page_title)
-
-# |--GRAPHIC DESIGN SECTION--|
-@app.route("/graphic_design")
-def graphic_design():
-    page_title="Graphic Design"
-    return render_template('graphic_design.html', title=page_title)
-
-
-@app.route("/projects/portfolio")
-def portfolio():
-    page_title="Portfolio"
-    return render_template('portfolio.html', title=page_title)   
-# END GRAPHIC DESIGN SECTION
-
-
-# |--WEB DESIGN SECTION--|
-@app.route("/projects/web_design")
-def web_design():
-    page_title="Web Design"
-    project_title= "Template Design"
-    project_date= "3/15/2020"
-
-    project_text= "\'Bacon ipsum dolor amet chicken ball tip swine pastrami picanha leberkas bresaola sausage buffalo corned beef tongue tri-tip strip steak biltong shankleKielbasa biltong landjaeger ham hock capicola, jowl pork loin tri-tip ground round cupim corned beef filet mignon chuck boudin.\'"
-
-    project_pill= "/static/images/pills/svg/python_pills.svg"
-    return render_template('web_design.html', title=page_title, project_title=project_title, project_date=project_date, project_text=project_text, project_pill=project_pill)
-
-
-# END WEB DESIGN SECTION
-# |--WEB DEVELOPMENT SECTION--|
-@app.route("/web_development", methods=['GET', 'POST'])
-def web_development():
-    page_title="Web Development"
-    project_query = Post.query.filter(Post.category == 'development')
-    project_pill= "/static/images/pills/svg/python_pills.svg"
-    return render_template('web_development.html', title=page_title, posts=project_query, project_pill=project_pill)
-
 
 
 @app.route("/test", methods=["GET","POST"])

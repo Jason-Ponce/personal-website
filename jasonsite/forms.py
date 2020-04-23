@@ -34,7 +34,7 @@ class PostForm(FlaskForm):
     title           = StringField('Title')
     post            = TextAreaField('Post Text')
     blurb           = StringField('Blurb')
-    category_post   = SelectField('Category', choices=[('development','Web Development'), ('web_design','Web Design'), ('graphic','Graphic Design') ])
+    category_post   = SelectField('Category', choices=[('web_development','Web Development'), ('web_design','Web Design'), ('graphic_design','Graphic Design') ])
     post_image      = FileField('File', validators=[FileAllowed(['jpg', 'png', 'jpeg', 'pdf'])])
     alt_title       = StringField("Alt description", validators=[DataRequired(message="Remember accessibility!")])
     tag1            = StringField('Tag one...')

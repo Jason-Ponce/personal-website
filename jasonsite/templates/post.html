@@ -19,7 +19,7 @@
 {% block body %}
 <div class="post-banner">
     <div class="left-bar-white z-depth-1" id="page-title">
-        <h4 class=""><a class="link-black" href="{{ url_for('web_development') }}">Web Development</a></h4>
+        <h4 class=""><a class="link-black" href="{{ url_for('web_development') }}">{{ category|title }}</a></h4>
     </div>
 </div>
 <div class="post-banner-divider"></div>
@@ -37,14 +37,24 @@
             <div class="post-triangle-br"></div>
         </div>
     </div>
-    <div class="post-author-wrapper grey lighten-4">
-        {{ queried_post.created_by.first_name}} {{ queried_post.created_by.last_name }}
-        <p class="one-three-grid" id="post-links">
-            <a href="https://github.com/Jason-Ponce/personal-website" class="link-black"><img src="/static/images/logo/GitHub-Mark-64px.png" class="github-link" alt=""> Github Link</a>
-        </p>
-    </div>
-    <div class="post-date">
-        {{ queried_post.date_posted.strftime('%m/%Y') }}
+    <div class="post-author">
+        <div class="post-author-title grey lighten-5">
+            <div>
+                {{ queried_post.created_by.first_name}} {{ queried_post.created_by.last_name }}
+            </div>
+            <div class="post-date">
+                {{ queried_post.date_posted.strftime('%m/%Y') }}
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="post-author-link">
+            <div class="website-links">
+                <a href="https://github.com/Jason-Ponce" class="link-black"><img src="/static/images/logo/GitHub-Mark-64px.png" class="image-link" alt="Github logo"> Github</a>
+            </div>
+            <div class="website-links">
+                <a href="https://linkedin.com/in/jason-ponce-15984317b" class="link-black"><img src="/static/images/logo/LI-In-Bug.png" class="image-link" alt="LinkedIn logo">LinkedIn</a>
+            </div>
+        </div>
     </div>
     <div class="post-skills">
         <div class="post-skills-wrapper grey lighten-5">
