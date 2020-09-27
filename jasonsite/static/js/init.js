@@ -11,7 +11,9 @@ document.addEventListener('DOMContentLoaded', function () {
   M.AutoInit();
 });
 
-
+$(document).ready(function(){
+  $('.fixed-action-btn').floatingActionButton();
+});
 
 //Ties hidden divs with respective gallery image
 // next-travel
@@ -85,3 +87,9 @@ function changeLogoPrev(){
 }
 
 
+// Removes parent element for error messages
+document.querySelector(".child-clear").addEventListener("click", removeParentError);
+
+function removeParentError(){
+  document.querySelector(".error-message").style.display = "none";
+}

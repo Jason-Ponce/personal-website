@@ -1,0 +1,134 @@
+{% extends "index.html" %}
+
+{% block title %}
+{{super()}}
+{% endblock %}
+
+{% block head %}
+{{super()}}
+{% endblock %}
+
+{% block nav %}
+{{super()}}
+{% endblock %}
+
+
+{% block dropdown %}
+{% endblock %}
+
+{% block body %}
+<div class="post-banner">
+    <div class="left-bar-white z-depth-1" id="page-title">
+        <h4 class=""><a class="link-black" href="{{ url_for('web_development') }}">{{ category|title }}</a></h4>
+    </div>
+</div>
+<div class="post-banner-divider"></div>
+<div class="grid-post" id="grid-post-template">
+    <div class="post-banner-image">
+        <figure>
+            <img src="/static/images/articles/{{ queried_post.main_image }}" alt="">
+        </figure>
+    </div>
+    <div class="post-title grey lighten-3">
+        <div class="">
+            <div class="post-triangle-bl"></div>
+            <div>{{ queried_post.title|title }}</div>
+            <div class="post-triangle-tr"></div>
+            <div class="post-triangle-br"></div>
+        </div>
+    </div>
+    <div class="post-author">
+        <div class="post-author-title grey lighten-5">
+            <div>
+                {{ queried_post.created_by.first_name}} {{ queried_post.created_by.last_name }}
+            </div>
+            <div class="post-date">
+                {{ queried_post.date_posted.strftime('%m/%Y') }}
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="post-author-link">
+            <div class="website-links">
+                <a href="https://github.com/Jason-Ponce" class="link-black"><img src="/static/images/logo/GitHub-Mark-64px.png" class="image-link" alt="Github logo"> Github</a>
+            </div>
+            <div class="website-links">
+                <a href="https://linkedin.com/in/jason-ponce-15984317b" class="link-black"><img src="/static/images/logo/LI-In-Bug.png" class="image-link" alt="LinkedIn logo">LinkedIn</a>
+            </div>
+        </div>
+    </div>
+    <div class="post-skills">
+        <div class="post-skills-wrapper grey lighten-5">
+            <div class="post-skills-title">Skills</div>
+        </div>
+        <div class="divider"></div>
+        <div class="post-skills-wrapper">
+            {% if queried_post.tag1|length %}
+            <div class="post-skill"  id="tag1">
+                {{queried_post.tag1}}
+            </div>
+            {% endif %}
+            {% if queried_post.tag2|length %}
+            <div class="post-skill" id="tag2">
+                {{queried_post.tag2}}
+            </div>
+            {% else %}
+            {% endif %}
+            {% if queried_post.tag3|length %}
+            <div class="post-skill" id="tag3">
+                {{queried_post.tag3}}
+            </div>
+            {% else %}
+            {% endif %}
+            {% if queried_post.tag4|length %}
+            <div class="post-skill" id="tag4">
+                {{queried_post.tag4}}
+            </div>
+            {% else %}
+            {% endif %}
+            {% if queried_post.tag5|length %}
+            <div class="post-skill" id="tag5">
+                {{queried_post.tag5}}
+            </div>
+            {% else %}
+            {% endif %}
+        </div>
+    </div>
+    <div class="post-blurb">
+        <div class="post-triangle-bl"></div>
+        <div class="grey lighten-4">{{ queried_post.blurb }}</div>
+        <div class="post-triangle-tr"></div>
+        <div class="post-triangle-br"></div>
+    </div>
+    <div class="post-content">
+        <div class="post-text">{{ queried_post.post }}</div>
+        {% for content_loop in additional_content %}
+            {% if content_loop.content_post is defined %}
+            <div class="post-text">
+                <div class="">{{ content_loop.content_post }}</div>
+            </div>
+            {% endif %}
+            {% if content_loop.source is defined %}
+            <figure class="center-align post-image-container">
+                <img class="post-image " src="/static/images/articles/{{ content_loop.source }}" alt="">
+                {% if content_loop.fig_caption != None %}
+                <figcaption class="center figcaption grey lighten-4 ">
+                    <div class="post-triangle-bl"></div>
+                    <div class="">{{ content_loop.fig_caption | title }}</div>
+                    <div class="post-triangle-tr"></div>
+                    <div class="post-triangle-br"></div>                 
+                    </figcaption>
+                {% endif %} 
+            </figure>
+            {% endif %}    
+        {% endfor %}
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+{% block scripts %}
+{{super()}}
+<script src="/static/js/post.js"></script>
+{% endblock %}
