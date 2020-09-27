@@ -32,9 +32,32 @@
         </div>
         <div class="row project-tag-block">
           <!-- repeat image for language/program used with jinija2 -->
-          <div class="col s4 m2 l1 project-tag">
-            <img src='{{ project_pill }}' alt="Python language pill image">
-          </div>
+          <div class="post-skills-wrapper">
+            {% if post.tag1|length %}
+            <img class="post-skill"  id="tag1" src="\static\images\pills\{{post.tag1|lower}}_pills_resized.png" alt="">
+            </img>
+            {% endif %}
+            {% if post.tag2|length %}
+            <img class="post-skill" id="tag2" src="\static\images\pills\{{post.tag2|lower}}_pills_resized.png" alt="">
+            </img>
+            {% else %}
+            {% endif %}
+            {% if post.tag3|length %}
+            <img class="post-skill" id="tag3" src="\static\images\pills\{{post.tag3|lower}}_pills_resized.png" alt="">
+            </img>
+            {% else %}
+            {% endif %}
+            {% if post.tag4|length %}
+            <img class="post-skill" id="tag4" src="\static\images\pills\{{post.tag4|lower}}_pills_resized.png" alt="">
+            </img>
+            {% else %}
+            {% endif %}
+            {% if post.tag5|length %}
+            <img class="post-skill" id="tag5" src="\static\images\pills\{{post.tag5|lower}}_pills_resized.png" alt="">
+            </img>
+            {% else %}
+            {% endif %}
+        </div>
         </div>
       </div>
     </section>
