@@ -1,0 +1,136 @@
+{% extends "index.html" %}
+
+{% block title %}
+{{super()}}
+{% endblock %}
+
+{% block head %}
+{{super()}}
+{% endblock %}
+
+{% block nav %}
+{{super()}}
+{% endblock %}
+
+
+{% block dropdown %}
+{% endblock %}
+
+{% block body %}
+
+<form method="POST" action="" enctype="multipart/form-data">
+    {{ post.hidden_tag() }}
+    {{ post.csrf_token }}    
+    <section class="one-two-grid" id="create-post-grid">    
+        <article class="admin-tools-container" id="create-post-text">
+            <div class="admin-tools-title">
+                Post Body
+            </div>
+            <div class="admin-tools-text">
+                <div class="row">
+                    {{ post.title.label() }}
+                    {{ post.title() }}
+                </div>
+                <div class="row">
+                    {{ post.blurb.label() }}
+                    {{ post.blurb() }}
+                </div>
+                <div class="row">
+                    {{ post.post.label() }}
+                    {{ post.post(class="forced-textarea") }}
+                </div>
+                <div class="row" id="post1">
+                    {{ post.ext_post1.post.label() }}
+                    {{ post.ext_post1.post(class="forced-textarea", onfocus="unhideEl(this)") }}
+                </div>
+                <div class="row" id="post2">
+                    {{ post.ext_post2.post.label() }}
+                    {{ post.ext_post2.post(class="forced-textarea", onfocus="unhideEl(this)") }}
+                </div>
+                <div class="row" id="post3">
+                    {{ post.ext_post3.post.label() }}
+                    {{ post.ext_post3.post(class="forced-textarea", onfocus="unhideEl(this)") }}
+                </div>
+                <div class="row" id="post4">
+                    {{ post.ext_post4.post.label() }}
+                    {{ post.ext_post4.post(class="forced-textarea", onfocus="unhideEl(this)") }}
+                </div>
+                <div class="row" id="post5">
+                    {{ post.ext_post5.post.label() }}
+                    {{ post.ext_post5.post(class="forced-textarea") }}
+                </div>
+                <div class="col s12" id="category_post">
+                    {{ post.category_post.label }}
+                    {{ post.category_post }}
+                </div>
+                <div class="col s12" id="tag_block1">
+                    {{ post.tag1.label(for='tag1') }}
+                    {{ post.tag1(class="tag-style autocomplete_tags autocomplete", onfocus="unhideEl(this)") }}                                            
+                </div>
+                <div class="col s12" id="tag_block2">
+                    {{ post.tag2.label(for='tag2') }}
+                    {{ post.tag2(class="tag-style autocomplete_tags autocomplete", onfocus="unhideEl(this)") }}
+                </div>
+                <div class="col s12" id="tag_block3">
+                    {{ post.tag3.label(for='tag3') }}
+                    {{ post.tag3(class="tag-style autocomplete_tags autocomplete", onfocus="unhideEl(this)") }}
+                </div>
+                <div class="col s12" id="tag_block4">
+                    {{ post.tag4.label(for='tag4') }}
+                    {{ post.tag4(class="tag-style autocomplete_tags autocomplete", onfocus="unhideEl(this)") }}
+                </div>
+                <div class="col s12" id="tag_block5">
+                    {{ post.tag5.label(for='tag5') }}
+                    {{ post.tag5(class="tag-style autocomplete_tags autocomplete") }}
+                </div>
+            </div>
+        </article>
+        <article class="admin-tools-container " id="create-post-images">
+            <div class="admin-tools-title">
+                Post Images
+            </div>
+            <div class="admin-tools-text">
+                <div class="row">
+                    {{ post.title.label() }}
+                    {{ post.title() }}
+                </div>
+                <div class="row">
+                    {{ post.blurb.label() }}
+                    {{ post.blurb() }}
+                </div>
+                <div class="row">
+                    {{ post.post.label() }}
+                    {{ post.post(class="forced-textarea") }}
+                </div>
+                <div class="row" id="post1">
+                    {{ post.ext_post1.post.label() }}
+                    {{ post.ext_post1.post(class="forced-textarea", onfocus="unhideEl(this)") }}
+                </div>
+                <div class="row" id="post2">
+                    {{ post.ext_post2.post.label() }}
+                    {{ post.ext_post2.post(class="forced-textarea", onfocus="unhideEl(this)") }}
+                </div>
+                <div class="row" id="post3">
+                    {{ post.ext_post3.post.label() }}
+                    {{ post.ext_post3.post(class="forced-textarea", onfocus="unhideEl(this)") }}
+                </div>
+                <div class="row" id="post4">
+                    {{ post.ext_post4.post.label() }}
+                    {{ post.ext_post4.post(class="forced-textarea", onfocus="unhideEl(this)") }}
+                </div>
+                <div class="row" id="post5">
+                    {{ post.ext_post5.post.label() }}
+                    {{ post.ext_post5.post(class="forced-textarea") }}
+                </div>      
+            </div>
+        </article>
+    </section>
+</form>
+
+{{super()}}
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/create_post.js"></script>
+{{super()}}
+{% endblock %}

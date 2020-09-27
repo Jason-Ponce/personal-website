@@ -18,17 +18,86 @@
 {% endblock %}
 
 {% block body %}
-<h2>Web Development</h2>
-<div class="divider"></div>
-<ul class="pagination">
-        <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-        <li class="active"><a href="#!">1</a></li>
-        <li class="waves-effect"><a href="#!">2</a></li>
-        <li class="waves-effect"><a href="#!">3</a></li>
-        <li class="waves-effect"><a href="#!">4</a></li>
-        <li class="waves-effect"><a href="#!">5</a></li>
-        <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-      </ul>
+<div class="project-grid">
+  <div class="project-column">
+    {% for post in posts %}
+    <section>
+      <div class="projects-container" >
+        <h5 class="project-title-block">
+          <a href="{{ url_for('post', post_id=post.post_id) }}">{{ post.title }}</a>
+          <span class="project-date">{{ post.date_posted.strftime('%m/%Y') }}</span>
+        </h5>
+        <div class="project-text-block">
+          <p>{{ post.blurb }}</p>
+        </div>
+        <div class="row project-tag-block">
+          <!-- repeat image for language/program used with jinija2 -->
+          <div class="post-skills-wrapper">
+            {% if post.tag1|length %}
+            <img class="post-skill"  id="tag1" src="\static\images\pills\{{post.tag1|lower}}_pills_resized.png" alt="">
+            </img>
+            {% endif %}
+            {% if post.tag2|length %}
+            <img class="post-skill" id="tag2" src="\static\images\pills\{{post.tag2|lower}}_pills_resized.png" alt="">
+            </img>
+            {% else %}
+            {% endif %}
+            {% if post.tag3|length %}
+            <img class="post-skill" id="tag3" src="\static\images\pills\{{post.tag3|lower}}_pills_resized.png" alt="">
+            </img>
+            {% else %}
+            {% endif %}
+            {% if post.tag4|length %}
+            <img class="post-skill" id="tag4" src="\static\images\pills\{{post.tag4|lower}}_pills_resized.png" alt="">
+            </img>
+            {% else %}
+            {% endif %}
+            {% if post.tag5|length %}
+            <img class="post-skill" id="tag5" src="\static\images\pills\{{post.tag5|lower}}_pills_resized.png" alt="">
+            </img>
+            {% else %}
+            {% endif %}
+        </div>
+        </div>
+      </div>
+    </section>
+    {% endfor %}    
+  </div>
+  <div class="project-search-column z-depth-1">
+    <div class="container">
+      Search Bar
+      <div class="divider"></div>
+      <div class="switch project-switch">
+        <label>
+          <input type="checkbox">
+          <span class="lever"></span>
+          <span class="center-align">Python</span>
+          
+        </label>
+      </div>
+      <div class="switch project-switch">
+        <label>
+          <input type="checkbox">
+          <span class="lever"></span>
+          <span class="center-align">JavaScript</span>
+        </label>
+      </div>
+      <div class="switch project-switch">
+        <label>
+          <input type="checkbox">
+          <span class="lever"></span>
+          <span class="center-align">CSS</span>
+        </label>
+      </div>
+      <div class="project-switch">More Filters</div>
+      <div class="center-align">
+        <div class="chips chips-autocomplete" ></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 {% endblock %}
 
 {% block scripts %}

@@ -20,21 +20,19 @@
 
 {% block body %}
 <body style="background-color: whitesmoke;">
+    <main>
     <div class="row">
-        <div class="col s1" >
-        </div>
-        <div class="vertical-divider col s1"></div>
-        <div class="container col s10" class="about-main-body">
-    <section>
-        <header class="about-header-title about-padding-title" >Welcome to my Page</header>
+        <section>
+            <div class="container col s10 offset-s1" class="about-main-body">
+        <header class="about-header-title about-padding-title" >About</header>
         <div class="divider"></div>
-        <section class="about-closing-center">
+        <div class="about-closing-center">
                 <header class="about-header-title"></header>
                 <figure>
                     <img id="cute-puppy" src="/static/images/memin_dogo.jpg" alt="cute doggo">
                     <figcaption>My dog Memin</figcaption>
                 </figure>
-            </section>
+            </div>
             <p class="about-padding">
                 I started this website in order to present my skills in a practical manner. Growing up I had never planned on wanting to be a Front End Developer. I can imagine when asked, 
                 not many children's responses were to develop websites. It's not exactly up there with other job prospects such as being a doctor, fireman, or teacher. Understandably the decision
@@ -47,7 +45,11 @@
                 accomplishments that i've done.
             </p>
     </section>
+
+    </div>
     <section>
+        <div class="row">
+            <div class="container col s10 offset-s1" class="about-main-body">
         <header class="about-header-title">My Life</header>
         <div class="divider"></div>
         <p class="about-padding">
@@ -60,19 +62,13 @@
             While juggling my duties in the National Guard, part time work, and schooling at Southern Connecticut State University. I plan to be finished Fall of 2019. Looking back, I don't regret any
             of the decisions i've made. The connections with the people I've made and the unique experiences that many will never even dream about have shaped me into the person I am. 
         </p>
-    </section>
-    <section>
-        <header class="about-header-title">Hobbies</header>
-        <div class="divider"></div>
-        <ul class="collection">
-            <li class="collection-item">3D Printing</li>
-            <li class="collection-item">Reading</li>
-            <li class="collection-item">Video Games</li>
-            <li class="collection-item">Motorcycles</li>
-            </ul>
+    </div>
+
+    </div>
     </section>
         </div>
     </div>
+    </main>
 </body>   
 {% endblock %}
 
