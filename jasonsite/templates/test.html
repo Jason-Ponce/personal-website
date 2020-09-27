@@ -1,0 +1,39 @@
+{% extends "index.html" %}
+
+{% block title %}
+{{super()}}
+{% endblock %}
+
+{% block head %}
+{{super()}}
+{% endblock %}
+
+{% block nav %}
+{{super()}}
+{% endblock %}
+
+
+{% block dropdown %}
+{% endblock %}
+
+{% block body %}
+<h1>Testing</h1>
+
+  {% for a in t %}
+    <h5>new line</h5>
+    <p>{{ a.content_post }}</p>
+  {% endfor %}
+  <div class="divider"></div>
+  <div class="container">
+    {{ t.0 }}
+  </div>
+
+  {% if t.errors %}
+  {{ t.errors }}
+  {% endif %}
+{{super()}}
+{% endblock %}
+
+{% block scripts %}
+{{super()}}
+{% endblock %}
