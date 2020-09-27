@@ -114,13 +114,15 @@ def save_extra_picture(post_image):
         db.session.commit()
         return post_image
 
-
-@app.route("/post")
+@app.route("/post", methods=['GET', 'POST'])
 @login_required
 def new_post():
     page_title = "Create Post"
-
-    return render_template('create_post.html', title=page_title)
+    post = PostForm()
+    if post.validate_on_submit():
+        print(f'VALIDATED \n {post.data}')
+        return redirect(url_for('new_post'))   
+    return render_template('create_post.html', title=page_title, post = post)
 
 
 @app.route("/projects/<int:post_id>")
@@ -164,7 +166,7 @@ def web_design():
 
     project_text= "\'Bacon ipsum dolor amet chicken ball tip swine pastrami picanha leberkas bresaola sausage buffalo corned beef tongue tri-tip strip steak biltong shankleKielbasa biltong landjaeger ham hock capicola, jowl pork loin tri-tip ground round cupim corned beef filet mignon chuck boudin.\'"
 
-    project_pill= "/static/images/pills/svg/python_pills.svg"
+    project_pill= "/static/images/pills/python_pills_resized.png"
     return render_template('web_design.html', title=page_title, project_title=project_title, project_date=project_date, project_text=project_text, project_pill=project_pill)
 
 
@@ -173,8 +175,7 @@ def web_design():
 def web_development():
     page_title="Web Development"
     project_query = Post.query.filter(Post.category == 'web_development')
-    project_pill= "/static/images/pills/svg/python_pills.svg"
-    return render_template('web_development.html', title=page_title, posts=project_query, project_pill=project_pill)
+    return render_template('web_development.html', title=page_title, posts=project_query)
 
 
 @app.route("/about")
