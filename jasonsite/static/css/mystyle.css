@@ -1,8 +1,16 @@
-
 .background-photo{
     background-image: url(/static/images/firstattemptopac.png);
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+input::placeholder, textarea::placeholder{
+    padding-left: 10px;
+    color: rgba(180, 180, 180, 0.7);
+}
+
+textarea::placeholder{
+    padding-top: 10px;
 }
 
 #about-site, #projects-site, #resume-site{
@@ -686,7 +694,7 @@ form > .row{
     margin-top: 20px;
 }
 
-#tag_block2,#tag_block3,#tag_block4,#tag_block5{
+#tag_block2,#tag_block3,#tag_block4,#tag_block5, #post2, #post3, #post4, #post5{
     visibility: hidden;
     display: none;
 }
@@ -731,6 +739,7 @@ form > .row{
     height: 15vh;
     background-color: white;
 }
+
 
 .quick-tools{
     margin-top: 5vh;
@@ -905,7 +914,7 @@ form > .row{
     padding-top: 1vh;
     padding-bottom: 0.5vh;
     margin-top: 5px;
-    width: 6vw;
+
 }
 
 .shield{
@@ -1089,6 +1098,31 @@ z-index: -1;
     width: 100% !important;
 }
 
+#create-post-grid{
+    grid-template-columns: auto auto;
+    gap: 10px;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+.forced-textarea{
+    resize: none;
+    height: 15vh;
+    background-color: white;
+}
+
+#create-post-text{
+
+}
+
+#create-post-images{
+}
+
+.inner-post-text{
+    resize: none;
+    height: 15vh;
+    background-color: white;
+}
 
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
